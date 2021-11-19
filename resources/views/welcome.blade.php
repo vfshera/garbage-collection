@@ -53,7 +53,7 @@
 
                 <div class="service">
                     <div class="service-image">
-                        <img src="'https://picsum.photos/200/200" alt="A">
+                        <img src="https://picsum.photos/200/200?random=1" alt="A">
                     </div>
 
                     <div class="description">
@@ -68,7 +68,7 @@
 
                 <div class="service">
                     <div class="service-image">
-                        <img src="'https://picsum.photos/200/200" alt="B">
+                        <img src="https://picsum.photos/200/200?random=2" alt="B">
                     </div>
 
                     <div class="description">
@@ -82,7 +82,7 @@
 
                 <div class="service">
                     <div class="service-image">
-                        <img src="'https://picsum.photos/200/200" alt="C">
+                        <img src="https://picsum.photos/200/200?random=3" alt="C">
                     </div>
 
                     <div class="description">
