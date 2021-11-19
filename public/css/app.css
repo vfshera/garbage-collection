@@ -6476,6 +6476,8 @@ readers do not read off random characters that represent icons */
 /* FONTAWESOME ICONS END */
 html, body {
 	margin: 0px;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 	padding: 0px;
   box-sizing: border-box;
 }
@@ -6488,8 +6490,6 @@ body {
 }
 #app-slot {
 	height: 80%;
-	--tw-bg-opacity: 1;
-	background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
 }
 /* NAVBAR */
 section.navbar {
@@ -6548,6 +6548,12 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 }
 /* FOOTER END */
 /* WELCOME PAGE */
+.welcome-page {
+  /* HERO SECTION */
+  /* HERO SECTION END */
+  /* SERVICES SECTION */
+  /* SERVICES SECTION END */
+}
 .welcome-page section.hero {
 	position: relative;
 	height: 100vh;
@@ -6567,6 +6573,7 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	height: 100%;
 	width: 100%;
 	opacity: 0;
+  background-color: #d8d8d6;
   transition: opacity 0.4s ease-in-out;
 }
 .welcome-page section.hero .slides .slide .content {
@@ -6655,6 +6662,67 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 .welcome-page section.hero .buttons button#next {
   position: absolute;
   right: 2.5rem;
+}
+.welcome-page section.services {
+	--tw-bg-opacity: 1;
+	background-color: rgba(248, 248, 242, var(--tw-bg-opacity));
+}
+.welcome-page section.services .services-options {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 2.5rem;
+	padding-top: 9rem;
+	padding-bottom: 9rem;
+	padding-left: 5rem;
+	padding-right: 5rem;
+}
+.welcome-page section.services .services-options .service {
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.welcome-page section.services .services-options .service .service-image {
+	position: relative;
+	display: flex;
+	height: 5rem;
+	justify-content: center;
+}
+.welcome-page section.services .services-options .service .service-image img {
+	position: absolute;
+	top: -8rem;
+	display: flex;
+	height: 10rem;
+	width: 10rem;
+	align-items: center;
+	justify-content: center;
+	border-radius: 9999px;
+	--tw-bg-opacity: 1;
+	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.welcome-page section.services .services-options .service .description h3 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 800;
+	--tw-text-opacity: 1;
+	color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+.welcome-page section.services .services-options .service .description p {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	--tw-text-opacity: 1;
+	color: rgba(75, 85, 99, var(--tw-text-opacity));
+}
+.welcome-page section.services .services-options .service .description a {
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+	text-decoration: underline;
 }
 /* WELCOME PAGE END */
 .hover\:border-gray-300:hover {
