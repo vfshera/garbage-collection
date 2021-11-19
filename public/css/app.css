@@ -6474,6 +6474,28 @@ readers do not read off random characters that represent icons */
   width: auto;
 }
 /* FONTAWESOME ICONS END */
+html {
+  scrollbar-color: #EDFA8B #407056;
+  scrollbar-width: thin;
+}
+html:focus {
+  outline: none;
+}
+html::-webkit-scrollbar {
+  width: 11px;
+}
+html::-webkit-scrollbar-track {
+	--tw-bg-opacity: 1;
+	background-color: rgba(64, 112, 86, var(--tw-bg-opacity));
+}
+html::-webkit-scrollbar-thumb {
+	border-radius: 0.375rem;
+	border-width: 2px;
+	--tw-border-opacity: 1;
+	border-color: rgba(64, 112, 86, var(--tw-border-opacity));
+	--tw-bg-opacity: 1;
+	background-color: rgba(237, 250, 139, var(--tw-bg-opacity));
+}
 html, body {
 	margin: 0px;
 	--tw-bg-opacity: 1;
@@ -6639,7 +6661,8 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	opacity: 1;
   left: 2.5rem;
 }
-.welcome-page section.hero .buttons button#prev, .welcome-page section.hero .buttons button#next {
+.welcome-page section.hero .buttons button#prev,
+.welcome-page section.hero .buttons button#next {
   position: absolute;
   top: 50%;
 }
