@@ -17,7 +17,7 @@
 
 html,
 body {
-    @apply p-0 m-0;
+    @apply p-0 m-0 bg-white;
     box-sizing: border-box;
 }
 
@@ -30,7 +30,7 @@ body {
 }
 
 #app-slot {
-    @apply bg-blue-400 h-4/5;
+    @apply h-4/5;
 }
 
 /* NAVBAR */
@@ -77,6 +77,11 @@ section.navbar {
 /* WELCOME PAGE */
 
 .welcome-page{
+
+
+
+/* HERO SECTION */
+
     section.hero{
         @apply relative h-screen bg-white;
 
@@ -85,6 +90,7 @@ section.navbar {
 
             .slide{
                 @apply absolute top-0 left-0 h-full w-full opacity-0;
+                background-color: #d8d8d6;
                 transition: opacity .4s ease-in-out;
 
                 .content{
@@ -141,5 +147,59 @@ section.navbar {
         }
         
     }
+
+
+/* HERO SECTION END */
+
+
+
+/* SERVICES SECTION */
+
+
+section.services{
+
+    @apply bg-brand-6;
+    
+    .services-options{
+        @apply py-36 px-20 grid grid-cols-3 gap-10;
+
+        .service{
+            @apply px-5 py-10 shadow bg-white;
+
+            .service-image{
+                @apply h-20  relative flex justify-center ;
+
+                img{
+                    @apply  absolute -top-32 h-40 w-40 bg-gray-100 rounded-full flex justify-center items-center shadow;
+                }
+            }
+
+            .description{
+                h3{
+                    @apply text-gray-700 text-2xl font-extrabold;
+                }
+    
+                p{
+                    @apply my-4 text-gray-600;
+                }
+    
+                a{
+                    @apply text-brand-1  underline;
+                    
+                }
+
+            }
+            
+        }
+    }
+
+}
+
+
+/* SERVICES SECTION END */
+
+
+
+
 }
 /* WELCOME PAGE END */

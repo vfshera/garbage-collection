@@ -4,7 +4,7 @@
             <div class="slides">
 
                 <div class="slide current"
-                    style="background: url('https://picsum.photos/400/600') no-repeat center center/cover">
+                    style="background: url('https://picsum.photos/1920/720.webp?random=1') no-repeat center center/cover">
                     <div class="content">
                         <h1>Slider One</h1>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, obcaecati.</p>
@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="slide"
-                    style="background: url('https://picsum.photos/400/605') no-repeat center center/cover">
+                    style="background: url('https://picsum.photos/1920/720.webp?random=2') no-repeat center center/cover">
                     <div class="content">
                         <h1>Slider Two</h1>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, obcaecati.</p>
@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="slide"
-                    style="background: url('https://picsum.photos/400/602') no-repeat center center/cover">
+                    style="background: url('https://picsum.photos/1920/720.webp?random=3') no-repeat center center/cover">
                     <div class="content">
                         <h1>Slider Three</h1>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, obcaecati.</p>
@@ -41,7 +41,64 @@
                     <i class="fas fa-arrow-circle-right"></i>
                 </button>
             </div>
+
+
         </section>
+
+
+        <section class="services  pgc-container">
+
+            <div class="services-options">
+
+
+                <div class="service">
+                    <div class="service-image">
+                        <img src="'https://picsum.photos/200/200" alt="A">
+                    </div>
+
+                    <div class="description">
+                        <h3>Residential Waste Pickup</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur vitae atque soluta eaque
+                            sint!
+                            Sapiente?</p>
+                        <a href="">Order Service A</a>
+                    </div>
+                </div>
+
+
+                <div class="service">
+                    <div class="service-image">
+                        <img src="'https://picsum.photos/200/200" alt="B">
+                    </div>
+
+                    <div class="description">
+                        <h3>Business Waste Pickup</h3>
+                        <p> Pariatur vitae atque soluta.Lorem ipsum dolor sit amet, consectetur adipisicing elit. eaque
+                            sint!
+                            Sapiente?</p>
+                        <a href="">Order Service B</a>
+                    </div>
+                </div>
+
+                <div class="service">
+                    <div class="service-image">
+                        <img src="'https://picsum.photos/200/200" alt="C">
+                    </div>
+
+                    <div class="description">
+                        <h3>Dumpers</h3>
+                        <p> Pariatur vitae atque soluta.Lorem ipsum dolor sit amet, consectetur adipisicing elit. eaque
+                            sint!
+                            Sapiente?</p>
+                        <a href="">Order Service C</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
     </div>
 
 
