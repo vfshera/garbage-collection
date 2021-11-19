@@ -1,24 +1,50 @@
-<div class="navbar pgc-container">
+<section class="navbar pgc-container">
+
    <div class="brand">{{ env('APP_NAME')}}</div>
     
 
    <nav>
 
+   <div class="navigation">
+
+   
+    <li>
+       <a href="{{ url('/home') }}" class="nav-link">Home</a>
+    </li>    
+    
+    <li>
+                <a href="{{ url('/home') }}" class="nav-link">Business</a>
+</li>
+                <li>
+                <a href="{{ url('/home') }}" class="nav-link">Coverage</a>
+</li>
 
 
+   </div>
 
    @if (Route::has('login'))
-        <div class="">
+        <div class="auth-routes">
             @auth
-                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                <li>
+                <a href="{{ url('/home') }}" class="nav-link">Home</a>
+</li>
+       
             @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+            <li>
+                <a href="{{ route('login') }}" class="nav-link">Log in</a>
+                </li>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                <li>
+                    <a href="{{ route('register') }}" class="nav-link">Register</a>
+                    </li>
                 @endif
             @endauth
         </div>
     @endif
+
    </nav>
-</div>
+
+
+
+</section>

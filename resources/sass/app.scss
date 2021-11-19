@@ -4,26 +4,142 @@
 
 
 
+/* FONTAWESOME ICONS */
+
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+/* FONTAWESOME ICONS END */
 
 
-html,body{
+
+html,
+body {
     @apply p-0 m-0;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
-body{
-    @apply  min-h-screen;
-
+body {
+    @apply min-h-screen;
 }
 
-.pgc-container{
+.pgc-container {
     @apply px-10;
 }
 
-.navbar{
-    @apply text-white bg-blue-400 py-3 flex justify-between;
+#app-slot {
+    @apply bg-blue-400 h-4/5;
 }
 
-.footer{
-    @apply mt-auto py-5;
+/* NAVBAR */
+
+section.navbar {
+    @apply fixed top-0 left-0 z-50 w-full text-white bg-brand-1 py-5 flex justify-between;
+
+    .brand {
+        @apply text-xl;
+    }
+
+    nav {
+        @apply flex space-x-20;
+
+        .navigation,
+        .auth-routes {
+            @apply flex;
+
+            li {
+                @apply list-none;
+
+                a.nav-link {
+                    @apply text-white font-semibold;
+                }
+
+                &:not(:first-child) {
+                    @apply ml-5;
+                }
+            }
+        }
+    }
 }
+
+/* NAVBAR END */
+
+/* FOOTER  */
+.footer {
+    @apply mt-auto py-5 bg-brand-1 text-brand-2 flex justify-center ;
+}
+/* FOOTER END */
+
+
+
+/* WELCOME PAGE */
+
+.welcome-page{
+    section.hero{
+        @apply relative h-screen bg-white;
+
+        .slides{
+            @apply relative overflow-hidden h-full w-full;
+
+            .slide{
+                @apply absolute top-0 left-0 h-full w-full opacity-0;
+                transition: opacity .4s ease-in-out;
+
+                .content{
+
+                    @apply bg-white px-10 py-5 absolute z-10 opacity-0 shadow-sm;
+                    bottom: 100px;
+                    left: -600px;
+                    width: 600px;
+                    transition: all .7s ease-in-out .3s;
+
+                    h1{
+                        @apply font-bold text-brand-1 text-4xl;
+                    }
+
+                    p{
+                        @apply text-gray-700;
+                    }
+
+                    button{
+                        @apply py-2 px-5 bg-brand-2 rounded-sm font-bold shadow-md border transition-all delay-75 border-transparent hover:border-brand-1 hover:shadow-xl cursor-pointer text-brand-1 mt-5;
+                    }
+                }
+
+                &.current{
+                    @apply opacity-100;
+
+                    .content{
+                        @apply opacity-100;
+                        left: 2.5rem;    
+                        
+                    }
+                }
+            }
+        }
+
+
+        .buttons{
+            button#prev, button#next{
+                position: absolute;
+                top: 50%;
+
+                i{
+                    @apply inline-block text-white shadow-sm text-5xl hover:text-brand-2;
+                }
+            }
+            button#prev{
+                left:2.5rem;
+            }
+
+             button#next{
+                position: absolute;
+                right:2.5rem
+            }
+        }
+        
+    }
+}
+/* WELCOME PAGE END */
