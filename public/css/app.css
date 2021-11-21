@@ -6477,6 +6477,7 @@ readers do not read off random characters that represent icons */
 html {
   scrollbar-color: #EDFA8B #407056;
   scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
 html:focus {
   outline: none;
@@ -6700,12 +6701,37 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 }
 .welcome-page section.services .services-options {
 	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 2.5rem;
-	padding-left: 5rem;
-	padding-right: 5rem;
-	padding-top: 12rem;
-	padding-bottom: 8rem;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	row-gap: 8rem;
+	-moz-column-gap: 2.5rem;
+	     column-gap: 2.5rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	padding-top: 8rem;
+	padding-bottom: 4rem;
+}
+@media (min-width: 1024px) {
+
+	.welcome-page section.services .services-options {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.welcome-page section.services .services-options {
+		gap: 2.5rem;
+	}
+
+	.welcome-page section.services .services-options {
+		padding-left: 5rem;
+		padding-right: 5rem;
+	}
+
+	.welcome-page section.services .services-options {
+		padding-top: 12rem;
+	}
+
+	.welcome-page section.services .services-options {
+		padding-bottom: 8rem;
+	}
 }
 .welcome-page section.services .services-options .service {
 	--tw-bg-opacity: 1;
@@ -6720,15 +6746,21 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 .welcome-page section.services .services-options .service .service-image {
 	position: relative;
 	display: flex;
-	height: 5rem;
+	height: 4rem;
 	justify-content: center;
+}
+@media (min-width: 1024px) {
+
+	.welcome-page section.services .services-options .service .service-image {
+		height: 5rem;
+	}
 }
 .welcome-page section.services .services-options .service .service-image img {
 	position: absolute;
-	top: -8rem;
+	top: -7rem;
 	display: flex;
-	height: 10rem;
-	width: 10rem;
+	height: 8rem;
+	height: 8rem;
 	align-items: center;
 	justify-content: center;
 	border-radius: 9999px;
@@ -6736,6 +6768,20 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
 	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+@media (min-width: 1024px) {
+
+	.welcome-page section.services .services-options .service .service-image img {
+		top: -8rem;
+	}
+
+	.welcome-page section.services .services-options .service .service-image img {
+		height: 10rem;
+	}
+
+	.welcome-page section.services .services-options .service .service-image img {
+		width: 10rem;
+	}
 }
 .welcome-page section.services .services-options .service .description h3 {
 	font-size: 1.5rem;
@@ -6842,18 +6888,31 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	justify-content: center;
 	padding-top: 6rem;
 	padding-bottom: 6rem;
-	padding-left: 5rem;
-	padding-right: 5rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
+@media (min-width: 1024px) {
+
+	.welcome-page section.contact {
+		padding-left: 5rem;
+		padding-right: 5rem;
+	}
 }
 .welcome-page section.contact form {
 	display: flex;
-	width: 66.666667%;
+	width: 80%;
 	justify-content: center;
 }
 .welcome-page section.contact form > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(2.5rem * var(--tw-space-x-reverse));
 	margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+@media (min-width: 1024px) {
+
+	.welcome-page section.contact form {
+		width: 66.666667%;
+	}
 }
 .welcome-page section.contact form .questions-lead {
 	width: 50%;
@@ -6862,10 +6921,22 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	width: 100%;
 	--tw-bg-opacity: 1;
 	background-color: rgba(28, 130, 0, var(--tw-bg-opacity));
-	padding-top: 2.5rem;
-	padding-bottom: 2.5rem;
-	padding-left: 3.5rem;
-	padding-right: 3.5rem;
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+	padding-left: 1.75rem;
+	padding-right: 1.75rem;
+}
+@media (min-width: 1024px) {
+
+	.welcome-page section.contact form .questions-lead .title-box {
+		padding-top: 2.5rem;
+		padding-bottom: 2.5rem;
+	}
+
+	.welcome-page section.contact form .questions-lead .title-box {
+		padding-left: 3.5rem;
+		padding-right: 3.5rem;
+	}
 }
 .welcome-page section.contact form .questions-lead .title-box h1 {
 	font-size: 1.5rem;

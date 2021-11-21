@@ -14,6 +14,7 @@
 html {
     scrollbar-color:  #EDFA8B #407056;
     scrollbar-width: thin;
+    scroll-behavior: smooth;
 
 
     &:focus {
@@ -166,16 +167,16 @@ section.navbar {
         @apply bg-brand-6;
 
         .services-options {
-            @apply  pt-48 pb-32 px-20 grid grid-cols-3 gap-10;
+            @apply pt-32 lg:pt-48 pb-16 lg:pb-32 px-5 lg:px-20 grid grid-cols-2 lg:grid-cols-3 gap-y-32 gap-x-10 lg:gap-10;
 
             .service {
-                @apply px-5 py-10 shadow bg-white;
+                @apply px-5 py-10 shadow bg-white ;
 
                 .service-image {
-                    @apply h-20  relative flex justify-center;
+                    @apply h-16 lg:h-20  relative flex justify-center;
 
                     img {
-                        @apply absolute -top-32 h-40 w-40 bg-gray-100 rounded-full flex justify-center items-center shadow;
+                        @apply absolute -top-28 lg:-top-32 h-32 lg:h-40 h-32 lg:w-40 bg-gray-100 rounded-full flex justify-center items-center shadow;
                     }
                 }
 
@@ -262,18 +263,18 @@ section.navbar {
 
 
     section.contact{
-        @apply flex justify-center py-24 px-20;
+        @apply flex justify-center py-24 px-5 lg:px-20;
 
      
 
         form{
-            @apply w-2/3 flex justify-center space-x-10;
+            @apply w-4/5 lg:w-2/3 flex justify-center space-x-10;
 
             .questions-lead{
                 @apply  w-1/2;
     
                 .title-box{
-                    @apply py-10 px-14 bg-brand-7 w-full;
+                    @apply py-5 lg:py-10 px-7 lg:px-14 bg-brand-7 w-full;
     
                     h1{
                         @apply text-brand-2 text-2xl font-bold;
