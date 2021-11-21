@@ -46,7 +46,7 @@
         </section>
 
 
-        <section class="services  pgc-container">
+        <section id="services" class="services  pgc-container">
 
             <div class="services-options">
 
@@ -98,6 +98,102 @@
 
         </section>
 
+        <section class="how-to-get-started pgc-container">
+            <div class="instructions-wrapper">
+                <div class="how-to-sign-up">
+                    <h3>Join us in just 10 minutes.</h3>
+                    <a href="/">Sign Up</a>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <i class="fas fa-signal"></i>
+                        <p>Pay Bill Online</p>
+                    </div>
+
+
+
+                    <div class="step">
+                        <i class="fas fa-algolia"></i>
+                        <p>Paperless Billing</p>
+                    </div>
+
+
+                    <div class="step">
+                        <i class="fas fa-recycle"></i>
+                        <p>Automatic Payments</p>
+                    </div>
+
+
+                    <div class="step">
+                        <i class="fas fa-calendar-alt"></i>
+                        <p>Pickup Schedule</p>
+                    </div>
+
+
+                    <div class="step">
+                        <i class="fas fa-truck-moving"></i>
+                        <p>Request Pickup</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="contact" class="contact pgc-container">
+
+
+            <form action="">
+
+                @csrf
+
+                <div class="questions-lead">
+
+                    <div class="title-box">
+                        <h1>Have Questions?</h1>
+                        <h2>Find Answers.</h2>
+                    </div>
+
+                    <p>Please provide your topic so we can trach and act on your request/question swiftly.</p>
+                    <div class="input-group">
+                        <label for="topic">Topic</label>
+                        <select name="topic" id="topic" value="" required>
+                            <option value="" selected disabled>Choose Topic</option>
+                            <option value="billing">Billing</option>
+                            <option value="request-service">Request Service</option>
+                            <option value="service-question">Service Question</option>
+                            <option value="account">Account</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-content">
+                    <div class="input-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Enter your name..." required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Enter your email..." required>
+                    </div>
+
+
+
+                    <div class="input-group">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" placeholder="Type your message..." required>
+                    </textarea>
+                    </div>
+
+                    <button type="submit">Send</button>
+                </div>
+
+            </form>
+        </section>
 
     </div>
 
