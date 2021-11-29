@@ -17,6 +17,33 @@
                         :active=" Auth::user()->role === '1' ? request()->routeIs('admin.dashboard') : request()->routeIs('user.dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+
+                    @if(Auth::user()->role == '1')
+
+                    <!-- ADMIN ROUTES -->
+
+                    <x-jet-nav-link href="{{ route('admin.users') }}" :active=" request()->routeIs('admin.users')">
+                        {{ __('Users') }}
+                    </x-jet-nav-link>
+
+
+                    @endif
+
+                    @if(Auth::user()->role == '0')
+
+                    <!-- USER ROUTES -->
+
+                    <x-jet-nav-link href=" {{ route('user.orders') }}" :active=" request()->routeIs('user.orders')">
+                        {{ __('Orders') }}
+                    </x-jet-nav-link>
+
+
+                    <x-jet-nav-link href="{{  route('user.billing')}}" :active=" request()->routeIs('user.billing') ">
+                        {{ __('Billing') }}
+                    </x-jet-nav-link>
+
+                    @endif
+
                 </div>
             </div>
 
