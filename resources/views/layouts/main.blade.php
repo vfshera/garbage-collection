@@ -16,27 +16,26 @@
 
     @livewireStyles
 
+    <!-- Scripts -->
+    <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
 <body class="font-sans antialiased">
-    <x-jet-banner />
 
-    <div class="min-h-screen bg-gray-100">
-        @livewire('navigation-menu')
+    <x-navbar></x-navbar>
 
 
+    <main id="app-slot">
+        @yield('content')
+    </main>
 
-        <main>
-            {{ $slot }}
-        </main>
-    </div>
+    <x-footer></x-footer>
 
     @stack('modals')
 
-    @livewireScripts
+    @stack('scripts')
 
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    @livewireScripts
 </body>
 
 </html>
