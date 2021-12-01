@@ -14,4 +14,9 @@ class AdminPagesController extends Controller
     public function users(){
         return view('admin.users');
     }
+
+
+    public function waste(){
+        return view('admin.waste');
+    }
 }

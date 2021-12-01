@@ -45,6 +45,8 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->prefix('/admin')->name(
     Route::get('/dashboard', [AdminPagesController::class , 'dashboard'])->name('dashboard');
 
     Route::get('/users', [AdminPagesController::class , 'users'])->name('users');
+    
+    Route::get('/waste', [AdminPagesController::class , 'waste'])->name('waste');
 
 });
 
