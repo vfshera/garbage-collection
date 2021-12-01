@@ -12,10 +12,9 @@
 /* FONTAWESOME ICONS END */
 
 html {
-    scrollbar-color:  #EDFA8B #407056;
+    scrollbar-color: #edfa8b #407056;
     scrollbar-width: thin;
     scroll-behavior: smooth;
-
 
     &:focus {
         outline: none;
@@ -48,10 +47,82 @@ body {
     @apply px-10;
 }
 
+.pgc-admin-container {
+    @apply px-20 py-5;
+}
+
 #app-slot {
     @apply h-4/5;
 }
 
+
+/* INPUT */
+
+.input-group {
+    @apply flex flex-col;
+
+    label {
+        @apply text-gray-900 text-lg font-semibold mb-1;
+    }
+
+    select {
+        @apply border outline-none focus:border-brand-7 p-2 rounded-md;
+    }
+
+    input,
+    textarea {
+        @apply border border-brand-1 outline-none focus:border-brand-7 p-2 rounded-md;
+    }
+}
+/* INPUT END */
+
+
+
+/* BUTTONS */
+
+button.btn-cancel {
+    @apply bg-red-500 text-white;
+}
+
+button.btn-success {
+    @apply bg-brand-7 text-white;
+}
+
+/* BUTTONS END*/
+
+
+
+
+
+
+
+/* MODAL */
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+
+    border-radius: 10px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+}
+
+/* MODAL END */
 
 /* NAVBAR */
 
@@ -171,7 +242,7 @@ section.navbar {
             @apply pt-32 lg:pt-48 pb-16 lg:pb-32 px-5 lg:px-20 grid grid-cols-2 lg:grid-cols-3 gap-y-32 gap-x-10 lg:gap-10;
 
             .service {
-                @apply px-5 py-10 shadow bg-white ;
+                @apply px-5 py-10 shadow bg-white;
 
                 .service-image {
                     @apply h-16 lg:h-20  relative flex justify-center;
@@ -200,136 +271,167 @@ section.navbar {
 
     /* SERVICES SECTION END */
 
-
-
-
-
-
-
-
     /* GETS STARTED SECTION  */
 
-
-
-    section.how-to-get-started{
-
+    section.how-to-get-started {
         @apply w-full px-20 py-24 flex justify-center items-center;
 
-        .instructions-wrapper{
+        .instructions-wrapper {
             @apply relative w-2/3;
             height: 250px;
-            
-            .how-to-sign-up{
+
+            .how-to-sign-up {
                 @apply absolute z-0 left-10 top-3 pt-5 pb-20 px-10  flex justify-between bg-brand-2;
                 width: 700px;
-                h3{
-                    @apply  text-3xl text-brand-1 font-bold;
+                h3 {
+                    @apply text-3xl text-brand-1 font-bold;
                 }
-    
-                a{
-                    @apply  px-10 py-3 bg-brand-1 text-xl text-brand-2 rounded-full;
+
+                a {
+                    @apply px-10 py-3 bg-brand-1 text-xl text-brand-2 rounded-full;
                 }
             }
-    
-            .steps{
+
+            .steps {
                 @apply absolute right-10 z-20 p-7 shadow bottom-3 bg-white grid grid-cols-5 gap-2;
                 width: 700px;
 
-
-                .step{
+                .step {
                     @apply flex flex-col items-center;
 
-                    i{
+                    i {
                         @apply text-brand-7 text-2xl;
                     }
-                    p{
+                    p {
                         @apply text-center text-brand-1 font-semibold;
                     }
                 }
             }
         }
-
-      
     }
-
-
 
     /* GETS STARTED SECTION  END */
 
-
-
-
-
     /* CONTACT / QUESTION SECTION */
 
-
-    section.contact{
+    section.contact {
         @apply flex justify-center py-24 px-5 lg:px-20;
 
-     
-
-        form{
+        form {
             @apply w-4/5 lg:w-2/3 flex justify-center space-x-10;
 
-            .questions-lead{
-                @apply  w-1/2;
-    
-                .title-box{
+            .questions-lead {
+                @apply w-1/2;
+
+                .title-box {
                     @apply py-5 lg:py-10 px-7 lg:px-14 bg-brand-7 w-full;
-    
-                    h1{
+
+                    h1 {
                         @apply text-brand-2 text-2xl font-bold;
                     }
-    
-                    h2{
+
+                    h2 {
                         @apply text-white text-xl font-semibold;
                     }
                 }
 
-                p{
+                p {
                     @apply my-5 text-gray-700;
                 }
-    
+
+               
+            }
+
+            .form-content {
+                @apply w-1/2;
+
                 .input-group{
-                    @apply flex flex-col ;
-    
-                    label{
-                        @apply text-gray-900 text-lg font-semibold mb-1;
-                    }
-    
-                    select{
-                        @apply border outline-none focus:border-brand-7 p-2 rounded-md;
-                    }
-                }
-            }
-
-           .form-content{
-
-            @apply  w-1/2;
-
-            .input-group{
-                @apply flex flex-col mb-3;
-
-                label{
-                    @apply text-gray-900 text-lg font-semibold mb-1;
+                    @apply mb-3;
                 }
 
-                input,textarea{
-                    @apply border border-brand-1 outline-none focus:border-brand-7 p-2 rounded-md;
+                button {
+                    @apply px-10 py-3 bg-brand-7 text-white mt-3 font-bold rounded-md;
                 }
             }
-
-            button{
-                @apply px-10 py-3 bg-brand-7 text-white mt-3 font-bold rounded-md;
-            }
-           }
         }
     }
     /* CONTACT / QUESTION SECTION END */
-
-
-
-
-
 }
 /* WELCOME PAGE END */
+
+/* ADMIN PAGES */
+
+.waste-page {
+    @apply flex flex-col;
+
+    header {
+        @apply flex justify-between items-center;
+
+        h1 {
+            @apply font-semibold text-2xl;
+        }
+
+        button {
+            @apply text-white bg-brand-1 px-7 py-3 rounded-md;
+        }
+    }
+
+    section.wastes {
+        @apply flex flex-col;
+
+        .wastes-header,.wastes-list .waste{
+            @apply grid grid-cols-3 w-full gap-5 ;
+        }
+
+        .wastes-header{
+            @apply px-3 py-2 bg-white  mt-3 font-semibold text-brand-4 text-lg;
+        }
+
+
+        
+        .wastes-list {
+            @apply p-3 bg-white;
+
+            .waste{
+                @apply my-1 text-gray-700;
+            }
+
+            .paginator{
+                @apply py-4;
+            }
+        }
+        
+
+
+
+    }
+}
+
+#wasteModal {
+    @apply w-2/5;
+
+    h2{
+        @apply text-brand-4 font-bold text-2xl mb-3;
+    }
+
+    form{
+
+        .input-group{
+            @apply mb-5;
+        }
+
+
+        .buttons{
+            @apply mt-5;
+
+            button{
+                @apply px-5 py-2 rounded;
+
+                &:not(:first-child){
+                    @apply ml-5;
+                }
+            }
+        }
+    }
+}
+/* ADMIN PAGES END*/

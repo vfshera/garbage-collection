@@ -26,12 +26,28 @@
 
 
 
-        <main>
+        <main class="pgc-admin-container ">
             {{ $slot }}
         </main>
+
     </div>
 
-    @stack('modals')
+
+
+    @if(isset($modals))
+
+    <div class="modal-slot-wrapper">
+        {{ $modals }}
+    </div>
+
+    @endif
+
+
+    <!-- scripts -->
+    @if(isset($pagescripts))
+    {{ $pagescripts }}
+    @endif
+
 
     @livewireScripts
 

@@ -16,7 +16,7 @@ class CreateWastesTable extends Migration
         Schema::create('wastes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->double('cost' ,3,2)->default(0.00);
+            $table->integer('cost')->default(0);
             $table->longText('description');
             $table->timestamps();
         });

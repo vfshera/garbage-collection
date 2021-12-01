@@ -15,7 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
+        $this->call([
+            WasteSeeder::class
+        ]);
 
         User::create([
             'name' => "Admin",
