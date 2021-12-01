@@ -6,7 +6,7 @@
             <button id="newWaste">New Waste</button>
         </header>
 
-        <section>
+        <section class="wastes">
 
         </section>
     </div>
@@ -67,12 +67,6 @@
         closeBtn.onclick = function() {
             modal.style.display = "none";
         }
-
-        // window.onclick = function(event) {
-        //     if (event.target == modal) {
-        //         modal.style.display = "none";
-        //     }
-        // }
         </script>
     </x-slot>
 
