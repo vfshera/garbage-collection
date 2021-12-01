@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Waste;
 use Illuminate\Http\Request;
 
 class AdminPagesController extends Controller
@@ -17,6 +18,9 @@ class AdminPagesController extends Controller
 
 
     public function waste(){
-        return view('admin.waste');
+
+        $wastes = Waste::latest()->paginate(10);
+
+        return view('admin.waste' , compact(['wastes']));
     }
 }

@@ -377,7 +377,33 @@ section.navbar {
     }
 
     section.wastes {
+        @apply flex flex-col;
+
+        .wastes-header,.wastes-list .waste{
+            @apply grid grid-cols-3 w-full gap-5 ;
+        }
+
+        .wastes-header{
+            @apply px-3 py-2 bg-white  mt-3 font-semibold text-brand-4 text-lg;
+        }
+
+
         
+        .wastes-list {
+            @apply p-3 bg-white;
+
+            .waste{
+                @apply my-1 text-gray-700;
+            }
+
+            .paginator{
+                @apply py-4;
+            }
+        }
+        
+
+
+
     }
 }
 

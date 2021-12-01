@@ -8,6 +8,42 @@
 
         <section class="wastes">
 
+            <div class="wastes-header">
+
+                <div class="title">
+                    TITLE
+                </div>
+
+                <div class="cost">
+                    COST
+                </div>
+
+                <div class="action">%</div>
+
+            </div>
+
+            <div class="wastes-list">
+                @foreach($wastes as $key => $waste)
+
+                <div class="waste">
+                    <div class="title">
+                        {{ $key + 1 }}. {{ $waste->title }}
+                    </div>
+
+                    <div class="cost">
+                        {{ $waste->cost }} Ksh.
+
+                    </div>
+
+                    <div class="action">%</div>
+                </div>
+
+                @endforeach
+
+                <div class="paginator">
+                    {{ $wastes->links() }}
+                </div>
+            </div>
         </section>
     </div>
 

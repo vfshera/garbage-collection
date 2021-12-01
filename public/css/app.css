@@ -7095,6 +7095,45 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
+.waste-page section.wastes {
+	display: flex;
+	flex-direction: column;
+}
+.waste-page section.wastes .wastes-header, .waste-page section.wastes .wastes-list .waste {
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.25rem;
+}
+.waste-page section.wastes .wastes-header {
+	margin-top: 0.75rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	font-size: 1.125rem;
+	line-height: 1.75rem;
+	font-weight: 600;
+	--tw-text-opacity: 1;
+	color: rgba(37, 102, 112, var(--tw-text-opacity));
+}
+.waste-page section.wastes .wastes-list {
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding: 0.75rem;
+}
+.waste-page section.wastes .wastes-list .waste {
+	margin-top: 0.25rem;
+	margin-bottom: 0.25rem;
+	--tw-text-opacity: 1;
+	color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+.waste-page section.wastes .wastes-list .paginator {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
 #wasteModal {
 	width: 40%;
 }
