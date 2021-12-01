@@ -26,7 +26,8 @@
         <div class="auth-routes">
             @auth
             <li>
-                <a href="{{ url('/home') }}" class="nav-link">Home</a>
+                <a href="{{  Auth::user()->role === '1' ? route('admin.dashboard') : route('user.dashboard') }}"
+                    class="nav-link">Home</a>
             </li>
 
             @else

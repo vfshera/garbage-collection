@@ -19,7 +19,7 @@ class AdminPagesController extends Controller
 
     public function waste(){
 
-        $wastes = Waste::latest()->paginate(10);
+        $wastes = Waste::orderBy('created_at','DESC')->paginate(8);
 
         return view('admin.waste' , compact(['wastes']));
     }

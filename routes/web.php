@@ -56,8 +56,8 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->prefix('/waste')->name(
 
     Route::post('/store', [WasteController::class , 'store'])->name('store');
 
-    Route::put('/update', [AdminPagesController::class , 'update'])->name('update');
+    Route::put('/update', [WasteController::class , 'update'])->name('update');
 
-    Route::delete('/delete', [AdminPagesController::class , 'destroy'])->name('destroy');
+    Route::delete('/delete/{waste}', [WasteController::class , 'destroy'])->name('destroy');
     
 });

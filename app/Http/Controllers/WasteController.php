@@ -2,23 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Waste;
 use Illuminate\Http\Request;
 
 class WasteController extends Controller
 {
     public function store(Request $request){
 
-            dd($request->all());
+        $newWaste = $request->validate([
+            "title" => 'required|string',
+            "cost" => 'required',
+            "description" => 'required'
+        ]);
             
-        return "Waste Store";
+        Waste::create($newWaste);
+
+        return redirect()->back()->with('success','Waste Item Created!');
+        
     }
 
-    public function update(){
-        return "Waste Update";
+    public function update(Request $request){
+        $waste = Waste::findOrFail($request->id);
+
+        $updatedFields = $request->validate([
+            "title" => 'required|string',
+            "cost" => 'required',
+            "description" => 'required'
+        ]);
+
+        $waste->update($updatedFields);
+
+        return redirect()->back()->with('success','Waste Item Updated!');
+
     }
 
-    public function destroy(){
-        return "Waste Destroy";
+    public function destroy(Waste $waste){
+
+        $waste->delete();
+
+return redirect()->back()->with('success','Waste Item Deleted!');                                                                                                              
+
     }
 
 

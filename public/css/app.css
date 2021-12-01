@@ -6530,6 +6530,33 @@ body {
 #app-slot {
 	height: 80%;
 }
+/* SESSION ALERTS or MESSAGES */
+.session-messages-wrapper {
+	margin-top: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.session-messages-wrapper .alert {
+	width: 40%;
+	border-radius: 0.25rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	text-align: center;
+}
+.session-messages-wrapper .alert.success {
+	--tw-bg-opacity: 1;
+	background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(6, 78, 59, var(--tw-text-opacity));
+}
+.session-messages-wrapper .alert.error {
+	--tw-bg-opacity: 1;
+	background-color: rgba(252, 165, 165, var(--tw-bg-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(127, 29, 29, var(--tw-text-opacity));
+}
+/* SESSION ALERTS or MESSAGES END */
 /* INPUT */
 .input-group {
 	display: flex;
@@ -6600,9 +6627,7 @@ button.btn-success {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
+  margin: 10% auto;
 }
 /* MODAL END */
 /* NAVBAR */
@@ -7125,28 +7150,139 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	padding: 0.75rem;
 }
 .waste-page section.wastes .wastes-list .waste {
-	margin-top: 0.25rem;
-	margin-bottom: 0.25rem;
+	padding: 0.5rem;
 	--tw-text-opacity: 1;
 	color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+.waste-page section.wastes .wastes-list .waste:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(248, 248, 242, var(--tw-bg-opacity));
+}
+.waste-page section.wastes .wastes-list .waste:not(:last-child) {
+	margin-bottom: 0.25rem;
+	border-bottom-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(243, 244, 246, var(--tw-border-opacity));
+}
+.waste-page section.wastes .wastes-list .waste .actions {
+	display: flex;
+	align-items: center;
+}
+.waste-page section.wastes .wastes-list .waste .actions button {
+	border-radius: 0.25rem;
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.waste-page section.wastes .wastes-list .waste .actions button i {
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+.waste-page section.wastes .wastes-list .waste .actions button:not(:last-child) {
+	margin-right: 2.5rem;
+}
+.waste-page section.wastes .wastes-list .waste .actions button.edit {
+	--tw-bg-opacity: 1;
+	background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+}
+.waste-page section.wastes .wastes-list .waste .actions button.show i {
+	--tw-text-opacity: 1;
+	color: rgba(75, 85, 99, var(--tw-text-opacity));
+}
+.waste-page section.wastes .wastes-list .waste .actions button.delete {
+	--tw-bg-opacity: 1;
+	background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
 }
 .waste-page section.wastes .wastes-list .paginator {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
 #wasteModal {
+	display: flex;
 	width: 40%;
+	flex-direction: column;
+	border-radius: 0.25rem;
 }
-#wasteModal h2 {
-	margin-bottom: 0.75rem;
+#wasteModal header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	--tw-bg-opacity: 1;
+	background-color: rgba(28, 130, 0, var(--tw-bg-opacity));
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
+#wasteModal header h2 {
+	display: inline;
 	font-size: 1.5rem;
 	line-height: 2rem;
 	font-weight: 700;
 	--tw-text-opacity: 1;
-	color: rgba(37, 102, 112, var(--tw-text-opacity));
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+#wasteModal header span {
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+#wasteModal .info {
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	padding-top: 1.75rem;
+	padding-bottom: 1.75rem;
+}
+#wasteModal .info p {
+	--tw-text-opacity: 1;
+	color: rgba(17, 24, 39, var(--tw-text-opacity));
+}
+#wasteModal .info p span {
+	--tw-text-opacity: 1;
+	color: rgba(17, 24, 39, var(--tw-text-opacity));
+}
+#wasteModal .info .waste-includes {
+	margin-top: 0.5rem;
+	display: flex;
+	flex-wrap: wrap;
+}
+#wasteModal .info .waste-includes .include-example {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(248, 248, 242, var(--tw-bg-opacity));
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	--tw-text-opacity: 1;
+	color: rgba(75, 85, 99, var(--tw-text-opacity));
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+#wasteModal .info .waste-includes .include-example:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(28, 130, 0, var(--tw-bg-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+#wasteModal .info .waste-includes .include-example:not(:last-child) {
+	margin-right: 1.25rem;
+}
+#wasteModal form {
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	padding-top: 1.75rem;
+	padding-bottom: 1.75rem;
 }
 #wasteModal form .input-group {
-	margin-bottom: 1.25rem;
+	margin-bottom: 1.5rem;
 }
 #wasteModal form .buttons {
 	margin-top: 1.25rem;

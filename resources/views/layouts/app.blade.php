@@ -24,7 +24,7 @@
     <div class="min-h-screen bg-gray-100">
         @livewire('navigation-menu')
 
-
+        <x-messages />
 
         <main class="pgc-admin-container ">
             {{ $slot }}
