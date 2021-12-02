@@ -40,7 +40,7 @@ class WasteController extends Controller
 
         $waste->delete();
 
-return redirect()->back()->with('success','Waste Item Deleted!');                                                                                                              
+        return redirect()->back()->with('success','Waste Item Deleted!');                                                                                                              
 
     }
 

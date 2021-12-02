@@ -3,7 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WasteController;
-use App\Http\Controllers\{PagesController , RedirectController ,AdminPagesController , UserPagesController};
+use App\Http\Controllers\{PagesController , RedirectController ,AdminPagesController , OrderController, UserPagesController};
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +37,18 @@ Route::middleware(['auth:sanctum', 'verified', 'user'])->prefix('/user')->name('
 
 });
 
+
+
+
+Route::middleware(['auth:sanctum', 'verified','user'])->prefix('/order')->name('order.')->group(function(){
+
+    Route::post('/store', [OrderController::class , 'store'])->name('store');
+
+    Route::put('/update', [OrderController::class , 'update'])->name('update');
+
+    Route::delete('/delete/{order}', [OrderController::class , 'destroy'])->name('destroy');
+    
+});
 
 
 
