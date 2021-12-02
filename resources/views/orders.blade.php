@@ -167,30 +167,39 @@
 
             <div id="orderModal" class="modal-content">
                 <header>
-                    <h2>Add New Type Of Waste</h2>
+                    <h2>Add New Order</h2>
                     <span id="closeIcon" onclick="closeModal('#addModal')" class="cursor-pointer">&times;</span>
                 </header>
-                <form action="{{ route('waste.store')}}" method="POST">
+                <form action="{{ route('order.store')}}" method="POST">
                     @csrf
                     <div class="input-group">
-                        <label for="title">Title</label>
-                        <input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')"
-                            placeholder="Title of waste..." required autofocus />
+                        <label for="waste_id">Type Of Waste</label>
+
+                        <select name="waste_id" id="waste_id" required>
+                            <option value="" disabled selected>Choose Type Of Waste...</option>
+
+                            @foreach($wastes as $waste)
+                            <option value="{{ $waste->id }}">{{ $waste->title }}</option>
+                            @endforeach
+
+                        </select>
+
+
                     </div>
                     <div class="input-group">
-                        <label for="cost" value="{{ __('') }}">Cost / KG</label>
-                        <input id="cost" class="block mt-1 w-full" type="number" placeholder="Cost of waste per KG..."
-                            step="1" min="10" name="cost" :value="old('cost')" required />
+                        <label for="weight">WEIGHT</label>
+                        <input id="weight" class="block mt-1 w-full" type="number"
+                            placeholder="Weight of waste in KG..." step="1" min="10" name="weight" :value="old('cost')"
+                            required />
                     </div>
                     <div class="input-group">
-                        <label for="description">Description</label>
-                        <textarea id="description" rows="5" class="block mt-1 w-full" type="text" name="description"
-                            :value="old('description')" placeholder="Describe the type of waste..." required></textarea>
+                        <label for="pickup">Pickup Date</label>
+                        <input type="datetime-local" name="pickup" id="pickup" required>
                     </div>
 
 
                     <div class="buttons">
-                        <button class="btn-success" type="submit">Add</button>
+                        <button class="btn-success" type="submit">Create Order</button>
                         <button id="closeBtn" onclick="closeModal('#addModal')" class="btn-cancel">Cancel</button>
                     </div>
                 </form>

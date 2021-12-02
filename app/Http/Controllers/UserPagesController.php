@@ -16,8 +16,9 @@ class UserPagesController extends Controller
 
     public function orders(){
         $orders = Order::with('waste')->where('user_id', Auth::user()->id)->orderBy('created_at','DESC')->paginate(8);
+        $wastes = Waste::orderBy('created_at','DESC')->get();
 
-        return view('orders' , compact(['orders']));
+        return view('orders' , compact(['orders', 'wastes']));
     }
 
     public function billing(){
