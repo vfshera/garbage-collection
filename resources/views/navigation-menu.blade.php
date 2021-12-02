@@ -30,6 +30,10 @@
                         {{ __('Waste') }}
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('admin.orders') }}" :active=" request()->routeIs('admin.orders')">
+                        {{ __('Orders') }}
+                    </x-jet-nav-link>
+
 
                     @endif
 
@@ -91,11 +95,12 @@
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
 
-                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                            <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
-                                {{ __('API Tokens') }}
+                            @if(Auth::user()->role == '0')
+                            <x-jet-dropdown-link href="{{ route('user.location') }}">
+                                {{ __('Location') }}
                             </x-jet-dropdown-link>
                             @endif
+
 
                             <div class="border-t border-gray-100"></div>
 
