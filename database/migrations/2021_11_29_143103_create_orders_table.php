@@ -15,6 +15,9 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('waste_type');
+            $table->string('cost');
+            $table->string('status');
             $table->timestamps();
         });
     }

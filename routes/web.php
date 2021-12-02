@@ -28,6 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/auth/redirect', [Redirect
 Route::middleware(['auth:sanctum', 'verified', 'user'])->prefix('/user')->name('user.')->group(function(){
     
     Route::get('/dashboard',[UserPagesController::class , 'dashboard'])->name('dashboard');
+    Route::get('/location',[UserPagesController::class , 'location'])->name('location');
     
     Route::get('/orders',[UserPagesController::class , 'orders'])->name('orders');
 
@@ -47,6 +48,8 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->prefix('/admin')->name(
     Route::get('/users', [AdminPagesController::class , 'users'])->name('users');
     
     Route::get('/waste', [AdminPagesController::class , 'waste'])->name('waste');
+
+    Route::get('/orders', [AdminPagesController::class , 'orders'])->name('orders');
 
 });
 
