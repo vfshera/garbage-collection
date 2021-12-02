@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            WasteSeeder::class
+            WasteSeeder::class,
+            OrderSeeder::class
         ]);
 
         User::create([

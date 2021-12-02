@@ -11,4 +11,11 @@ class Waste extends Model
 
 
     protected $fillable = ['title','cost','description'];
+
+
+
+
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
 }

@@ -10,40 +10,73 @@
 
             <div class="orders-header">
 
-                <div class="title">
-                    TITLE
+                <div class="serial">
+                    SERIAL
                 </div>
 
-                <div class="cost">
-                    COST PER KG
+                <div class="waste">
+                    WASTE
                 </div>
 
-                <div class="action">ACTIONS</div>
+                <div class="weight">
+                    WEIGHT
+                </div>
+
+                <div class="unit-cost">
+                    COST / KG
+                </div>
+
+                <div class="total-cost">
+                    TOTAL
+                </div>
+
+                <div class="status">
+                    STATUS
+                </div>
+
+                <div class="actions">ACTIONS</div>
 
             </div>
 
             <div class="orders-list">
-                @foreach($orders as $key => $waste)
+                @foreach($orders as $key => $order)
 
                 <div class="order">
-                    <div class="title">
-                        {{ $key + 1 }}. {{ $waste->title }}
+                    <div class="serial">
+                        {{ strtoupper(dechex(date('U' ,strtotime($order->created_at)))) }}
                     </div>
 
-                    <div class="cost">
-                        {{ $waste->cost }} Ksh.
+                    <div class="waste">
+                        {{ $order->waste->title}}
+                    </div>
+
+                    <div class="weight">
+                        {{ $order->weight }} KG(s)
+
+                    </div>
+
+                    <div class="unit-cost">
+                        {{ $order->waste->cost }} Ksh.
+
+                    </div>
+
+                    <div class="total-cost">
+                        {{ $order->cost }} Ksh.
+
+                    </div>
+
+                    <div class="status">
+                        {{ ($order->status == 1) ? "Active" : "Pending" }}
 
                     </div>
 
                     <div class="actions">
-                        <button onclick="edit({{ $waste }} , '#editModal')" class="edit"><i
-                                class="fa fa-edit"></i></button>
+                        <button class="edit"><i class="fa fa-edit"></i></button>
 
-                        <button class="show" onclick="view({{ $waste }} , '#viewModal')"><i
-                                class="fa fa-eye"></i></button>
+                        <button class="show"><i class="fa fa-eye"></i></button>
 
 
-                        <form action="{{ route('waste.destroy',['waste' => $waste->id]) }}" method="POST">
+                        <form action="" method="POST">
                             @csrf
 
                             @method('DELETE')

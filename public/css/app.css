@@ -7340,10 +7340,29 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	padding-bottom: 0.75rem;
 }
 .orders-page section.orders .orders-header, .orders-page section.orders .orders-list .order {
-	display: grid;
-	width: 100%;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 1.25rem;
+	display: flex;
+}
+.orders-page section.orders .orders-header .serial, .orders-page section.orders .orders-list .order .serial {
+	width: 16.666667%;
+}
+.orders-page section.orders .orders-header .waste, .orders-page section.orders .orders-list .order .waste {
+	width: 25%;
+}
+.orders-page section.orders .orders-header .weight, .orders-page section.orders .orders-list .order .weight {
+	width: 8.333333%;
+	text-align: center;
+}
+.orders-page section.orders .orders-header .unit-cost, .orders-page section.orders .orders-list .order .unit-cost {
+	width: 8.333333%;
+	text-align: center;
+}
+.orders-page section.orders .orders-header .total-cost, .orders-page section.orders .orders-list .order .total-cost {
+	width: 16.666667%;
+	text-align: center;
+}
+.orders-page section.orders .orders-header .status, .orders-page section.orders .orders-list .order .status {
+	width: 8.333333%;
+	text-align: center;
 }
 .orders-page section.orders .orders-header {
 	margin-top: 0.75rem;
@@ -7359,13 +7378,16 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	--tw-text-opacity: 1;
 	color: rgba(37, 102, 112, var(--tw-text-opacity));
 }
+.orders-page section.orders .orders-header .actions {
+	width: 16.666667%;
+	text-align: center;
+}
 .orders-page section.orders .orders-list {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 	padding: 0.75rem;
 }
 .orders-page section.orders .orders-list .order {
-	padding: 0.5rem;
 	--tw-text-opacity: 1;
 	color: rgba(55, 65, 81, var(--tw-text-opacity));
 }
@@ -7381,7 +7403,9 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 }
 .orders-page section.orders .orders-list .order .actions {
 	display: flex;
+	width: 16.666667%;
 	align-items: center;
+	justify-content: space-between;
 }
 .orders-page section.orders .orders-list .order .actions button {
 	border-radius: 0.25rem;
@@ -7395,9 +7419,6 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 .orders-page section.orders .orders-list .order .actions button i {
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
-.orders-page section.orders .orders-list .order .actions button:not(:last-child) {
-	margin-right: 2.5rem;
 }
 .orders-page section.orders .orders-list .order .actions button.edit {
 	--tw-bg-opacity: 1;

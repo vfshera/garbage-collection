@@ -55,25 +55,22 @@ body {
     @apply h-4/5;
 }
 
-
-
 /* SESSION ALERTS or MESSAGES */
 
-.session-messages-wrapper{
+.session-messages-wrapper {
     @apply flex flex-col items-center mt-2;
 
-    .alert{
+    .alert {
         @apply py-2 w-2/5 rounded text-center;
 
-        &.success{
+        &.success {
             @apply bg-green-300 text-green-900;
         }
 
-        &.error{
+        &.error {
             @apply bg-red-300 text-red-900;
         }
     }
-
 }
 
 /* SESSION ALERTS or MESSAGES END */
@@ -98,8 +95,6 @@ body {
 }
 /* INPUT END */
 
-
-
 /* BUTTONS */
 
 button.btn-cancel {
@@ -111,12 +106,6 @@ button.btn-success {
 }
 
 /* BUTTONS END*/
-
-
-
-
-
-
 
 /* MODAL */
 
@@ -358,14 +347,12 @@ section.navbar {
                 p {
                     @apply my-5 text-gray-700;
                 }
-
-               
             }
 
             .form-content {
                 @apply w-1/2;
 
-                .input-group{
+                .input-group {
                     @apply mb-3;
                 }
 
@@ -380,8 +367,6 @@ section.navbar {
 /* WELCOME PAGE END */
 
 /* ADMIN PAGES */
-
-
 
 .waste-page {
     @apply flex flex-col;
@@ -401,126 +386,114 @@ section.navbar {
     section.wastes {
         @apply flex flex-col py-3 rounded;
 
-        .wastes-header,.wastes-list .waste{
-            @apply grid grid-cols-3 w-full gap-5 ;
+        .wastes-header,
+        .wastes-list .waste {
+            @apply grid grid-cols-3 w-full gap-5;
         }
 
-        .wastes-header{
+        .wastes-header {
             @apply px-3 py-2 bg-white  mt-3 font-semibold text-brand-4 text-lg;
         }
 
-
-        
         .wastes-list {
             @apply p-3 bg-white;
 
-            .waste{
+            .waste {
                 @apply p-2 text-gray-700 hover:bg-brand-6;
 
-                &:not(:last-child){
+                &:not(:last-child) {
                     @apply mb-1 border-b border-gray-100;
                 }
 
-                .actions{
-
+                .actions {
                     @apply flex items-center;
-                    
-                    
-                    button{
+
+                    button {
                         @apply px-3 py-1 shadow rounded;
 
-                        i{
+                        i {
                             @apply text-white;
                         }
 
-                        &:not(:last-child){
+                        &:not(:last-child) {
                             @apply mr-10;
                         }
 
-                        &.edit{
+                        &.edit {
                             @apply bg-blue-500;
                         }
 
-                        &.show{
-                            i{
+                        &.show {
+                            i {
                                 @apply text-gray-600;
                             }
                         }
 
-                        &.delete{
+                        &.delete {
                             @apply bg-red-500;
                         }
-
                     }
                 }
             }
 
-            .paginator{
+            .paginator {
                 @apply py-2;
             }
         }
-        
-
-
-
     }
 }
 
 #wasteModal {
     @apply w-2/5 flex flex-col rounded;
 
-    header{
+    header {
         @apply flex justify-between items-center bg-brand-7 py-3 px-5;
 
-
-        h2{
+        h2 {
             @apply text-white font-bold text-2xl  inline;
         }
 
-        span{
+        span {
             @apply text-4xl  text-white font-bold;
         }
     }
 
-
-    .info{
+    .info {
         @apply px-5 py-7;
 
-        p{
+        p {
             @apply text-gray-900;
-            span{
-            @apply text-gray-900;
-
+            span {
+                @apply text-gray-900;
             }
         }
 
-        .waste-includes{
+        .waste-includes {
             @apply flex flex-wrap mt-2;
 
-            .include-example{
+            .include-example {
                 @apply px-2 py-1 bg-brand-6 text-gray-600 hover:bg-brand-7 hover:text-white rounded shadow my-2;
 
-                &:not(:last-child){
+                &:not(:last-child) {
                     @apply mr-5;
                 }
             }
         }
     }
-    form{
+    form {
         @apply px-5 py-7;
 
-        .input-group{
+        .input-group {
             @apply mb-6;
         }
 
-
-        .buttons{
+        .buttons {
             @apply mt-5;
 
-            button{
+            button {
                 @apply px-5 py-2 rounded;
 
-                &:not(:first-child){
+                &:not(:first-child) {
                     @apply ml-5;
                 }
             }
@@ -529,16 +502,9 @@ section.navbar {
 }
 /* ADMIN PAGES END*/
 
-
-
-
-
-
 /*USER PAGES */
 
-
 /*ORDER PAGE  */
-
 
 .orders-page {
     @apply flex flex-col;
@@ -558,126 +524,141 @@ section.navbar {
     section.orders {
         @apply flex flex-col py-3 rounded;
 
-        .orders-header,.orders-list .order{
-            @apply grid grid-cols-3 w-full gap-5 ;
+        .orders-header,
+        .orders-list .order {
+            @apply flex;
+
+            .serial {
+                @apply w-2/12;
+            }
+
+            .waste {
+                @apply w-3/12;
+            }
+
+            .weight {
+                @apply w-1/12 text-center;
+            }
+
+            .unit-cost {
+                @apply w-1/12 text-center ;
+            }
+
+            .total-cost {
+                @apply w-2/12 text-center;
+            }
+
+            .status {
+                @apply w-1/12 text-center;
+            }
+
+            
         }
 
-        .orders-header{
+        .orders-header {
             @apply px-3 py-2 bg-white  mt-3 font-semibold text-brand-4 text-lg;
+
+            .actions {
+                @apply w-2/12 text-center;
+            }
         }
 
-
-        
         .orders-list {
             @apply p-3 bg-white;
 
-            .order{
-                @apply p-2 text-gray-700 hover:bg-brand-6;
+            .order {
+                @apply  text-gray-700 hover:bg-brand-6;
 
-                &:not(:last-child){
+                &:not(:last-child) {
                     @apply mb-1 border-b border-gray-100;
                 }
 
-                .actions{
+                .actions {
+                    @apply  w-2/12 flex justify-between items-center;
 
-                    @apply flex items-center;
-                    
-                    
-                    button{
+                    button {
                         @apply px-3 py-1 shadow rounded;
 
-                        i{
+                        i {
                             @apply text-white;
                         }
 
-                        &:not(:last-child){
-                            @apply mr-10;
-                        }
 
-                        &.edit{
+                        &.edit {
                             @apply bg-blue-500;
                         }
 
-                        &.show{
-                            i{
+                        &.show {
+                            i {
                                 @apply text-gray-600;
                             }
                         }
 
-                        &.delete{
+                        &.delete {
                             @apply bg-red-500;
                         }
-
                     }
                 }
             }
 
-            .paginator{
+            .paginator {
                 @apply py-2;
             }
         }
-        
-
-
-
     }
 }
 
 #orderModal {
     @apply w-2/5 flex flex-col rounded;
 
-    header{
+    header {
         @apply flex justify-between items-center bg-brand-7 py-3 px-5;
 
-
-        h2{
+        h2 {
             @apply text-white font-bold text-2xl  inline;
         }
 
-        span{
+        span {
             @apply text-4xl  text-white font-bold;
         }
     }
 
-
-    .info{
+    .info {
         @apply px-5 py-7;
 
-        p{
+        p {
             @apply text-gray-900;
-            span{
-            @apply text-gray-900;
-
+            span {
+                @apply text-gray-900;
             }
         }
 
-        .waste-includes{
+        .waste-includes {
             @apply flex flex-wrap mt-2;
 
-            .include-example{
+            .include-example {
                 @apply px-2 py-1 bg-brand-6 text-gray-600 hover:bg-brand-7 hover:text-white rounded shadow my-2;
 
-                &:not(:last-child){
+                &:not(:last-child) {
                     @apply mr-5;
                 }
             }
         }
     }
-    form{
+    form {
         @apply px-5 py-7;
 
-        .input-group{
+        .input-group {
             @apply mb-6;
         }
 
-
-        .buttons{
+        .buttons {
             @apply mt-5;
 
-            button{
+            button {
                 @apply px-5 py-2 rounded;
 
-                &:not(:first-child){
+                &:not(:first-child) {
                     @apply ml-5;
                 }
             }
@@ -686,44 +667,33 @@ section.navbar {
 }
 /* ORDER PAGE END */
 
-
-
-.location-page{
-
+.location-page {
     @apply flex  flex-col;
 
-    h1{
-         @apply font-semibold text-2xl;
-
+    h1 {
+        @apply font-semibold text-2xl;
     }
 
-
-    
-    section.details{
-
-        .disclaimer{
+    section.details {
+        .disclaimer {
             @apply py-10 text-center text-xl bg-brand-2 text-brand-5 mt-5 shadow-md rounded;
         }
 
-        form{
-
+        form {
             @apply mt-5;
 
-            .fields{
+            .fields {
                 @apply grid grid-cols-3 gap-y-8 gap-x-12;
             }
-            .buttons{
+            .buttons {
                 @apply mt-10;
-    
-                button{
+
+                button {
                     @apply px-10 font-bold py-4 rounded;
-    
-                    
                 }
             }
         }
     }
 }
-
 
 /*USER PAGES END */
