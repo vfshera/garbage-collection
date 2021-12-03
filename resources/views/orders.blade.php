@@ -43,7 +43,7 @@
 
                 <div class="order">
                     <div class="serial">
-                        {{ strtoupper(dechex(date('U' ,strtotime($order->created_at)))) }}
+                        {{ $key + 1}}. {{ $order->serial }}
                     </div>
 
                     <div class="waste">
@@ -71,9 +71,9 @@
                     </div>
 
                     <div class="actions">
-                        <button class="edit"><i class="fa fa-edit"></i></button>
 
-                        <button class="show"><i class="fa fa-eye"></i></button>
+                        <button class="show" onclick="view({{ $order }},'#viewModal')"><i
+                                class="fa fa-eye"></i></button>
 
 
                         <form action="" method="POST">
@@ -101,67 +101,66 @@
 
         <div id="viewModal" class="modal">
 
-            <div id="wasteModal" class="modal-content">
+            <div id="orderModal" class="modal-content">
                 <header>
-                    <h2 id="headTitle"></h2>
+                    <h2 id="viewHeadTitle"></h2>
                     <span id="closeIcon" onclick="closeModal('#viewModal')" class="cursor-pointer">&times;</span>
                 </header>
 
-                <div class="info">
-                    <p>Cost Per KG : <span id="viewCost"></span></p>
+                <div id="infoContainer" class="info">
 
-                    <div id="wasteExamples" class="waste-includes">
-
+                    <div class="info-item">
+                        <p id="viewLabel">Waste</p>
+                        <p id="viewWasteValue"></p>
                     </div>
+
+
+                    <div class="info-item">
+                        <p id="viewLabel">Weight</p>
+                        <p id="viewWeightValue"></p>
+                    </div>
+
+
+
+                    <div class="info-item">
+                        <p id="viewLabel">Cost per KG</p>
+                        <p id="viewPerKGValue"></p>
+                    </div>
+
+
+
+                    <div class="info-item">
+                        <p id="viewLabel">Total</p>
+                        <p id="viewTotalValue"></p>
+                    </div>
+
+
+                    <div class="info-item">
+                        <p id="viewLabel">Status</p>
+                        <p id="viewStatusValue"></p>
+                    </div>
+
+
+                    <div class="info-item">
+                        <p id="viewLabel">Created On</p>
+                        <p id="viewCreatedValue"></p>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+                <div id="pay-for-order" class="pay-for-order">
+                    <button>Pay Now</button>
                 </div>
 
             </div>
 
         </div>
 
-
-
-
-        <div id="editModal" class="modal">
-
-            <div id="orderModal" class="modal-content">
-                <header>
-                    <h2>Edit Waste</h2>
-                    <span id="closeIcon" onclick="closeModal('#editModal')" class="cursor-pointer">&times;</span>
-                </header>
-
-                <form action="{{ route('waste.update')}}" method="POST">
-                    @csrf
-
-                    @method('PUT')
-                    <input id="id" type="text" name="id" hidden>
-
-                    <div class="input-group">
-                        <label for="edit-title">Title</label>
-                        <input id="edit-title" class="block mt-1 w-full" type="text" name="title" :value="old('title')"
-                            placeholder="Title of waste..." required autofocus />
-                    </div>
-                    <div class="input-group">
-                        <label for="edit-cost" value="{{ __('') }}">Cost / KG</label>
-                        <input id="edit-cost" class="block mt-1 w-full" type="number"
-                            placeholder="Cost of waste per KG..." step="1" min="10" name="cost" :value="old('cost')"
-                            required />
-                    </div>
-                    <div class="input-group">
-                        <label for="edit-description">Description</label>
-                        <textarea id="edit-description" rows="5" class="block mt-1 w-full" type="text"
-                            name="description" :value="old('description')" placeholder="Describe the type of waste..."
-                            required></textarea>
-                    </div>
-
-
-                    <div class="buttons">
-                        <button class="btn-success" type="submit">Update</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
 
         <div id="addModal" class="modal">
 
@@ -170,7 +169,7 @@
                     <h2>Add New Order</h2>
                     <span id="closeIcon" onclick="closeModal('#addModal')" class="cursor-pointer">&times;</span>
                 </header>
-                <form action="{{ route('order.store')}}" method="POST">
+                <form action="{{ route('order.store') }}" method="POST">
                     @csrf
                     <div class="input-group">
                         <label for="waste_id">Type Of Waste</label>
@@ -212,7 +211,7 @@
     <x-slot name="pagescripts">
         <script>
         const closeModal = (modal) => {
-            console.log('CLOSE');
+
             document.querySelector(modal).style.display = "none";
         }
 
@@ -221,61 +220,40 @@
             document.querySelector(modal).style.display = "block";
         }
 
-
-
-        // EDIT MODAL
-        var id = document.querySelector("#id");
-        var title = document.querySelector("#edit-title");
-        var cost = document.querySelector("#edit-cost");
-        var desc = document.querySelector("#edit-description");
-
-
-        const edit = (waste, modal) => {
-            openModal(modal);
-
-            id.value = waste.id
-            title.value = waste.title
-            cost.value = waste.cost
-            desc.value = waste.description.replace(/(\r\n|\n|\r)/gm, "")
-
-        }
-
         //VIEW MODAL
-        var headTitle = document.querySelector("#headTitle");
-        var viewCost = document.querySelector("#viewCost");
-        var examplesContainer = document.querySelector("#wasteExamples");
+        var viewHeadTitle = document.querySelector("#viewHeadTitle");
+        var infoCont = document.querySelector("#infoContainer");
+        const viewWaste = document.querySelector("#viewWasteValue");
+        const viewWeight = document.querySelector("#viewWeightValue");
+        const viewPerKG = document.querySelector("#viewPerKGValue");
+        const viewTotal = document.querySelector("#viewTotalValue");
+        const viewStatus = document.querySelector("#viewStatusValue");
+        const viewCreated = document.querySelector("#viewCreatedValue");
 
-        const view = (waste, modal) => {
+        const view = (order, modal) => {
             openModal(modal);
 
-            headTitle.innerText = waste.title + " Waste";
-            viewCost.innerText = waste.cost + "Ksh."
+            console.log(order);
 
 
+            viewHeadTitle.innerText = "Order " + order.serial;
 
+            viewWaste.innerText = order.waste.title;
 
-            const wasteExamples = waste.description.replace(/(\r\n|\n|\r)/gm, "").split(",");
+            viewWeight.innerText = order.weight + "KG(s)";
 
-            wasteExamples.forEach(include => {
-                const includeExample = document.createElement("div");
-                includeExample.classList.add("include-example");
+            viewPerKG.innerText = order.waste.cost + " Ksh.";
 
+            viewTotal.innerText = order.cost + " Ksh.";
 
-                includeExample.innerText = include.trim().toLowerCase();
-                examplesContainer.appendChild(includeExample);
-            });
+            viewStatus.innerText = (order.status === '1') ? "Active" : "Pending";
+
+            viewCreated.innerText = order.created;
+
 
 
 
         }
-
-
-
-
-
-
-
-        // CREATE MODAL
         </script>
     </x-slot>
 

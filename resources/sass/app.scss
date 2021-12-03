@@ -406,7 +406,7 @@ section.navbar {
                 }
 
                 .actions {
-                    @apply flex items-center;
+                    @apply flex items-center ;
 
                     button {
                         @apply px-3 py-1 shadow rounded;
@@ -574,7 +574,7 @@ section.navbar {
                 }
 
                 .actions {
-                    @apply  w-2/12 flex justify-between items-center;
+                    @apply  w-2/12 flex justify-around items-center;
 
                     button {
                         @apply px-3 py-1 shadow rounded;
@@ -584,13 +584,10 @@ section.navbar {
                         }
 
 
-                        &.edit {
-                            @apply bg-blue-500;
-                        }
 
                         &.show {
                             i {
-                                @apply text-gray-600;
+                                @apply text-gray-600 bg-white;
                             }
                         }
 
@@ -624,27 +621,40 @@ section.navbar {
     }
 
     .info {
-        @apply px-5 py-7;
+        @apply px-5 py-5;
 
-        p {
-            @apply text-gray-900;
-            span {
-                @apply text-gray-900;
-            }
-        }
+       .info-item{
+           @apply grid grid-cols-2 border-b border-brand-4 border-dashed;
 
-        .waste-includes {
-            @apply flex flex-wrap mt-2;
+           &:not(:last-child){
+               @apply mb-3;
+           }
 
-            .include-example {
-                @apply px-2 py-1 bg-brand-6 text-gray-600 hover:bg-brand-7 hover:text-white rounded shadow my-2;
 
-                &:not(:last-child) {
-                    @apply mr-5;
-                }
-            }
+           p{
+               @apply text-gray-800;
+
+               &#viewLabel{
+                   @apply font-semibold text-gray-900;
+               }
+               &:last-child{
+                   @apply italic ;
+               }
+
+
+           }
+       }
+    }
+
+
+    .pay-for-order{
+        @apply p-5 pt-0;
+
+        button{
+            @apply w-full h-full text-white bg-brand-7  py-5 rounded shadow ;
         }
     }
+
     form {
         @apply px-5 py-7;
 

@@ -7405,7 +7405,7 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	display: flex;
 	width: 16.666667%;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 .orders-page section.orders .orders-list .order .actions button {
 	border-radius: 0.25rem;
@@ -7420,11 +7420,9 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
-.orders-page section.orders .orders-list .order .actions button.edit {
-	--tw-bg-opacity: 1;
-	background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
-}
 .orders-page section.orders .orders-list .order .actions button.show i {
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 	--tw-text-opacity: 1;
 	color: rgba(75, 85, 99, var(--tw-text-opacity));
 }
@@ -7471,45 +7469,48 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 #orderModal .info {
 	padding-left: 1.25rem;
 	padding-right: 1.25rem;
-	padding-top: 1.75rem;
-	padding-bottom: 1.75rem;
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
 }
-#orderModal .info p {
+#orderModal .info .info-item {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	border-bottom-width: 1px;
+	border-style: dashed;
+	--tw-border-opacity: 1;
+	border-color: rgba(37, 102, 112, var(--tw-border-opacity));
+}
+#orderModal .info .info-item:not(:last-child) {
+	margin-bottom: 0.75rem;
+}
+#orderModal .info .info-item p {
+	--tw-text-opacity: 1;
+	color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+#orderModal .info .info-item p#viewLabel {
+	font-weight: 600;
 	--tw-text-opacity: 1;
 	color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
-#orderModal .info p span {
-	--tw-text-opacity: 1;
-	color: rgba(17, 24, 39, var(--tw-text-opacity));
+#orderModal .info .info-item p:last-child {
+	font-style: italic;
 }
-#orderModal .info .waste-includes {
-	margin-top: 0.5rem;
-	display: flex;
-	flex-wrap: wrap;
+#orderModal .pay-for-order {
+	padding: 1.25rem;
+	padding-top: 0px;
 }
-#orderModal .info .waste-includes .include-example {
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
+#orderModal .pay-for-order button {
+	height: 100%;
+	width: 100%;
 	border-radius: 0.25rem;
 	--tw-bg-opacity: 1;
-	background-color: rgba(248, 248, 242, var(--tw-bg-opacity));
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
-	padding-top: 0.25rem;
-	padding-bottom: 0.25rem;
-	--tw-text-opacity: 1;
-	color: rgba(75, 85, 99, var(--tw-text-opacity));
-	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-#orderModal .info .waste-includes .include-example:hover {
-	--tw-bg-opacity: 1;
 	background-color: rgba(28, 130, 0, var(--tw-bg-opacity));
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
-#orderModal .info .waste-includes .include-example:not(:last-child) {
-	margin-right: 1.25rem;
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 #orderModal form {
 	padding-left: 1.25rem;
