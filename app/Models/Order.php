@@ -9,8 +9,18 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $appends = ['serial' , 'created'];
 
     public function waste(){
         return $this->hasOne(Waste::class , 'id' , 'waste_id');
+    }
+
+
+    public function getSerialAttribute(){
+        return "#".strtoupper(dechex($this->id . date('U' ,strtotime($this->created_at))));
+    }
+
+    public function getCreatedAttribute(){
+        return date('H:i \- jS M Y' ,strtotime($this->created_at));
     }
 }
