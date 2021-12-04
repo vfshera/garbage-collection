@@ -27,7 +27,7 @@
             @auth
             <li>
                 <a href="{{  Auth::user()->role === '1' ? route('admin.dashboard') : route('user.dashboard') }}"
-                    class="nav-link">Home</a>
+                    class="nav-link">Dashboard</a>
             </li>
 
             @else
