@@ -11,6 +11,8 @@ class Order extends Model
 
     protected $appends = ['serial' , 'created'];
 
+    protected $fillable = ['user_id','waste_id','cost','weight','pickup'];
+
     public function waste(){
         return $this->hasOne(Waste::class , 'id' , 'waste_id');
     }

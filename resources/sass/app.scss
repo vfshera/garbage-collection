@@ -121,8 +121,6 @@ button.btn-success {
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
-
-    border-radius: 10px;
 }
 
 /* Modal Content/Box */
@@ -406,7 +404,7 @@ section.navbar {
                 }
 
                 .actions {
-                    @apply flex items-center ;
+                    @apply flex items-center;
 
                     button {
                         @apply px-3 py-1 shadow rounded;
@@ -541,7 +539,7 @@ section.navbar {
             }
 
             .unit-cost {
-                @apply w-1/12 text-center ;
+                @apply w-1/12 text-center;
             }
 
             .total-cost {
@@ -551,8 +549,6 @@ section.navbar {
             .status {
                 @apply w-1/12 text-center;
             }
-
-            
         }
 
         .orders-header {
@@ -567,14 +563,14 @@ section.navbar {
             @apply p-3 bg-white;
 
             .order {
-                @apply  text-gray-700 hover:bg-brand-6;
+                @apply text-gray-700 hover:bg-brand-6;
 
                 &:not(:last-child) {
                     @apply mb-1 border-b border-gray-100;
                 }
 
                 .actions {
-                    @apply  w-2/12 flex justify-around items-center;
+                    @apply w-2/12 flex justify-around items-center;
 
                     button {
                         @apply px-3 py-1 shadow rounded;
@@ -582,8 +578,6 @@ section.navbar {
                         i {
                             @apply text-white;
                         }
-
-
 
                         &.show {
                             i {
@@ -623,35 +617,31 @@ section.navbar {
     .info {
         @apply px-5 py-5;
 
-       .info-item{
-           @apply grid grid-cols-2 border-b border-brand-4 border-dashed;
+        .info-item {
+            @apply grid grid-cols-2 border-b border-brand-4 border-dashed;
 
-           &:not(:last-child){
-               @apply mb-3;
-           }
+            &:not(:last-child) {
+                @apply mb-3;
+            }
 
+            p {
+                @apply text-gray-800;
 
-           p{
-               @apply text-gray-800;
-
-               &#viewLabel{
-                   @apply font-semibold text-gray-900;
-               }
-               &:last-child{
-                   @apply italic ;
-               }
-
-
-           }
-       }
+                &#viewLabel {
+                    @apply font-semibold text-gray-900;
+                }
+                &:last-child {
+                    @apply italic;
+                }
+            }
+        }
     }
 
-
-    .pay-for-order{
+    .pay-for-order {
         @apply p-5 pt-0;
 
-        button{
-            @apply w-full h-full text-white bg-brand-7  py-5 rounded shadow ;
+        a.pay-link {
+            @apply w-full block text-white bg-brand-7 text-center  py-5 rounded shadow;
         }
     }
 
@@ -677,6 +667,111 @@ section.navbar {
 }
 /* ORDER PAGE END */
 
+/* PAY FOR ORDER */
+
+.pay-for-order-page {
+    @apply h-full w-full bg-white shadow rounded p-14 mt-5;
+
+    header {
+        @apply flex mb-10;
+        h1 {
+            @apply font-semibold text-2xl;
+        }
+    }
+    section.order-overview {
+        @apply grid grid-cols-2 pt-10 border-t border-gray-200;
+
+        .order-details {
+            @apply grid grid-cols-2;
+
+            div {
+                @apply flex flex-col;
+
+                &:not(:last-child) {
+                    @apply mb-5;
+                }
+
+                label {
+                    @apply font-bold;
+                }
+
+                p {
+                    @apply text-gray-800;
+                }
+            }
+        }
+
+        .order-summary {
+            @apply flex items-center border-l border-gray-200 pl-14;
+
+            &::before {
+                content: "\f155";
+                font-family: FontAwesome;
+                left: -5px;
+                position: relative;
+                top: 0;
+                font-size: 60px;
+                @apply text-brand-1;
+            }
+
+            .summary {
+                @apply w-1/3;
+
+                label {
+                    @apply font-bold text-2xl;
+                }
+
+                p {
+                    @apply text-gray-800 text-3xl;
+                }
+            }
+
+            form {
+                @apply w-2/3 border border-brand-7 p-5 rounded shadow-sm;
+
+                .paying-number {
+                    @apply flex items-center;
+
+                    p {
+                        @apply text-gray-900 mr-2;
+                    }
+
+                    img {
+                        @apply h-12;
+                    }
+                }
+
+                .btn-num {
+                    @apply flex justify-between items-center mt-2;
+
+                    span {
+                        @apply text-brand-7;
+                    }
+
+                    button {
+
+                        @apply py-2 w-1/2 rounded bg-brand-7 text-white font-semibold;
+                    }
+                }
+            }
+
+            .set-details {
+                @apply w-3/5 flex flex-col items-center;
+
+                p {
+                    @apply text-gray-800;
+                }
+
+                a {
+                    @apply w-1/2 block font-bold text-white bg-brand-7 text-center  py-2 rounded shadow;
+                }
+            }
+        }
+    }
+}
+/* PAY FOR ORDER END */
+
+/* LOCATION PAGE */
 .location-page {
     @apply flex  flex-col;
 
@@ -705,5 +800,7 @@ section.navbar {
         }
     }
 }
+
+/* LOCATION PAGE END*/
 
 /*USER PAGES END */
