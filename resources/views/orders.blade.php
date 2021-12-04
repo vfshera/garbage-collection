@@ -253,9 +253,18 @@
 
 
             //PAYMENT BTN
+            //  check if exists
+
+            const oldATag = document.querySelector("#payLink");
+
+            if (oldATag) {
+                payDiv.removeChild(oldATag);
+            }
+
             const aTag = document.createElement("a");
 
             aTag.classList.add("pay-link");
+            aTag.id = "payLink";
 
             aTag.href = `/user/order/${order.id}/payment`;
 
