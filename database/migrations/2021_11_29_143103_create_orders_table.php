@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('waste_id');
-            $table->dateTime('pickup');
+            $table->date('pickup');
             $table->integer('weight');
             $table->integer('cost')->default(0);
             $table->boolean('status')->default(false);
