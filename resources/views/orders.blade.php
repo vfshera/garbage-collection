@@ -154,7 +154,7 @@
                 </div>
 
                 <div id="pay-for-order" class="pay-for-order">
-                    <button>Pay Now</button>
+
                 </div>
 
             </div>
@@ -169,7 +169,7 @@
                     <h2>Add New Order</h2>
                     <span id="closeIcon" onclick="closeModal('#addModal')" class="cursor-pointer">&times;</span>
                 </header>
-                <form action="{{ route('order.store') }}" method="POST">
+                <form action="{{ route('user.order.store') }}" method="POST">
                     @csrf
                     <div class="input-group">
                         <label for="waste_id">Type Of Waste</label>
@@ -193,7 +193,7 @@
                     </div>
                     <div class="input-group">
                         <label for="pickup">Pickup Date</label>
-                        <input type="datetime-local" name="pickup" id="pickup" required>
+                        <input type="date" name="pickup" id="pickup" required>
                     </div>
 
 
@@ -229,6 +229,7 @@
         const viewTotal = document.querySelector("#viewTotalValue");
         const viewStatus = document.querySelector("#viewStatusValue");
         const viewCreated = document.querySelector("#viewCreatedValue");
+        const payDiv = document.querySelector("#pay-for-order");
 
         const view = (order, modal) => {
             openModal(modal);
@@ -251,6 +252,25 @@
             viewCreated.innerText = order.created;
 
 
+            //PAYMENT BTN
+            //  check if exists
+
+            const oldATag = document.querySelector("#payLink");
+
+            if (oldATag) {
+                payDiv.removeChild(oldATag);
+            }
+
+            const aTag = document.createElement("a");
+
+            aTag.classList.add("pay-link");
+            aTag.id = "payLink";
+
+            aTag.href = `/user/order/${order.id}/payment`;
+
+            aTag.innerText = "Go To Payment"
+
+            payDiv.appendChild(aTag);
 
 
         }
