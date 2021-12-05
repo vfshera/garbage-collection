@@ -24,9 +24,14 @@ class UserPagesController extends Controller
         return view('orders' , compact(['orders', 'wastes']));
     }
 
+
+    
     public function billing(){
         return view('user.billing');
     }
+
+
+
 
     public function location(){
 
@@ -34,6 +39,9 @@ class UserPagesController extends Controller
 
         return view('user.location' , compact(['user']));
     }
+
+
+
 
     public function locationUpdate(Request $request , UpdateUserProfileInformation $updateInformation){
 

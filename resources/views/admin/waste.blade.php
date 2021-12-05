@@ -43,7 +43,7 @@
                                 class="fa fa-eye"></i></button>
 
 
-                        <form action="{{ route('waste.destroy',['waste' => $waste->id]) }}" method="POST">
+                        <form action="{{ route('admin.waste.destroy',[$waste]) }}" method="POST">
                             @csrf
 
                             @method('DELETE')
@@ -97,7 +97,7 @@
                     <span id="closeIcon" onclick="closeModal('#editModal')" class="cursor-pointer">&times;</span>
                 </header>
 
-                <form action="{{ route('waste.update')}}" method="POST">
+                <form action="{{ route('admin.waste.update')}}" method="POST">
                     @csrf
 
                     @method('PUT')
@@ -137,7 +137,7 @@
                     <h2>Add New Type Of Waste</h2>
                     <span id="closeIcon" onclick="closeModal('#addModal')" class="cursor-pointer">&times;</span>
                 </header>
-                <form action="{{ route('waste.store')}}" method="POST">
+                <form action="{{ route('admin.waste.store')}}" method="POST">
                     @csrf
                     <div class="input-group">
                         <label for="title">Title</label>

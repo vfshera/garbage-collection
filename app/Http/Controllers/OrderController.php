@@ -19,14 +19,11 @@ class OrderController extends Controller
             
         $waste = Waste::where('id' ,$newOrder["waste_id"])->first();
 
-        // dd($waste);
 
         $totalCost = (int)$newOrder["weight"] *  (int)$waste->cost;
 
         $newOrder["cost"] = $totalCost;
         
-
-        // dd((int)$newOrder["weight"] . " * " . (int)$waste->cost . " = " .$totalCost);
         
         $newOrder["user_id"] = Auth::user()->id;       
         

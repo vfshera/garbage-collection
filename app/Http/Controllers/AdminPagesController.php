@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Waste;
 use Illuminate\Http\Request;
 
@@ -27,8 +28,15 @@ class AdminPagesController extends Controller
 
     
 
-    public function orders(){
-        $orders = Waste::orderBy('created_at','DESC')->paginate(8);
+    public function orders(Request $request){
+        
+       
+        $orders = Order::when($request->get('status'), function ($query) use ($request) {
+
+            $query->where('status', $request->get('status'));
+            
+         })->with('waste')->orderBy('created_at','DESC')->paginate(8);
+
 
         return view('orders' , compact(['orders']));
     }
