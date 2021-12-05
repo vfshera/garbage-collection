@@ -2,16 +2,44 @@
 
     <div class="orders-page">
 
-        @if(count($orders) == 0)
-        <div class="no-data">
-            <p>You Have no Orders Yet!</p>
-            <button id="newOrder" onclick="openModal('#addModal')">Create Your First Order!</button>
-        </div>
-        @else
+
         <header>
             <h1>Orders</h1>
-            <button id="newOrder" onclick="openModal('#addModal')">New Order</button>
+
+            <section>
+
+                <div class="filters">
+                    <a href="{{ Auth::user()->role === '1' ? route('admin.orders') : route('user.orders') }}">All
+                        Orders</a>
+                    <a
+                        href="{{ Auth::user()->role === '1' ? route('admin.orders', ['status' => 0]) : route('user.orders', ['status' => 0]) }}">Unpaid
+                        Orders</a>
+                    <a
+                        href="{{ Auth::user()->role === '1' ? route('admin.orders' , ['status' => 1]) : route('user.orders' , ['status' => 1]) }}">Paid
+                        Orders</a>
+                </div>
+
+                @if(Auth::user()->role == 0)
+                <button id="newOrder" onclick="openModal('#addModal')">New Order</button>
+                @endif
+
+            </section>
+
         </header>
+
+        @if(count($orders) == 0)
+        <div class="no-data">
+
+            @admin
+            <p>No Orders Matching The Query!</p>
+            @endadmin
+
+            @user
+            <p>You Have no Orders Yet!</p>
+            <button id="newOrder" onclick="openModal('#addModal')">Create Your First Order!</button>
+            @enduser
+        </div>
+        @else
 
         <section class="orders">
 
@@ -58,17 +86,17 @@
                     </div>
 
                     <div class="weight">
-                        {{ $order->weight }} KG(s)
+                        {{ number_format($order->weight, 0 , "",",")  }} KG(s)
 
                     </div>
 
                     <div class="unit-cost">
-                        {{ $order->waste->cost }} Ksh.
+                        {{ number_format($order->waste->cost, 0 , "",",") }} Ksh.
 
                     </div>
 
                     <div class="total-cost">
-                        {{ $order->cost }} Ksh.
+                        {{ number_format($order->cost , 0 , "",",")  }} Ksh.
 
                     </div>
 
@@ -84,7 +112,7 @@
                                 class="fa fa-eye"></i></button>
 
 
-                        <form action="{{ route('user.order.destroy' , ['order' => $order->id ]) }}" method="POST">
+                        <form action="{{ route('user.order.destroy' , [$order]) }}" method="POST">
                             @csrf
 
                             @method('DELETE')
@@ -161,16 +189,20 @@
 
 
                 </div>
+                @user
 
                 <div id="pay-for-order" class="pay-for-order">
 
                 </div>
+
+                @enduser
 
             </div>
 
         </div>
 
 
+        @user
         <div id="addModal" class="modal">
 
             <div id="orderModal" class="modal-content">
@@ -216,7 +248,7 @@
             </div>
 
         </div>
-
+        @enduser
     </x-slot>
 
     <x-slot name="pagescripts">
