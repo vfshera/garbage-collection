@@ -9,7 +9,9 @@
             </div>
 
 
-            <form action="">
+            <form action="{{ route('user.location-update') }}" method="POST">
+
+                @csrf
 
                 <div class="fields">
 

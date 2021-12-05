@@ -65,8 +65,8 @@
 
                     </div>
 
-                    <div class="status">
-                        {{ ($order->status == 1) ? "Active" : "Pending" }}
+                    <div class="status {{ ($order->status == 1) ? 'text-green-500' : 'text-yellow-600' }}">
+                        {{ ($order->status == 1) ? "Paid" : "Unpaid" }}
 
                     </div>
 
@@ -247,7 +247,7 @@
 
             viewTotal.innerText = order.cost + " Ksh.";
 
-            viewStatus.innerText = (order.status === '1') ? "Active" : "Pending";
+            viewStatus.innerText = (order.status === '1') ? "Paid" : "Unpaid";
 
             viewCreated.innerText = order.created;
 
