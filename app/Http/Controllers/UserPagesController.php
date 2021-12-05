@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Models\User;
 use App\Models\Order;
 use App\Models\Waste;
 use Illuminate\Http\Request;
@@ -31,6 +33,23 @@ class UserPagesController extends Controller
         $user = Auth::user();
 
         return view('user.location' , compact(['user']));
+    }
+
+    public function locationUpdate(Request $request , UpdateUserProfileInformation $updateInformation){
+
+        $user = Auth::user();
+
+        $updateInformation->updateLocation($user, $request->all());
+
+        
+        if(!$user->wasChanged()){
+
+            return redirect()->back()->with('error','User Information Update Failed!');
+            
+        }
+
+        return redirect()->back()->with('success','User Information Updated!');                                                                                                              
+
     }
 
 

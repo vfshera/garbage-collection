@@ -28,7 +28,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/auth/redirect', [Redirect
 Route::middleware(['auth:sanctum', 'verified', 'user'])->prefix('/user')->name('user.')->group(function(){
     
     Route::get('/dashboard',[UserPagesController::class , 'dashboard'])->name('dashboard');
+
     Route::get('/location',[UserPagesController::class , 'location'])->name('location');
+
+    Route::post('/update-location',[UserPagesController::class , 'locationUpdate'])->name('location-update');
     
     Route::get('/orders',[UserPagesController::class , 'orders'])->name('orders');
 

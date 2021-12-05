@@ -21,7 +21,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
+            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024']
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -35,6 +35,36 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+            ])->save();
+        }
+    }
+
+
+
+    //UPDATE USER LOCATION
+    public function updateLocation($user, array $input)
+    {
+        Validator::make($input, [
+            'phone' => 'required',
+            'postal_code' => 'required',
+            'address' => 'required',
+            'county' => 'required',
+            'constituency' => 'required',
+            'town' => 'required',
+            'ward' => 'required',
+            'village' => 'required',
+        ]);
+
+        if($user->role == 0){
+            $user->forceFill([
+                'phone' => $input['phone'],
+                'postal_code' => $input['postal_code'],
+                'address' => $input['address'],
+                'county' => $input['county'],
+                'constituency' => $input['constituency'],
+                'town' => $input['town'],
+                'ward' => $input['ward'],
+                'village' => $input['village'],
             ])->save();
         }
     }
