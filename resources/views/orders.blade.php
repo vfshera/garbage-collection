@@ -1,6 +1,13 @@
 <x-app-layout>
 
     <div class="orders-page">
+
+        @if(count($orders) == 0)
+        <div class="no-data">
+            <p>You Have no Orders Yet!</p>
+            <button id="newOrder" onclick="openModal('#addModal')">Create Your First Order!</button>
+        </div>
+        @else
         <header>
             <h1>Orders</h1>
             <button id="newOrder" onclick="openModal('#addModal')">New Order</button>
@@ -66,6 +73,7 @@
                     </div>
 
                     <div class="status {{ ($order->status == 1) ? 'text-green-500' : 'text-yellow-600' }}">
+
                         {{ ($order->status == 1) ? "Paid" : "Unpaid" }}
 
                     </div>
@@ -76,7 +84,7 @@
                                 class="fa fa-eye"></i></button>
 
 
-                        <form action="" method="POST">
+                        <form action="{{ route('user.order.destroy' , ['order' => $order->id ]) }}" method="POST">
                             @csrf
 
                             @method('DELETE')
@@ -93,6 +101,7 @@
                 </div>
             </div>
         </section>
+        @endif
     </div>
 
 
@@ -178,7 +187,9 @@
                             <option value="" disabled selected>Choose Type Of Waste...</option>
 
                             @foreach($wastes as $waste)
-                            <option value="{{ $waste->id }}">{{ $waste->title }}</option>
+                            <option value="{{ $waste->id }}">{{ $waste->title }} <span class="ml-2 text-gray-500">@
+                                    ({{ $waste->cost }}
+                                    Ksh.)</span></option>
                             @endforeach
 
                         </select>

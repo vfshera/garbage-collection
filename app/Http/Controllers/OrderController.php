@@ -17,11 +17,17 @@ class OrderController extends Controller
             "weight" => 'required'
         ]);
             
-        $waste = Waste::findOrFail($newOrder["waste_id"])->first();
+        $waste = Waste::where('id' ,$newOrder["waste_id"])->first();
+
+        // dd($waste);
 
         $totalCost = (int)$newOrder["weight"] *  (int)$waste->cost;
 
         $newOrder["cost"] = $totalCost;
+        
+
+        // dd((int)$newOrder["weight"] . " * " . (int)$waste->cost . " = " .$totalCost);
+        
         $newOrder["user_id"] = Auth::user()->id;       
         
         Order::create($newOrder);
@@ -54,9 +60,9 @@ class OrderController extends Controller
 
     }
 
-    public function destroy(){
-
+    public function destroy(Order $order){   
         
+        $order->delete();
 
         return redirect()->back()->with('success','Order Deleted!');                                                                                                              
 

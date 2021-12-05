@@ -26,7 +26,7 @@
                 <div class="weight">
                     <label>Weight</label>
 
-                    <p>{{ $order->weight }} KG(s)</p>
+                    <p>{{ number_format($order->weight, 0 , "",",")  }} KG(s)</p>
 
 
                 </div>
@@ -34,7 +34,7 @@
                 <div class="unit-cost">
                     <label for="">Cost Per KG</label>
 
-                    <p>{{ $order->waste->cost }} Ksh.</p>
+                    <p>{{  number_format($order->waste->cost, 0 , "",",") }} Ksh.</p>
 
 
                 </div>
@@ -48,7 +48,7 @@
             <div class="order-summary">
                 <div class="summary">
                     <label>Total</label>
-                    <p>{{ $order->cost }} Ksh.</p>
+                    <p>{{ number_format($order->cost , 0 , "",",") }} Ksh.</p>
                 </div>
 
                 @if(Auth::user()->phone != "")

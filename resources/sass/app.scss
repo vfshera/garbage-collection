@@ -81,6 +81,20 @@ body {
 
 /* SESSION ALERTS or MESSAGES END */
 
+/* NO DATA */
+.no-data{
+    @apply h-full w-full flex flex-col items-center pt-44;
+
+    p{
+        @apply font-bold text-brand-5 text-3xl;
+    }
+
+    button{
+        @apply mt-2 px-14 py-3 bg-brand-7 text-white rounded;
+    }
+}
+/* NO DATA END */
+
 /* INPUT */
 
 .input-group {
