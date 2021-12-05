@@ -63,11 +63,17 @@ body {
     .alert {
         @apply py-2 w-2/5 rounded text-center;
 
+        i{
+            @apply h-6 mr-2;
+        }
+
         &.success {
+
             @apply bg-green-300 text-green-900;
         }
 
         &.error {
+
             @apply bg-red-300 text-red-900;
         }
     }
