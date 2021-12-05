@@ -30,14 +30,14 @@
         @if(count($orders) == 0)
         <div class="no-data">
 
-            <!-- <p>No Orders Matching The Query!</p> -->
+            @admin
+            <p>No Orders Matching The Query!</p>
+            @endadmin
 
-
-
-
+            @user
             <p>You Have no Orders Yet!</p>
             <button id="newOrder" onclick="openModal('#addModal')">Create Your First Order!</button>
-
+            @enduser
         </div>
         @else
 
@@ -189,20 +189,20 @@
 
 
                 </div>
-                @if(Auth::user()->role == 0)
+                @user
 
                 <div id="pay-for-order" class="pay-for-order">
 
                 </div>
 
-                @endif
+                @enduser
 
             </div>
 
         </div>
 
 
-        @if(Auth::user()->role == 0)
+        @user
         <div id="addModal" class="modal">
 
             <div id="orderModal" class="modal-content">
@@ -248,7 +248,7 @@
             </div>
 
         </div>
-        @endif
+        @enduser
     </x-slot>
 
     <x-slot name="pagescripts">
