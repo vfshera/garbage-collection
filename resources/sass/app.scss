@@ -384,6 +384,8 @@ section.navbar {
 
 /* ADMIN PAGES */
 
+/* WASTE PAGE */
+
 .waste-page {
     @apply flex flex-col;
 
@@ -516,6 +518,54 @@ section.navbar {
         }
     }
 }
+/* WASTE PAGE END*/
+
+/* USERS PAGE */
+
+.users-page {
+    @apply flex flex-col bg-white p-5 rounded;
+
+    header {
+        @apply flex justify-between items-center;
+
+        h1 {
+            @apply font-semibold text-2xl;
+        }
+    }
+
+    section.users {
+        @apply flex flex-col mt-3;
+
+        .caption,
+        .users-list .user {
+            @apply flex justify-between py-2;
+
+            .name,
+            .email,
+            .joined {
+                @apply w-1/3;
+            }
+        }
+        .caption {
+            @apply font-bold text-brand-1 border-b border-gray-400;
+        }
+
+        .users-list {
+            @apply flex flex-col mt-2;
+
+            .user {
+                @apply text-gray-600 border-b border-gray-100  hover:bg-gray-100;
+            }
+        }
+    }
+
+    .pages{
+        @apply mt-3;
+    }
+}
+
+/* USERS PAGE END*/
+
 /* ADMIN PAGES END*/
 
 /*USER PAGES */
@@ -539,8 +589,8 @@ section.navbar {
                 a {
                     @apply text-gray-700 border border-gray-200 bg-white hover:bg-brand-7 hover:text-white px-5 py-2 rounded-md shadow-sm;
 
-                    &.active{
-                        @apply  bg-brand-7 text-white shadow;
+                    &.active {
+                        @apply bg-brand-7 text-white shadow;
                     }
 
                     &:not(:last-child) {

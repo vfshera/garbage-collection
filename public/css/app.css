@@ -7135,6 +7135,7 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 }
 /* WELCOME PAGE END */
 /* ADMIN PAGES */
+/* WASTE PAGE */
 .waste-page {
 	display: flex;
 	flex-direction: column;
@@ -7340,6 +7341,68 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 #wasteModal form .buttons button:not(:first-child) {
 	margin-left: 1.25rem;
 }
+/* WASTE PAGE END*/
+/* USERS PAGE */
+.users-page {
+	display: flex;
+	flex-direction: column;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding: 1.25rem;
+}
+.users-page header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.users-page header h1 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 600;
+}
+.users-page section.users {
+	margin-top: 0.75rem;
+	display: flex;
+	flex-direction: column;
+}
+.users-page section.users .caption, .users-page section.users .users-list .user {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+.users-page section.users .caption .name, .users-page section.users .caption .email, .users-page section.users .caption .joined, .users-page section.users .users-list .user .name, .users-page section.users .users-list .user .email, .users-page section.users .users-list .user .joined {
+	width: 33.333333%;
+}
+.users-page section.users .caption {
+	border-bottom-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+}
+.users-page section.users .users-list {
+	margin-top: 0.5rem;
+	display: flex;
+	flex-direction: column;
+}
+.users-page section.users .users-list .user {
+	border-bottom-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(243, 244, 246, var(--tw-border-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(75, 85, 99, var(--tw-text-opacity));
+}
+.users-page section.users .users-list .user:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+}
+.users-page .pages {
+	margin-top: 0.75rem;
+}
+/* USERS PAGE END*/
 /* ADMIN PAGES END*/
 /*USER PAGES */
 /*ORDER PAGE  */

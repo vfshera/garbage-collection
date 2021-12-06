@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link
-                        href="{{ Auth::user()->role === '1' ? route('admin.dashboard') : route('user.dashboard')}}"
+                        href="{{ Auth::user()->role === '1' ? route('admin.dashboard') : route('user.dashboard') }}"
                         :active=" Auth::user()->role === '1' ? request()->routeIs('admin.dashboard') : request()->routeIs('user.dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>

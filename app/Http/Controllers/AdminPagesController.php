@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Order;
 use App\Models\Waste;
 use Illuminate\Http\Request;
@@ -14,7 +15,10 @@ class AdminPagesController extends Controller
 
 
     public function users(){
-        return view('admin.users');
+
+        $users = User::normalUsers()->orderBy('created_at', 'DESC')->paginate(8);
+        
+        return view('admin.users' , compact(['users']));
     }
 
 
