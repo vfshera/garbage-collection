@@ -7135,6 +7135,7 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 }
 /* WELCOME PAGE END */
 /* ADMIN PAGES */
+/* WASTE PAGE */
 .waste-page {
 	display: flex;
 	flex-direction: column;
@@ -7340,6 +7341,129 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 #wasteModal form .buttons button:not(:first-child) {
 	margin-left: 1.25rem;
 }
+/* WASTE PAGE END*/
+/* USERS PAGE */
+.users-page {
+	display: flex;
+	flex-direction: column;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding: 1.25rem;
+}
+.users-page header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.users-page header h1 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 600;
+}
+.users-page section.users {
+	margin-top: 0.75rem;
+	display: flex;
+	flex-direction: column;
+}
+.users-page section.users .caption, .users-page section.users .users-list .user {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+.users-page section.users .caption .name, .users-page section.users .caption .email, .users-page section.users .caption .joined, .users-page section.users .users-list .user .name, .users-page section.users .users-list .user .email, .users-page section.users .users-list .user .joined {
+	width: 33.333333%;
+}
+.users-page section.users .caption {
+	border-bottom-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+}
+.users-page section.users .users-list {
+	margin-top: 0.5rem;
+	display: flex;
+	flex-direction: column;
+}
+.users-page section.users .users-list .user {
+	cursor: pointer;
+	border-bottom-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(243, 244, 246, var(--tw-border-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(75, 85, 99, var(--tw-text-opacity));
+}
+.users-page section.users .users-list .user:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+}
+.users-page .pages {
+	margin-top: 0.75rem;
+}
+#userInfoModal {
+	display: flex;
+	width: 40%;
+	flex-direction: column;
+	border-radius: 0.25rem;
+}
+#userInfoModal header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	--tw-bg-opacity: 1;
+	background-color: rgba(28, 130, 0, var(--tw-bg-opacity));
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
+#userInfoModal header h2 {
+	display: inline;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+#userInfoModal header span {
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+#userInfoModal .info {
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+}
+#userInfoModal .info .info-item {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	border-bottom-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(37, 102, 112, var(--tw-border-opacity));
+}
+#userInfoModal .info .info-item:not(:last-child) {
+	margin-bottom: 0.75rem;
+}
+#userInfoModal .info .info-item p {
+	--tw-text-opacity: 1;
+	color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+#userInfoModal .info .info-item p#viewLabel {
+	font-weight: 600;
+	--tw-text-opacity: 1;
+	color: rgba(17, 24, 39, var(--tw-text-opacity));
+}
+#userInfoModal .info .info-item p:last-child {
+	font-style: italic;
+}
+/* USERS PAGE END*/
 /* ADMIN PAGES END*/
 /*USER PAGES */
 /*ORDER PAGE  */

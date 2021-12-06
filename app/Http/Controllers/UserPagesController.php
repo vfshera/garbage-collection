@@ -16,8 +16,13 @@ class UserPagesController extends Controller
         return view('user.dashboard');
     }
 
-    public function orders(){
-        $orders = Order::with('waste')->where('user_id', Auth::user()->id)->orderBy('created_at','DESC')->paginate(8);
+    public function orders(Request $request){
+        $orders = Order::when($request->get('status'), function ($query) use ($request) {
+
+            $query->where('status', $request->get('status'));
+            
+         })->with('waste')->where('user_id', Auth::user()->id)->orderBy('created_at','DESC')->paginate(8);
+         
         
         $wastes = Waste::orderBy('created_at','DESC')->get();
 
