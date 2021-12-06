@@ -57,7 +57,12 @@
                     @csrf
                     <div class="paying-number">
                         <p>Paying with </p>
-                        <img src="{{ url('storage/images/mpesa.png') }}" alt="mpesa">
+                        @if (File::exists(public_path("images/mpesa.png")))
+                        <img src="{{ url('storage/images/mpesa.png')}}" alt="mpesa local logo">
+                        @else
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg"
+                            alt="mpesa wiki logo">
+                        @endif
                     </div>
 
                     <div class="btn-num">
