@@ -7389,6 +7389,7 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	flex-direction: column;
 }
 .users-page section.users .users-list .user {
+	cursor: pointer;
 	border-bottom-width: 1px;
 	--tw-border-opacity: 1;
 	border-color: rgba(243, 244, 246, var(--tw-border-opacity));
@@ -7401,6 +7402,66 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 }
 .users-page .pages {
 	margin-top: 0.75rem;
+}
+#userInfoModal {
+	display: flex;
+	width: 40%;
+	flex-direction: column;
+	border-radius: 0.25rem;
+}
+#userInfoModal header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	--tw-bg-opacity: 1;
+	background-color: rgba(28, 130, 0, var(--tw-bg-opacity));
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
+#userInfoModal header h2 {
+	display: inline;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+#userInfoModal header span {
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+#userInfoModal .info {
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+}
+#userInfoModal .info .info-item {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	border-bottom-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(37, 102, 112, var(--tw-border-opacity));
+}
+#userInfoModal .info .info-item:not(:last-child) {
+	margin-bottom: 0.75rem;
+}
+#userInfoModal .info .info-item p {
+	--tw-text-opacity: 1;
+	color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+#userInfoModal .info .info-item p#viewLabel {
+	font-weight: 600;
+	--tw-text-opacity: 1;
+	color: rgba(17, 24, 39, var(--tw-text-opacity));
+}
+#userInfoModal .info .info-item p:last-child {
+	font-style: italic;
 }
 /* USERS PAGE END*/
 /* ADMIN PAGES END*/
