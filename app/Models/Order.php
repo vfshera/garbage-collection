@@ -25,4 +25,11 @@ class Order extends Model
     public function getCreatedAttribute(){
         return date('H:i \- jS M Y' ,strtotime($this->created_at));
     }
+
+
+
+
+    public function payment(){
+        return $this->hasOne(Payment::class);
+    }
 }
