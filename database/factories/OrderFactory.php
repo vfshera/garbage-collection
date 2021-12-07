@@ -13,6 +13,7 @@ class OrderFactory extends Factory
      */
     public function definition()
     {
+        
         return [
             'weight' => rand(2,9),
             'waste_id' => rand(1,11),

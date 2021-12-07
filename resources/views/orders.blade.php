@@ -57,16 +57,19 @@
                     WEIGHT
                 </div>
 
-                <div class="unit-cost">
-                    COST / KG
-                </div>
 
                 <div class="total-cost">
                     TOTAL
                 </div>
 
+
+
                 <div class="status">
                     STATUS
+                </div>
+
+                <div class="progress">
+                    PROGRESS
                 </div>
 
                 <div class="actions">ACTIONS</div>
@@ -90,10 +93,6 @@
 
                     </div>
 
-                    <div class="unit-cost">
-                        {{ number_format($order->waste->cost, 0 , "",",") }} Ksh.
-
-                    </div>
 
                     <div class="total-cost">
                         {{ number_format($order->cost , 0 , "",",")  }} Ksh.
@@ -104,6 +103,21 @@
 
                         {{ ($order->status == 1) ? "Paid" : "Unpaid" }}
 
+                    </div>
+
+                    <div
+                        class="progress {{ ($order->progress == 0) ? 'text-yellow-600' : '' }} {{ ($order->progress == 1) ? 'text-blue-600' : '' }} {{ ($order->progress == 2) ? 'text-green-500' : '' }}">
+                        @if($order->progress == 0)
+                        N/A
+                        @endif
+
+                        @if($order->progress == 1)
+                        In Transit
+                        @endif
+
+                        @if($order->progress == 2)
+                        Completed
+                        @endif
                     </div>
 
                     <div class="actions">
