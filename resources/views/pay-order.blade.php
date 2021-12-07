@@ -42,7 +42,6 @@
 
 
 
-
             </div>
 
             <div class="order-summary">
@@ -52,25 +51,40 @@
                 </div>
 
                 @if(Auth::user()->phone != "")
-                <form action="{{ route('user.order.pay' , ['order' => $order->id ]) }}" method="POST">
+                <form action="{{ $order->progress == 0 ? route('user.order.pay' , ['order' => $order->id ])  : '' }}"
+                    method="POST">
 
                     @csrf
                     <div class="paying-number">
-                        <p>Paying with </p>
-                        @if (File::exists(public_path("images/mpesa.png")))
+                        <p> {{ $order->progress == 0 ? "Paying with" : "Paid with" }}</p>
+
+                        @if (File::exists(url("/storage/images/mpesa.png")))
                         <img src="{{ url('storage/images/mpesa.png')}}" alt="mpesa local logo">
                         @else
                         <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg"
                             alt="mpesa wiki logo">
                         @endif
+
+
                     </div>
 
                     <div class="btn-num">
                         <span>
                             +{{ Auth::user()->phone }}
                         </span>
+
+                        @if ($order->progress == 0)
                         <button>Pay Now</button>
+
+                        @else
+                        <div class="transaction-code">
+                            TRANSACTIONCODE
+                        </div>
+                        @endif
+
                     </div>
+
+
                 </form>
                 @else
                 <div class="set-details">

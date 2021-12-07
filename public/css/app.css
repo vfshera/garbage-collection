@@ -1773,6 +1773,14 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(217, 119, 6, var(--tw-text-opacity));
 }
+.text-blue-600 {
+	--tw-text-opacity: 1;
+	color: rgba(37, 99, 235, var(--tw-text-opacity));
+}
+.text-green-700 {
+	--tw-text-opacity: 1;
+	color: rgba(4, 120, 87, var(--tw-text-opacity));
+}
 .underline {
 	text-decoration: underline;
 }
@@ -7550,7 +7558,7 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	width: 8.333333%;
 	text-align: center;
 }
-.orders-page section.orders .orders-header .unit-cost, .orders-page section.orders .orders-list .order .unit-cost {
+.orders-page section.orders .orders-header .progress, .orders-page section.orders .orders-list .order .progress {
 	width: 8.333333%;
 	text-align: center;
 }

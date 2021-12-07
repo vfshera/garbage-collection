@@ -21,6 +21,7 @@ class CreateOrdersTable extends Migration
             $table->integer('weight');
             $table->integer('cost')->default(0);
             $table->boolean('status')->default(false);
+            $table->integer('progress')->default(0);
             $table->timestamps();
         });
     }
