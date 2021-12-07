@@ -17,9 +17,10 @@ class UserPagesController extends Controller
     }
 
     public function orders(Request $request){
-        $orders = Order::when($request->get('status'), function ($query) use ($request) {
+        
+        $orders = Order::when($request->has('status'), function ($query) use ($request) {
 
-            $query->where('status', $request->get('status'));
+            return $query->where('status', $request->get('status'));
             
          })->with('waste')->where('user_id', Auth::user()->id)->orderBy('created_at','DESC')->paginate(8);
          
