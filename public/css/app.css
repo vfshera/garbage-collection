@@ -6943,6 +6943,11 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 		width: 10rem;
 	}
 }
+.welcome-page section.services .services-options .service .description {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .welcome-page section.services .services-options .service .description h3 {
 	font-size: 1.5rem;
 	line-height: 2rem;
@@ -6953,6 +6958,7 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 .welcome-page section.services .services-options .service .description p {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+	text-align: center;
 	--tw-text-opacity: 1;
 	color: rgba(75, 85, 99, var(--tw-text-opacity));
 }

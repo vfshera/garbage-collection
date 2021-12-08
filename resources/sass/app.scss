@@ -278,12 +278,14 @@ section.navbar {
                 }
 
                 .description {
+                    @apply flex flex-col items-center;
+
                     h3 {
                         @apply text-gray-700 text-2xl font-extrabold;
                     }
 
                     p {
-                        @apply my-4 text-gray-600;
+                        @apply my-4 text-gray-600 text-center;
                     }
 
                     a {
