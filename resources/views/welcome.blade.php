@@ -146,7 +146,7 @@
     <section id="contact" class="contact pgc-container">
 
 
-        <form action="">
+        <form action="{{ route('post-question') }}" method="POST">
 
             @csrf
 
@@ -163,8 +163,8 @@
                     <select name="topic" id="topic" value="" required>
                         <option value="" selected disabled>Choose Topic</option>
                         <option value="billing">Billing</option>
-                        <option value="request-service">Request Service</option>
-                        <option value="service-question">Service Question</option>
+                        <option value="request">Request Service</option>
+                        <option value="service">Service Question</option>
                         <option value="account">Account</option>
                         <option value="other">Other</option>
                     </select>
@@ -181,6 +181,12 @@
                 <div class="input-group">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Enter your email..." required>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" name="phone" id="phone" placeholder="Enter your phone..." required>
                 </div>
 
 

@@ -6572,6 +6572,11 @@ body {
 	--tw-text-opacity: 1;
 	color: rgba(127, 29, 29, var(--tw-text-opacity));
 }
+.elevate-message {
+	position: relative;
+	top: 5rem;
+  z-index: 1000;
+}
 /* SESSION ALERTS or MESSAGES END */
 /* NO DATA */
 .no-data {

@@ -1,4 +1,5 @@
-<div class="session-messages-wrapper" x-data="{show: true}" x-init="setTimeout(() => show = false, 4500)" x-show="show">
+<div class="session-messages-wrapper {{ $parentClass }}" x-data="{show: true}"
+    x-init="setTimeout(() => show = false, 4500)" x-show="show">
 
 
 
