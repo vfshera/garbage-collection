@@ -55,7 +55,7 @@
 
             <div class="service">
                 <div class="service-image">
-                    <img src="https://picsum.photos/200/200?random=1" alt="A">
+                    <img src="{{ url('storage/images/DUMP3.jpg') }}" alt="Residential Waste Image">
                 </div>
 
                 <div class="description">
@@ -63,14 +63,14 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur vitae atque soluta eaque
                         sint!
                         Sapiente?</p>
-                    <a href="">Order Service A</a>
+                    <a href="{{ route('user.orders') }}">Order This Service</a>
                 </div>
             </div>
 
 
             <div class="service">
                 <div class="service-image">
-                    <img src="https://picsum.photos/200/200?random=2" alt="B">
+                    <img src="{{ url('storage/images/DUMP2.jpg') }}" alt="Business waste Image">
                 </div>
 
                 <div class="description">
@@ -78,13 +78,13 @@
                     <p> Pariatur vitae atque soluta.Lorem ipsum dolor sit amet, consectetur adipisicing elit. eaque
                         sint!
                         Sapiente?</p>
-                    <a href="">Order Service B</a>
+                    <a href="{{ route('user.orders') }}">Order This Service</a>
                 </div>
             </div>
 
             <div class="service">
                 <div class="service-image">
-                    <img src="https://picsum.photos/200/200?random=3" alt="C">
+                    <img src="{{ url('storage/images/DUMP1.jpg') }}" alt="Dumpers Image">
                 </div>
 
                 <div class="description">
@@ -92,7 +92,7 @@
                     <p> Pariatur vitae atque soluta.Lorem ipsum dolor sit amet, consectetur adipisicing elit. eaque
                         sint!
                         Sapiente?</p>
-                    <a href="">Order Service C</a>
+                    <a href="{{ route('user.orders') }}">Order This Service</a>
                 </div>
             </div>
 
@@ -103,8 +103,8 @@
     <section class="how-to-get-started pgc-container">
         <div class="instructions-wrapper">
             <div class="how-to-sign-up">
-                <h3>Join us in just 10 minutes.</h3>
-                <a href="/">Sign Up</a>
+                <h3>Join in less than 10 minutes.</h3>
+                <a href="{{ route('register') }}">Sign Up</a>
             </div>
             <div class="steps">
                 <div class="step">
@@ -146,7 +146,7 @@
     <section id="contact" class="contact pgc-container">
 
 
-        <form action="">
+        <form action="{{ route('post-question') }}" method="POST">
 
             @csrf
 
@@ -163,8 +163,8 @@
                     <select name="topic" id="topic" value="" required>
                         <option value="" selected disabled>Choose Topic</option>
                         <option value="billing">Billing</option>
-                        <option value="request-service">Request Service</option>
-                        <option value="service-question">Service Question</option>
+                        <option value="request">Request Service</option>
+                        <option value="service">Service Question</option>
                         <option value="account">Account</option>
                         <option value="other">Other</option>
                     </select>
@@ -181,6 +181,12 @@
                 <div class="input-group">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Enter your email..." required>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" name="phone" id="phone" placeholder="Enter your phone..." required>
                 </div>
 
 

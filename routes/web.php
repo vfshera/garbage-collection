@@ -2,8 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WasteController;
-use App\Http\Controllers\{PagesController , RedirectController ,AdminPagesController , OrderController, UserPagesController};
+use App\Http\Controllers\{PagesController , WasteController , RedirectController ,AdminPagesController , OrderController, QuestionController , UserPagesController};
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +16,9 @@ use App\Http\Controllers\{PagesController , RedirectController ,AdminPagesContro
 */
 
 Route::get('/', [PagesController::class , 'index'])->name('welcome');
+
+
+Route::post('/question', [QuestionController::class , 'store'])->name('post-question');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/auth/redirect', [RedirectController::class , 'findHome']);
 

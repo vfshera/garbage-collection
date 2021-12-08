@@ -58,7 +58,7 @@ body {
 /* SESSION ALERTS or MESSAGES */
 
 .session-messages-wrapper {
-    @apply flex flex-col items-center mt-2;
+    @apply flex flex-col items-center mt-2 ;
 
     .alert {
         @apply py-2 w-2/5 rounded text-center;
@@ -75,6 +75,12 @@ body {
             @apply bg-red-300 text-red-900;
         }
     }
+}
+
+.elevate-message{
+    @apply relative top-20;
+    z-index: 1000;
+
 }
 
 /* SESSION ALERTS or MESSAGES END */
@@ -278,12 +284,14 @@ section.navbar {
                 }
 
                 .description {
+                    @apply flex flex-col items-center;
+
                     h3 {
                         @apply text-gray-700 text-2xl font-extrabold;
                     }
 
                     p {
-                        @apply my-4 text-gray-600;
+                        @apply my-4 text-gray-600 text-center;
                     }
 
                     a {

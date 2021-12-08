@@ -325,7 +325,7 @@
 
             aTag.href = `/user/order/${order.id}/payment`;
 
-            aTag.innerText = "Go To Payment"
+            aTag.innerText = (order.status == 0) ? "Go To Payment" : "View Payment";
 
             payDiv.appendChild(aTag);
 

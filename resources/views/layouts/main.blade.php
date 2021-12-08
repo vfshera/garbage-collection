@@ -25,6 +25,9 @@
     <x-navbar></x-navbar>
 
 
+    <x-messages parent-class="elevate-message" />
+
+
     <main id="app-slot">
         @yield('content')
     </main>

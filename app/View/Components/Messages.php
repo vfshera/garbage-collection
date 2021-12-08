@@ -11,9 +11,12 @@ class Messages extends Component
      *
      * @return void
      */
-    public function __construct()
+
+    public $parentClass;
+
+    public function __construct($parentClass)
     {
-        //
+        $this->parentClass = $parentClass;
     }
 
     /**
