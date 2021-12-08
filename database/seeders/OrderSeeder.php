@@ -27,7 +27,7 @@ class OrderSeeder extends Seeder
             'waste_id' => rand(1,11),
             'user_id' => 2,
             'cost' => rand(2,9) * rand(10 ,25),
-            'pickup' => now()
+            'pickup' => now(),
         ]);
 
         Order::create([
