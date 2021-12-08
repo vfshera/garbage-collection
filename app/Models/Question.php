@@ -10,5 +10,5 @@ class Question extends Model
     use HasFactory;
 
 
-    protected $fillable = ["name" , "email" ,"phone" , "message"];
+    protected $fillable = ["topic" , "name" , "email" ,"phone" , "message"];
 }
