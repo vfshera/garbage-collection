@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->date('pickup');
             $table->integer('weight');
             $table->integer('cost')->default(0);
-            $table->boolean('status')->default(false);
+            $table->integer('status')->default(0);
             $table->integer('progress')->default(0);
             $table->timestamps();
         });
