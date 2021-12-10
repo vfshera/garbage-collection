@@ -6,32 +6,28 @@
         <div class="slides">
 
             <div class="slide current"
-                style="background: url('https://picsum.photos/1920/720.webp?random=1') no-repeat center center/cover">
+                style="background: url('storage/images/getmore.webp') no-repeat center center/cover">
                 <div class="content">
                     <h1>Get More With Us</h1>
                     <p>We offer the best waste management services to fit all your requirements at a very resonable and
                         convinient way.</p>
-                    <!-- <a href="/">Learn More</a> -->
                 </div>
             </div>
 
-            <div class="slide"
-                style="background: url('https://picsum.photos/1920/720.webp?random=2') no-repeat center center/cover">
+            <div class="slide" style="background: url('storage/images/recycling.webp') no-repeat center center/cover">
                 <div class="content">
                     <h1>You Need Recycling?</h1>
                     <p>Its easy just signup with us and make a recycling order and our professionals will get back to
                         you in no time</p>
-                    <!-- <a href="/">Learn More</a> -->
                 </div>
             </div>
 
-            <div class="slide"
-                style="background: url('https://picsum.photos/1920/720.webp?random=3') no-repeat center center/cover">
+            <div class="slide" style="background: url('storage/images/business.webp') no-repeat center center/cover">
                 <div class="content">
                     <h1>Neeed a Business Solution?</h1>
                     <p>We keep on expanding our services and ensuring we can be able to assign you special
                         dumpsites.Give us a call today we sort your business needs.</p>
-                    <!-- <a href="/">Learn More</a> -->
+
                 </div>
             </div>
 
