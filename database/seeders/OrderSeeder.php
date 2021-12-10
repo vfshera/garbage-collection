@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Order;
+use App\Models\Waste;
 use Illuminate\Database\Seeder;
 
 class OrderSeeder extends Seeder
@@ -14,28 +15,40 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        Order::create([
-            'weight' => rand(2,9),
-            'waste_id' => rand(1,11),
-            'user_id' => 2,
-            'cost' => rand(2,9) * rand(10 ,25),
-            'pickup' => now()
-        ]);
-        
-        Order::create([
-            'weight' => rand(2,9),
-            'waste_id' => rand(1,11),
-            'user_id' => 2,
-            'cost' => rand(2,9) * rand(10 ,25),
-            'pickup' => now(),
-        ]);
 
-        Order::create([
-            'weight' => rand(2,9),
-            'waste_id' => rand(1,11),
-            'user_id' => 2,
-            'cost' => rand(2,9) * rand(10 ,25),
-            'pickup' => now()
-        ]);
+        $orders = [];
+
+            foreach(range(0,10) as $orderObj){
+
+                $status = rand(0,2);
+
+                $progress = ($status == 1) ? rand(1,2) : 0; 
+                
+                $waste = Waste::findOrFail(mt_rand(1,11));
+
+                $weight = mt_rand(2,99);
+
+
+                array_push($orders, [
+                    'weight' => $weight,
+                    'user_id' => rand(2,3),
+                    'waste_id' => $waste->id,
+                    'pickup' => date('Y-m-d H:i:s', mt_rand(date('U' , strtotime(now())) , date('U' , strtotime(now()->addMonth())))),
+                    'status' => $status,
+                    'progress' => $progress,
+                    'cost' => (int)$waste->cost * $weight,
+                ]);
+                
+            }
+
+
+            foreach($orders as $newOrder){
+
+                Order::create($newOrder);
+                
+            }
+        
+        
+      
     }
 }

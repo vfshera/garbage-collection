@@ -39,7 +39,7 @@ class AdminPagesController extends Controller
 
            return $query->where('status', $request->get('status'));
             
-         })->with('waste')->orderBy('created_at','DESC')->paginate(8);
+         })->with('waste','user')->orderBy('created_at','DESC')->paginate(8);
 
 
         return view('orders' , compact(['orders']));
