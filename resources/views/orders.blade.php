@@ -160,6 +160,14 @@
 
                 <div id="infoContainer" class="info">
 
+                    @admin
+                    <div class="info-item">
+                        <p id="viewLabel">Customer</p>
+                        <p id="viewCustomer"></p>
+                    </div>
+                    @endadmin
+
+
                     <div class="info-item">
                         <p id="viewLabel">Waste</p>
                         <p id="viewWasteValue"></p>
@@ -293,6 +301,12 @@
 
             console.log(order);
 
+            if (order.user.id) {
+
+                document.querySelector("#viewCustomer").innerText = order.user.name;
+
+            }
+
 
             viewHeadTitle.innerText = "Order " + order.serial;
 
@@ -304,30 +318,32 @@
 
             viewTotal.innerText = order.cost + " Ksh.";
 
-            viewStatus.innerText = (order.status === '1') ? "Paid" : "Unpaid";
+            viewStatus.innerText = (order.status == '1') ? "Paid" : "Unpaid";
 
             viewCreated.innerText = order.created;
 
 
             //PAYMENT BTN
             //  check if exists
+            if (payDiv) {
 
-            const oldATag = document.querySelector("#payLink");
+                const oldATag = document.querySelector("#payLink");
 
-            if (oldATag) {
-                payDiv.removeChild(oldATag);
+                if (oldATag) {
+                    payDiv.removeChild(oldATag);
+                }
+
+                const aTag = document.createElement("a");
+
+                aTag.classList.add("pay-link");
+                aTag.id = "payLink";
+
+                aTag.href = `/user/order/${order.id}/payment`;
+
+                aTag.innerText = (order.status == 0) ? "Go To Payment" : "View Payment";
+
+                payDiv.appendChild(aTag);
             }
-
-            const aTag = document.createElement("a");
-
-            aTag.classList.add("pay-link");
-            aTag.id = "payLink";
-
-            aTag.href = `/user/order/${order.id}/payment`;
-
-            aTag.innerText = (order.status == 0) ? "Go To Payment" : "View Payment";
-
-            payDiv.appendChild(aTag);
 
 
         }

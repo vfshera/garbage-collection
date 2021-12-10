@@ -7749,6 +7749,60 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	margin-left: 1.25rem;
 }
 /* ORDER PAGE END */
+/* BILLING PAGE */
+.billing-page {
+	margin-top: 1.25rem;
+	height: 100%;
+	width: 100%;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding: 2.5rem;
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.billing-page header {
+	margin-bottom: 0.75rem;
+	display: flex;
+}
+.billing-page header h1 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 600;
+}
+.billing-page section.billing-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+.billing-page section.billing-wrapper .billing-header {
+	margin-bottom: 0.5rem;
+	display: flex;
+	border-bottom-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+.billing-page section.billing-wrapper .billing-header .serial, .billing-page section.billing-wrapper .billing-header .customer, .billing-page section.billing-wrapper .billing-header .amount, .billing-page section.billing-wrapper .billing-header .transaction, .billing-page section.billing-wrapper .billing-header .date {
+	width: 20%;
+	font-weight: 600;
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+}
+.billing-page section.billing-wrapper .bills .bill {
+	display: flex;
+}
+.billing-page section.billing-wrapper .bills .bill .serial, .billing-page section.billing-wrapper .bills .bill .customer, .billing-page section.billing-wrapper .bills .bill .amount, .billing-page section.billing-wrapper .bills .bill .transaction, .billing-page section.billing-wrapper .bills .bill .date {
+	width: 20%;
+	border-bottom-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(243, 244, 246, var(--tw-border-opacity));
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	--tw-text-opacity: 1;
+	color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+/* BILLING PAGE END */
 /* PAY FOR ORDER */
 .pay-for-order-page {
 	margin-top: 1.25rem;

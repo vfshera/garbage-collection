@@ -68,4 +68,10 @@ class User extends Authenticatable
     public function scopeAdmins($query){
         return $query->where('role' , 1);
     }
+
+
+
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
 }

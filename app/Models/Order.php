@@ -11,7 +11,7 @@ class Order extends Model
 
     protected $appends = ['serial' , 'created'];
 
-    protected $fillable = ['user_id','waste_id','cost','weight','pickup'];
+    protected $fillable = ['user_id','waste_id','cost','weight','pickup','status' ,'progress'];
 
     public function waste(){
         return $this->hasOne(Waste::class , 'id' , 'waste_id');
@@ -26,6 +26,15 @@ class Order extends Model
         return date('H:i \- jS M Y' ,strtotime($this->created_at));
     }
 
+
+    public function scopePaid($query){
+        return $query->where('status', 1);
+    }
+
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 
 
 

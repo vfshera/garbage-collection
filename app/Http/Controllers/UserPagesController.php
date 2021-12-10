@@ -33,7 +33,12 @@ class UserPagesController extends Controller
 
     
     public function billing(){
-        return view('user.billing');
+
+        $orders = Auth::user()->orders()->paid()->with('payment')->paginate(8);
+
+        
+        
+        return view('user.billing' , compact(['orders']));
     }
 
 

@@ -58,13 +58,7 @@
                     <div class="paying-number">
                         <p> {{ $order->progress == 0 ? "Paying with" : "Paid with" }}</p>
 
-                        @if (File::exists(url("/storage/images/mpesa.png")))
                         <img src="{{ url('storage/images/mpesa.png')}}" alt="mpesa local logo">
-                        @else
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg"
-                            alt="mpesa wiki logo">
-                        @endif
-
 
                     </div>
 
