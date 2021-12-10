@@ -58,7 +58,7 @@ body {
 /* SESSION ALERTS or MESSAGES */
 
 .session-messages-wrapper {
-    @apply flex flex-col items-center mt-2 ;
+    @apply flex flex-col items-center mt-2;
 
     .alert {
         @apply py-2 w-2/5 rounded text-center;
@@ -77,10 +77,9 @@ body {
     }
 }
 
-.elevate-message{
+.elevate-message {
     @apply relative top-20;
     z-index: 1000;
-
 }
 
 /* SESSION ALERTS or MESSAGES END */
@@ -797,6 +796,64 @@ section.navbar {
     }
 }
 /* ORDER PAGE END */
+
+/* BILLING PAGE */
+.billing-page {
+    @apply h-full w-full bg-white shadow rounded p-10 mt-5;
+
+    header {
+        @apply flex mb-3;
+        h1 {
+            @apply font-semibold text-2xl;
+        }
+    }
+    section.billing-wrapper {
+        @apply flex flex-col;
+
+        .billing-header {
+            @apply flex py-2 border-b mb-2 border-gray-500;
+
+            
+            .serial,.customer,.amount,.transaction,.date{
+                @apply w-1/5 text-brand-1 font-semibold;
+            }
+            
+
+            .serial{
+
+            }
+
+            .customer{
+
+            }
+
+            .transaction{
+
+            }
+            .amount{
+
+            }
+
+            .date{
+
+            }
+        }
+
+        .bills{
+
+            .bill{
+
+                @apply flex;
+
+                .serial,.customer,.amount,.transaction,.date{
+                    @apply w-1/5 text-gray-700  py-1 border-b border-gray-100;
+                }
+
+            }
+        }
+    }
+}
+/* BILLING PAGE END */
 
 /* PAY FOR ORDER */
 
