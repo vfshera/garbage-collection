@@ -221,11 +221,11 @@ section.navbar {
                     }
 
                     p {
-                        @apply text-gray-700;
+                        @apply py-3 text-gray-700;
                     }
 
-                    button {
-                        @apply py-2 px-5 bg-brand-2 rounded-sm font-bold shadow-md border transition-all delay-75 border-transparent hover:border-brand-1 hover:shadow-xl cursor-pointer text-brand-1 mt-5;
+                    a {
+                        @apply py-2 px-5 bg-brand-2 rounded-sm font-bold shadow-md border transition-all delay-75 border-transparent hover:border-brand-1 hover:shadow-xl cursor-pointer text-brand-1 mt-10;
                     }
                 }
 
