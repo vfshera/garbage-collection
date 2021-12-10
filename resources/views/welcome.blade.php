@@ -8,27 +8,30 @@
             <div class="slide current"
                 style="background: url('https://picsum.photos/1920/720.webp?random=1') no-repeat center center/cover">
                 <div class="content">
-                    <h1>Slider One</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, obcaecati.</p>
-                    <button>Learn More</button>
+                    <h1>Get More With Us</h1>
+                    <p>We offer the best waste management services to fit all your requirements at a very resonable and
+                        convinient way.</p>
+                    <!-- <a href="/">Learn More</a> -->
                 </div>
             </div>
 
             <div class="slide"
                 style="background: url('https://picsum.photos/1920/720.webp?random=2') no-repeat center center/cover">
                 <div class="content">
-                    <h1>Slider Two</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, obcaecati.</p>
-                    <button>Learn More</button>
+                    <h1>You Need Recycling?</h1>
+                    <p>Its easy just signup with us and make a recycling order and our professionals will get back to
+                        you in no time</p>
+                    <!-- <a href="/">Learn More</a> -->
                 </div>
             </div>
 
             <div class="slide"
                 style="background: url('https://picsum.photos/1920/720.webp?random=3') no-repeat center center/cover">
                 <div class="content">
-                    <h1>Slider Three</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, obcaecati.</p>
-                    <button>Learn More</button>
+                    <h1>Neeed a Business Solution?</h1>
+                    <p>We keep on expanding our services and ensuring we can be able to assign you special
+                        dumpsites.Give us a call today we sort your business needs.</p>
+                    <!-- <a href="/">Learn More</a> -->
                 </div>
             </div>
 
@@ -60,9 +63,7 @@
 
                 <div class="description">
                     <h3>Residential Waste Pickup</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur vitae atque soluta eaque
-                        sint!
-                        Sapiente?</p>
+                    <p>Suitable for personal residence needs on hte go.</p>
                     <a href="{{ route('user.orders') }}">Order This Service</a>
                 </div>
             </div>
@@ -75,9 +76,7 @@
 
                 <div class="description">
                     <h3>Business Waste Pickup</h3>
-                    <p> Pariatur vitae atque soluta.Lorem ipsum dolor sit amet, consectetur adipisicing elit. eaque
-                        sint!
-                        Sapiente?</p>
+                    <p> Perfect for business need,estate collection</p>
                     <a href="{{ route('user.orders') }}">Order This Service</a>
                 </div>
             </div>
@@ -89,9 +88,7 @@
 
                 <div class="description">
                     <h3>Dumpers</h3>
-                    <p> Pariatur vitae atque soluta.Lorem ipsum dolor sit amet, consectetur adipisicing elit. eaque
-                        sint!
-                        Sapiente?</p>
+                    <p>Here is the perfect fit for small business with less than 20 employees.</p>
                     <a href="{{ route('user.orders') }}">Order This Service</a>
                 </div>
             </div>

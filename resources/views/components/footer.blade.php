@@ -1,3 +1,5 @@
 <div class="footer  pgc-container">
-    <p>{{ env('APP_NAME')}}</p>
+
+    <a href="/">{{ env('APP_NAME')}} - Participatory Garbage Collection &copy; {{ date('Y', strtotime(now()))}}</a>
+
 </div>
