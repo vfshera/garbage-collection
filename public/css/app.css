@@ -7766,13 +7766,25 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 .billing-page header {
 	margin-bottom: 0.75rem;
 	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 .billing-page header h1 {
 	font-size: 1.5rem;
 	line-height: 2rem;
 	font-weight: 600;
 }
+.billing-page header p {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 600;
+}
+.billing-page header p span {
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+}
 .billing-page section.billing-wrapper {
+	margin-top: 0.5rem;
 	display: flex;
 	flex-direction: column;
 }
@@ -7803,6 +7815,14 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	padding-bottom: 0.25rem;
 	--tw-text-opacity: 1;
 	color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+.billing-page section.billing-wrapper .bills .bill .amount {
+	display: flex;
+	align-items: center;
+}
+.billing-page section.billing-wrapper .bills .bill .amount img {
+	margin-left: 0.5rem;
+	height: 2rem;
 }
 /* BILLING PAGE END */
 /* PAY FOR ORDER */

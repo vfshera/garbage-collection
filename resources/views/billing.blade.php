@@ -5,6 +5,8 @@
         <header>
             <h1>Billing</h1>
 
+            <p>Received : <span>{{ number_format($totalBill , 0 , "",",") }} Ksh.</span></p>
+
         </header>
 
 
@@ -40,7 +42,13 @@
                     </div>
 
                     <div class="customer">
-                        CUSTOMER
+                        @admin
+                        {{ $order->payment->FirstName . " " . $order->payment->MiddleName}}
+                        @endadmin
+
+                        @user
+                        {{ $order->user->name}}
+                        @enduser
                     </div>
 
                     <div class="transaction">
@@ -50,6 +58,7 @@
 
                     <div class="amount">
                         {{ number_format($order->cost , 0 , "",",") }} Ksh.
+                        <img src="{{ url('storage/images/mpesa.png')}}" alt="mpesa local logo">
                     </div>
 
                     <div class="date">

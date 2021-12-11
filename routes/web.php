@@ -79,6 +79,8 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->prefix('/admin')->name(
 
     Route::get('/orders', [AdminPagesController::class , 'orders'])->name('orders');
 
+    Route::get('/billing', [AdminPagesController::class , 'billing'])->name('billing');
+
 
     //WASTE
     Route::prefix('/waste')->name('waste.')->group(function(){

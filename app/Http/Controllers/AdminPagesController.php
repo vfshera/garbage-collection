@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Payment;
 use App\Models\Waste;
 use Illuminate\Http\Request;
 
@@ -44,5 +45,17 @@ class AdminPagesController extends Controller
 
         return view('orders' , compact(['orders']));
     }
+
+
+
+    public function billing(){
+
+        $orders = Order::paid()->with('payment')->orderBy('created_at')->paginate(8); 
+        
+        $totalBill = Payment::sum('TransAmount');
+        
+        return view('billing' , compact(['orders','totalBill']));
+    }
+
 
 }

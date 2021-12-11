@@ -29,7 +29,7 @@ class OrderController extends Controller
         
         Order::create($newOrder);
 
-        return redirect()->back()->with('success','Order Created!');
+        return redirect()->route('user.orders')->with('success','Order Created!');
         
     }
 

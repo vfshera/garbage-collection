@@ -802,13 +802,21 @@ section.navbar {
     @apply h-full w-full bg-white shadow rounded p-10 mt-5;
 
     header {
-        @apply flex mb-3;
+        @apply flex mb-3 justify-between items-center;
         h1 {
             @apply font-semibold text-2xl;
         }
+
+        p{
+            @apply font-semibold text-2xl;
+
+            span{
+                @apply   text-brand-1;
+            }
+        }
     }
     section.billing-wrapper {
-        @apply flex flex-col;
+        @apply flex flex-col mt-2;
 
         .billing-header {
             @apply flex py-2 border-b mb-2 border-gray-500;
@@ -847,6 +855,14 @@ section.navbar {
 
                 .serial,.customer,.amount,.transaction,.date{
                     @apply w-1/5 text-gray-700  py-1 border-b border-gray-100;
+                }
+
+                .amount{
+                    @apply flex items-center;
+
+                    img{
+                        @apply h-8 ml-2;
+                    }
                 }
 
             }
