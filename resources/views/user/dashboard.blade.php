@@ -145,7 +145,8 @@
                     </div>
                     <div class="input-group">
                         <label for="to">To</label>
-                        <input type="date" name="to" id="to" required>
+                        <input type="date" name="to" max="{{ date('Y-m-d' , strtotime(now())) }}"
+                            value="{{ date('Y-m-d' , strtotime(now())) }}" id="to" required>
                     </div>
                     <button class="btn-success" type="submit">Get Report</button>
                 </form>
@@ -171,7 +172,8 @@
                     </div>
                     <div class="input-group">
                         <label for="to">To</label>
-                        <input type="date" name="to" id="to" required>
+                        <input type="date" name="to" max="{{ date('Y-m-d' , strtotime(now())) }}"
+                            value="{{ date('Y-m-d' , strtotime(now())) }}" id="to" required>
                     </div>
                     <button type="submit" class="btn-success">Get Report</button>
                 </form>
