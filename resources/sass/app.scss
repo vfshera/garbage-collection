@@ -631,22 +631,33 @@ section.navbar {
         }
     }
 
-    .dash-overview {
-        @apply flex gap-10 p-10 bg-brand-1 rounded shadow mt-5;
+    .reports-overview {
+        @apply grid grid-cols-2 gap-14 mt-5;
 
-        .dash-item {
-            @apply flex flex-col justify-center items-center py-10 rounded w-1/6   bg-white shadow-sm;
+        .dash-overview {
+            @apply flex gap-12 p-10 bg-brand-1 rounded shadow ;
 
-            p.amount {
-                @apply text-2xl font-bold text-brand-1;
+            .dash-item {
+                @apply flex flex-col justify-center items-center py-10 rounded w-1/2   bg-white shadow-sm;
+
+                p.amount {
+                    @apply text-2xl font-bold text-brand-1;
+                }
+
+                p.label {
+                    @apply text-2xl text-brand-1;
+                }
             }
+        }
 
-            p.label {
-                @apply text-2xl text-brand-1;
+        .reports {
+            @apply bg-brand-1 rounded shadow gap-12 flex p-10;
+
+            .report{
+                @apply cursor-pointer  bg-white py-10 shadow-sm rounded w-1/2 flex flex-col justify-center items-center text-brand-1 text-xl font-bold;
             }
         }
     }
-
     .activity {
         @apply mt-10 grid grid-cols-2 gap-10;
 
@@ -748,6 +759,32 @@ section.navbar {
                 }
             }
         }
+    }
+
+
+    
+}
+#reportModal , #paymentModal{
+    @apply w-1/3 flex flex-col items-center rounded p-10;
+
+    h1{
+        @apply text-2xl font-bold text-gray-800;
+    }
+
+    form{
+        @apply w-full flex flex-col justify-center my-2;
+
+        .input-group{
+            @apply w-full mb-5;
+        }
+
+        button{
+            @apply rounded py-3;
+        }
+    }
+
+    span{
+        @apply text-4xl  font-semibold   text-red-500;
     }
 }
 /* USER DASH PAGE END*/

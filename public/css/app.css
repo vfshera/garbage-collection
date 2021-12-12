@@ -1761,6 +1761,10 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(16, 185, 129, var(--tw-text-opacity));
 }
+.text-brand-2 {
+	--tw-text-opacity: 1;
+	color: rgba(237, 250, 139, var(--tw-text-opacity));
+}
 .text-yellow-600 {
 	--tw-text-opacity: 1;
 	color: rgba(217, 119, 6, var(--tw-text-opacity));
@@ -7503,10 +7507,15 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	--tw-text-opacity: 1;
 	color: rgba(55, 65, 81, var(--tw-text-opacity));
 }
-.user-dash .dash-overview {
+.user-dash .reports-overview {
 	margin-top: 1.25rem;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 3.5rem;
+}
+.user-dash .reports-overview .dash-overview {
 	display: flex;
-	gap: 2.5rem;
+	gap: 3rem;
 	border-radius: 0.25rem;
 	--tw-bg-opacity: 1;
 	background-color: rgba(64, 112, 86, var(--tw-bg-opacity));
@@ -7514,9 +7523,9 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.user-dash .dash-overview .dash-item {
+.user-dash .reports-overview .dash-overview .dash-item {
 	display: flex;
-	width: 16.666667%;
+	width: 50%;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
@@ -7528,18 +7537,48 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.user-dash .dash-overview .dash-item p.amount {
+.user-dash .reports-overview .dash-overview .dash-item p.amount {
 	font-size: 1.5rem;
 	line-height: 2rem;
 	font-weight: 700;
 	--tw-text-opacity: 1;
 	color: rgba(64, 112, 86, var(--tw-text-opacity));
 }
-.user-dash .dash-overview .dash-item p.label {
+.user-dash .reports-overview .dash-overview .dash-item p.label {
 	font-size: 1.5rem;
 	line-height: 2rem;
 	--tw-text-opacity: 1;
 	color: rgba(64, 112, 86, var(--tw-text-opacity));
+}
+.user-dash .reports-overview .reports {
+	display: flex;
+	gap: 3rem;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(64, 112, 86, var(--tw-bg-opacity));
+	padding: 2.5rem;
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.user-dash .reports-overview .reports .report {
+	display: flex;
+	width: 50%;
+	cursor: pointer;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .user-dash .activity {
 	margin-top: 2.5rem;
@@ -7625,6 +7664,45 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 .user-dash .activity .last-payments .shortlist .payitem .item-order, .user-dash .activity .last-payments .shortlist .payitem .item-amount, .user-dash .activity .last-payments .shortlist .payitem .item-transaction, .user-dash .activity .last-payments .shortlist .payitem .item-date {
 	--tw-text-opacity: 1;
 	color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+#reportModal, #paymentModal {
+	display: flex;
+	width: 33.333333%;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 0.25rem;
+	padding: 2.5rem;
+}
+#reportModal h1, #paymentModal h1 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+#reportModal form, #paymentModal form {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	justify-content: center;
+}
+#reportModal form .input-group, #paymentModal form .input-group {
+	margin-bottom: 1.25rem;
+	width: 100%;
+}
+#reportModal form button, #paymentModal form button {
+	border-radius: 0.25rem;
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+}
+#reportModal span, #paymentModal span {
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+	font-weight: 600;
+	--tw-text-opacity: 1;
+	color: rgba(239, 68, 68, var(--tw-text-opacity));
 }
 /* USER DASH PAGE END*/
 /*ORDER PAGE  */

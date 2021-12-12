@@ -7,30 +7,48 @@
         </header>
 
 
-        <div class="dash-overview">
-            <div class="dash-item">
+        <div class="reports-overview">
+            <div class="dash-overview">
+                <div class="dash-item">
 
-                <p class="amount">
-                    {{ $ordersCount }}
-                </p>
+                    <p class="amount">
+                        {{ $ordersCount }}
+                    </p>
 
 
-                <p class="label">
-                    Orders
-                </p>
+                    <p class="label">
+                        Orders
+                    </p>
 
+                </div>
+
+                <div class="dash-item">
+
+                    <p class="amount">
+                        {{ number_format($paymentsSum , 0 , "",",")  }} Ksh.
+                    </p>
+
+
+                    <p class="label">
+                        Spent
+                    </p>
+
+                </div>
             </div>
 
-            <div class="dash-item">
+            <div class="reports">
 
-                <p class="amount">
-                    {{ number_format($paymentsSum , 0 , "",",")  }} Ksh.
-                </p>
+                <div class="report" onclick="openModal('#orderReport')">
+                    Orders
+                    Report
+                </div>
 
 
-                <p class="label">
-                    Spent
-                </p>
+                <div class="report" onclick="openModal('#paymentReport')">
+                    Payment
+                    Report
+                </div>
+
 
             </div>
         </div>
@@ -105,4 +123,82 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+    <!-- PAGE MODALS -->
+    <x-slot name="modals">
+
+        <!-- ORDER MODAL -->
+        <div id="orderReport" class="modal">
+
+            <div id="reportModal" class="modal-content">
+
+                <h1>Order Report</h1>
+                <form action="">
+                    <div class="input-group">
+                        <label for="from">From</label>
+                        <input type="date" name="from" id="from" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="to">To</label>
+                        <input type="date" name="to" id="to" required>
+                    </div>
+                    <button class="btn-success" type="submit">Get Report</button>
+                </form>
+
+                <span id="closeIcon" onclick="closeModal('#orderReport')" class="cursor-pointer">&times;</span>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- PAYMENT MODAL -->
+        <div id="paymentReport" class="modal">
+
+            <div id="paymentModal" class="modal-content">
+                <h1>Payment Report</h1>
+
+                <form action="">
+                    <div class="input-group">
+                        <label for="from">From</label>
+                        <input type="date" name="from" id="from" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="to">To</label>
+                        <input type="date" name="to" id="to" required>
+                    </div>
+                    <button type="submit" class="btn-success">Get Report</button>
+                </form>
+
+                <span id="closeIcon" onclick="closeModal('#paymentReport')" class="cursor-pointer">&times;</span>
+
+
+            </div>
+
+        </div>
+
+    </x-slot>
+
+
+
+    <!-- SCRIPTS -->
+    <x-slot name="pagescripts">
+        <script>
+        const closeModal = (modal) => {
+
+            document.querySelector(modal).style.display = "none";
+        }
+
+
+        const openModal = (modal) => {
+            document.querySelector(modal).style.display = "block";
+        }
+        </script>
+    </x-slot>
 </x-app-layout>
