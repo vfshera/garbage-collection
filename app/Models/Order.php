@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
 {
@@ -31,6 +32,10 @@ class Order extends Model
         return $query->where('status', 1);
     }
 
+    public function scopeForAuthUser($query){
+        return $query->where('user_id', Auth::user()->id);
+    }
+
 
     public function user(){
         return $this->belongsTo(User::class);
@@ -41,4 +46,5 @@ class Order extends Model
     public function payment(){
         return $this->hasOne(Payment::class);
     }
+
 }

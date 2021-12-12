@@ -50,6 +50,7 @@ class AdminPagesController extends Controller
 
     public function billing(){
 
+
         $orders = Order::paid()->with('payment')->orderBy('created_at')->paginate(8); 
         
         $totalBill = Payment::sum('TransAmount');

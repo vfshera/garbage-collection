@@ -7483,6 +7483,150 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 /* USERS PAGE END*/
 /* ADMIN PAGES END*/
 /*USER PAGES */
+/* USER DASH PAGE */
+.user-dash {
+	display: flex;
+	flex-direction: column;
+}
+.user-dash header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.user-dash header h1 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 600;
+}
+.user-dash header p {
+	font-style: italic;
+	--tw-text-opacity: 1;
+	color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+.user-dash .dash-overview {
+	margin-top: 1.25rem;
+	display: flex;
+	gap: 2.5rem;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(64, 112, 86, var(--tw-bg-opacity));
+	padding: 2.5rem;
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.user-dash .dash-overview .dash-item {
+	display: flex;
+	width: 16.666667%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.user-dash .dash-overview .dash-item p.amount {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+}
+.user-dash .dash-overview .dash-item p.label {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+}
+.user-dash .activity {
+	margin-top: 2.5rem;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 2.5rem;
+}
+.user-dash .activity .last-orders, .user-dash .activity .last-payments {
+	display: flex;
+	flex-direction: column;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding: 1.25rem;
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.user-dash .activity .last-orders h3, .user-dash .activity .last-payments h3 {
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+}
+.user-dash .activity .last-orders .shortlist, .user-dash .activity .last-payments .shortlist {
+	margin-top: 0.5rem;
+	display: flex;
+	flex-direction: column;
+}
+.user-dash .activity .last-orders .orderhead, .user-dash .activity .last-orders .shortlist .orderitem {
+	display: flex;
+}
+.user-dash .activity .last-orders .orderhead .item-serial, .user-dash .activity .last-orders .shortlist .orderitem .item-serial {
+	width: 25%;
+}
+.user-dash .activity .last-orders .orderhead .item-waste, .user-dash .activity .last-orders .shortlist .orderitem .item-waste {
+	width: 25%;
+}
+.user-dash .activity .last-orders .orderhead .item-progress, .user-dash .activity .last-orders .shortlist .orderitem .item-progress {
+	width: 16.666667%;
+}
+.user-dash .activity .last-orders .orderhead .item-total, .user-dash .activity .last-orders .shortlist .orderitem .item-total {
+	width: 16.666667%;
+}
+.user-dash .activity .last-orders .orderhead .item-status, .user-dash .activity .last-orders .shortlist .orderitem .item-status {
+	width: 16.666667%;
+}
+.user-dash .activity .last-orders .orderhead {
+	border-bottom-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
+}
+.user-dash .activity .last-orders .orderhead div {
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(17, 24, 39, var(--tw-text-opacity));
+}
+.user-dash .activity .last-orders .shortlist a:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
+}
+.user-dash .activity .last-orders .shortlist a .orderitem .item-serial, .user-dash .activity .last-orders .shortlist a .orderitem .item-waste, .user-dash .activity .last-orders .shortlist a .orderitem .item-total {
+	--tw-text-opacity: 1;
+	color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+.user-dash .activity .last-payments .payhead, .user-dash .activity .last-payments .shortlist .payitem {
+	display: flex;
+}
+.user-dash .activity .last-payments .payhead .item-order, .user-dash .activity .last-payments .payhead .item-amount, .user-dash .activity .last-payments .payhead .item-transaction, .user-dash .activity .last-payments .payhead .item-date, .user-dash .activity .last-payments .shortlist .payitem .item-order, .user-dash .activity .last-payments .shortlist .payitem .item-amount, .user-dash .activity .last-payments .shortlist .payitem .item-transaction, .user-dash .activity .last-payments .shortlist .payitem .item-date {
+	width: 25%;
+}
+.user-dash .activity .last-payments .payhead {
+	border-bottom-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
+}
+.user-dash .activity .last-payments .payhead .item-order, .user-dash .activity .last-payments .payhead .item-amount, .user-dash .activity .last-payments .payhead .item-transaction, .user-dash .activity .last-payments .payhead .item-date {
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(17, 24, 39, var(--tw-text-opacity));
+}
+.user-dash .activity .last-payments .shortlist .payitem {
+	display: flex;
+}
+.user-dash .activity .last-payments .shortlist .payitem .item-order, .user-dash .activity .last-payments .shortlist .payitem .item-amount, .user-dash .activity .last-payments .shortlist .payitem .item-transaction, .user-dash .activity .last-payments .shortlist .payitem .item-date {
+	--tw-text-opacity: 1;
+	color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+/* USER DASH PAGE END*/
 /*ORDER PAGE  */
 .orders-page {
 	display: flex;

@@ -14,7 +14,14 @@ class UserPagesController extends Controller
 {
     
     public function dashboard(){
-        return view('user.dashboard');
+        $latestOrders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->take(5)->get();
+
+        $latestPayments = Payment::whereHas('order' , function($query){
+            $query->forAuthUser();
+        })->orderBy('created_at', 'DESC')->take(5)->get();
+
+        
+        return view('user.dashboard' , compact(['latestOrders','latestPayments']));
     }
 
     public function orders(Request $request){
@@ -23,7 +30,7 @@ class UserPagesController extends Controller
 
             return $query->where('status', $request->get('status'));
             
-         })->with('waste')->where('user_id', Auth::user()->id)->orderBy('created_at','DESC')->paginate(8);
+         })->with('waste')->forAuthUser()->orderBy('created_at','DESC')->paginate(8);
          
         
         $wastes = Waste::orderBy('created_at','DESC')->get();

@@ -5,7 +5,14 @@
         <header>
             <h1>Billing</h1>
 
-            <p>Received : <span>{{ number_format($totalBill , 0 , "",",") }} Ksh.</span></p>
+            <p>
+                @admin
+                Received
+                @else
+                Sent
+
+                @endif
+                : <span>{{ number_format($totalBill , 0 , "",",") }} Ksh.</span></p>
 
         </header>
 
