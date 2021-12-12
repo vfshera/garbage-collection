@@ -1761,14 +1761,6 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(16, 185, 129, var(--tw-text-opacity));
 }
-.text-gray-200 {
-	--tw-text-opacity: 1;
-	color: rgba(229, 231, 235, var(--tw-text-opacity));
-}
-.text-gray-300 {
-	--tw-text-opacity: 1;
-	color: rgba(209, 213, 219, var(--tw-text-opacity));
-}
 .text-yellow-600 {
 	--tw-text-opacity: 1;
 	color: rgba(217, 119, 6, var(--tw-text-opacity));
@@ -1776,6 +1768,14 @@ select {
 .text-blue-600 {
 	--tw-text-opacity: 1;
 	color: rgba(37, 99, 235, var(--tw-text-opacity));
+}
+.text-gray-200 {
+	--tw-text-opacity: 1;
+	color: rgba(229, 231, 235, var(--tw-text-opacity));
+}
+.text-gray-300 {
+	--tw-text-opacity: 1;
+	color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
 .underline {
 	text-decoration: underline;
@@ -7599,7 +7599,7 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	--tw-bg-opacity: 1;
 	background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
 }
-.user-dash .activity .last-orders .shortlist a .orderitem .item-serial, .user-dash .activity .last-orders .shortlist a .orderitem .item-waste, .user-dash .activity .last-orders .shortlist a .orderitem .item-total {
+.user-dash .activity .last-orders .shortlist a .orderitem .item-serial, .user-dash .activity .last-orders .shortlist a .orderitem .item-waste, .user-dash .activity .last-orders .shortlist a .orderitem .item-total, .user-dash .activity .last-orders .shortlist .orderitem .item-serial, .user-dash .activity .last-orders .shortlist .orderitem .item-waste, .user-dash .activity .last-orders .shortlist .orderitem .item-total {
 	--tw-text-opacity: 1;
 	color: rgba(31, 41, 55, var(--tw-text-opacity));
 }

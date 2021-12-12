@@ -29,7 +29,7 @@
 
 
                 <p class="label">
-                    Sent
+                    Spent
                 </p>
 
             </div>
