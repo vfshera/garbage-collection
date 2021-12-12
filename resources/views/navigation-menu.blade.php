@@ -34,6 +34,10 @@
                         {{ __('Orders') }}
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('admin.billing') }}" :active=" request()->routeIs('admin.billing')">
+                        {{ __('Billing') }}
+                    </x-jet-nav-link>
+
 
                     @endif
 

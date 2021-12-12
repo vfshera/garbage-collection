@@ -614,6 +614,143 @@ section.navbar {
 
 /*USER PAGES */
 
+/* USER DASH PAGE */
+
+.user-dash {
+    @apply flex flex-col;
+
+    header {
+        @apply flex justify-between items-center;
+
+        h1 {
+            @apply font-semibold text-2xl;
+        }
+
+        p {
+            @apply text-gray-700 italic;
+        }
+    }
+
+    .dash-overview {
+        @apply flex gap-10 p-10 bg-brand-1 rounded shadow mt-5;
+
+        .dash-item {
+            @apply flex flex-col justify-center items-center py-10 rounded w-1/6   bg-white shadow-sm;
+
+            p.amount {
+                @apply text-2xl font-bold text-brand-1;
+            }
+
+            p.label {
+                @apply text-2xl text-brand-1;
+            }
+        }
+    }
+
+    .activity {
+        @apply mt-10 grid grid-cols-2 gap-10;
+
+        .last-orders,
+        .last-payments {
+            @apply p-5 bg-white shadow rounded flex flex-col;
+
+            h3 {
+                @apply text-brand-1 font-bold;
+            }
+
+            .shortlist {
+                @apply flex flex-col mt-2 ;
+            }
+        }
+
+        .last-orders {
+            .orderhead,
+            .shortlist .orderitem {
+                @apply flex;
+
+                .item-serial {
+                    @apply w-3/12;
+                }
+
+                .item-waste {
+                    @apply w-3/12;
+                }
+
+                .item-progress {
+                    @apply w-2/12;
+                }
+
+                .item-total {
+                    @apply w-2/12;
+                }
+
+                .item-status {
+                    @apply w-2/12;
+                }
+            }
+
+            .orderhead {
+                @apply border-b border-gray-500;
+
+                div {
+                    @apply font-bold text-gray-900;
+                }
+            }
+
+            .shortlist {
+                a{
+                    @apply hover:bg-green-50;
+                    .orderitem {
+                        .item-serial,.item-waste ,.item-total {
+                            @apply text-gray-800;
+                        }
+                    }
+                }
+                
+            }
+        }
+
+        .last-payments {
+            .payhead,
+            .shortlist .payitem {
+                @apply flex;
+
+                .item-order,
+                .item-amount,
+                .item-transaction,
+                .item-date {
+                    @apply w-1/4;
+                }
+            }
+            .payhead{
+                @apply border-b border-gray-500;
+
+                .item-order,
+                .item-amount,
+                .item-transaction,
+                .item-date {
+                    @apply font-bold text-gray-900;
+                }
+            }
+
+            .shortlist {
+
+                .payitem {
+                    @apply flex;
+    
+                    .item-order,
+                    .item-amount,
+                    .item-transaction,
+                    .item-date {
+                        @apply text-gray-800;
+                    }
+                }
+            }
+        }
+    }
+}
+/* USER DASH PAGE END*/
+
 /*ORDER PAGE  */
 
 .orders-page {
@@ -802,53 +939,67 @@ section.navbar {
     @apply h-full w-full bg-white shadow rounded p-10 mt-5;
 
     header {
-        @apply flex mb-3;
+        @apply flex mb-3 justify-between items-center;
         h1 {
             @apply font-semibold text-2xl;
         }
+
+        p {
+            @apply font-semibold text-2xl;
+
+            span {
+                @apply text-brand-1;
+            }
+        }
     }
     section.billing-wrapper {
-        @apply flex flex-col;
+        @apply flex flex-col mt-2;
 
         .billing-header {
             @apply flex py-2 border-b mb-2 border-gray-500;
 
-            
-            .serial,.customer,.amount,.transaction,.date{
+            .serial,
+            .customer,
+            .amount,
+            .transaction,
+            .date {
                 @apply w-1/5 text-brand-1 font-semibold;
             }
-            
 
-            .serial{
-
+            .serial {
             }
 
-            .customer{
-
+            .customer {
             }
 
-            .transaction{
-
+            .transaction {
             }
-            .amount{
-
+            .amount {
             }
 
-            .date{
-
+            .date {
             }
         }
 
-        .bills{
-
-            .bill{
-
+        .bills {
+            .bill {
                 @apply flex;
 
-                .serial,.customer,.amount,.transaction,.date{
+                .serial,
+                .customer,
+                .amount,
+                .transaction,
+                .date {
                     @apply w-1/5 text-gray-700  py-1 border-b border-gray-100;
                 }
 
+                .amount {
+                    @apply flex items-center;
+
+                    img {
+                        @apply h-8 ml-2;
+                    }
+                }
             }
         }
     }

@@ -301,7 +301,7 @@
 
             console.log(order);
 
-            if (order.user.id) {
+            if (order.user?.id) {
 
                 document.querySelector("#viewCustomer").innerText = order.user.name;
 
