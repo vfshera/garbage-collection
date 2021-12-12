@@ -14,14 +14,23 @@ class UserPagesController extends Controller
 {
     
     public function dashboard(){
-        $latestOrders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->take(5)->get();
 
-        $latestPayments = Payment::whereHas('order' , function($query){
+
+        $myOrders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->take(5)->get();
+        $latestOrders = $myOrders->take(5);
+        $ordersCount = $myOrders->count();
+
+
+
+        $myPayments = Payment::whereHas('order' , function($query){
             $query->forAuthUser();
-        })->orderBy('created_at', 'DESC')->take(5)->get();
+        })->orderBy('created_at', 'DESC')->get();
+
+        $latestPayments = $myPayments->take(5);
+        $paymentsSum = $myPayments->sum('TransAmount');
 
         
-        return view('user.dashboard' , compact(['latestOrders','latestPayments']));
+        return view('user.dashboard' , compact(['latestOrders','ordersCount','latestPayments', 'paymentsSum']));
     }
 
     public function orders(Request $request){

@@ -11,7 +11,7 @@
             <div class="dash-item">
 
                 <p class="amount">
-                    15
+                    {{ $ordersCount }}
                 </p>
 
 
@@ -24,12 +24,12 @@
             <div class="dash-item">
 
                 <p class="amount">
-                    6200Ksh.
+                    {{ number_format($paymentsSum , 0 , "",",")  }} Ksh.
                 </p>
 
 
                 <p class="label">
-                    Payment
+                    Sent
                 </p>
 
             </div>
