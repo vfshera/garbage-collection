@@ -11,7 +11,20 @@ use Illuminate\Http\Request;
 class AdminPagesController extends Controller
 {
     public function dashboard(){
-        return view('admin.dashboard');
+
+        $orders = Order::orderBy('created_at', 'DESC')->get();
+        $latestOrders = $orders->take(8);
+        $ordersCount = $orders->count();
+
+
+
+        $payments = Payment::orderBy('created_at', 'DESC')->get();
+
+        $latestPayments = $payments->take(8);
+        $paymentsSum = $payments->sum('TransAmount');
+
+        
+        return view('admin.dashboard' , compact(['latestOrders','ordersCount','latestPayments', 'paymentsSum']));
     }
 
 

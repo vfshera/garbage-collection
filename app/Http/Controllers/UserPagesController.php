@@ -16,8 +16,8 @@ class UserPagesController extends Controller
     public function dashboard(){
 
 
-        $myOrders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->take(5)->get();
-        $latestOrders = $myOrders->take(5);
+        $myOrders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->get();
+        $latestOrders = $myOrders->take(8);
         $ordersCount = $myOrders->count();
 
 
@@ -26,7 +26,7 @@ class UserPagesController extends Controller
             $query->forAuthUser();
         })->orderBy('created_at', 'DESC')->get();
 
-        $latestPayments = $myPayments->take(5);
+        $latestPayments = $myPayments->take(8);
         $paymentsSum = $myPayments->sum('TransAmount');
 
         

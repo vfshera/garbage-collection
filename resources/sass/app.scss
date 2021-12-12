@@ -659,7 +659,7 @@ section.navbar {
             }
 
             .shortlist {
-                @apply flex flex-col mt-2 ;
+                @apply flex flex-col mt-2;
             }
         }
 
@@ -698,15 +698,17 @@ section.navbar {
             }
 
             .shortlist {
-                a{
+                a {
                     @apply hover:bg-green-50;
-                    .orderitem {
-                        .item-serial,.item-waste ,.item-total {
-                            @apply text-gray-800;
-                        }
+                }
+                a .orderitem,
+                .orderitem {
+                    .item-serial,
+                    .item-waste,
+                    .item-total {
+                        @apply text-gray-800;
                     }
                 }
-                
             }
         }
 
@@ -722,7 +724,7 @@ section.navbar {
                     @apply w-1/4;
                 }
             }
-            .payhead{
+            .payhead {
                 @apply border-b border-gray-500;
 
                 .item-order,
@@ -734,10 +736,9 @@ section.navbar {
             }
 
             .shortlist {
-
                 .payitem {
                     @apply flex;
-    
+
                     .item-order,
                     .item-amount,
                     .item-transaction,
