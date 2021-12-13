@@ -38,17 +38,22 @@
 
             <div class="reports">
 
-                <div class="report" onclick="openModal('#orderReport')">
-                    Orders
-                    Report
-                </div>
+                <a href="{{ route('user.order.report') }}">
+                    <div class="report">
+                        Orders
+                        Report
+                    </div>
 
+                </a>
 
-                <div class="report" onclick="openModal('#paymentReport')">
-                    Payment
-                    Report
-                </div>
+                <a href="{{ route('user.order.report') }}">
 
+                    <div class="report">
+                        Payment
+                        Report
+                    </div>
+
+                </a>
 
             </div>
         </div>
@@ -129,82 +134,4 @@
 
 
 
-    <!-- PAGE MODALS -->
-    <x-slot name="modals">
-
-        <!-- ORDER MODAL -->
-        <div id="orderReport" class="modal">
-
-            <div id="reportModal" class="modal-content">
-
-                <h1>Order Report</h1>
-                <form action="{{ route('report') }}" method="POST">
-
-                    @csrf
-                    <div class="input-group">
-                        <label for="from">From</label>
-                        <input type="date" name="from" id="from">
-                    </div>
-                    <div class="input-group">
-                        <label for="to">To</label>
-                        <input type="date" name="to" max="{{ date('Y-m-d' , strtotime(now())) }}"
-                            value="{{ date('Y-m-d' , strtotime(now())) }}" id="to" required>
-                    </div>
-                    <button class="btn-success" type="submit">Get Report</button>
-                </form>
-
-                <span id="closeIcon" onclick="closeModal('#orderReport')" class="cursor-pointer">&times;</span>
-
-
-            </div>
-
-        </div>
-
-
-        <!-- PAYMENT MODAL -->
-        <div id="paymentReport" class="modal">
-
-            <div id="paymentModal" class="modal-content">
-                <h1>Payment Report</h1>
-
-                <form action="{{ route('report') }}" method="POST">
-
-                    @csrf
-                    <div class="input-group">
-                        <label for="from">From</label>
-                        <input type="date" name="from" id="from">
-                    </div>
-                    <div class="input-group">
-                        <label for="to">To</label>
-                        <input type="date" name="to" max="{{ date('Y-m-d' , strtotime(now())) }}"
-                            value="{{ date('Y-m-d' , strtotime(now())) }}" id="to" required>
-                    </div>
-                    <button type="submit" class="btn-success">Get Report</button>
-                </form>
-
-                <span id="closeIcon" onclick="closeModal('#paymentReport')" class="cursor-pointer">&times;</span>
-
-
-            </div>
-
-        </div>
-
-    </x-slot>
-
-
-
-    <!-- SCRIPTS -->
-    <x-slot name="pagescripts">
-        <script>
-        const closeModal = (modal) => {
-
-            document.querySelector(modal).style.display = "none";
-        }
-
-
-        const openModal = (modal) => {
-            document.querySelector(modal).style.display = "block";
-        }
-        </script>
-    </x-slot>
 </x-app-layout>

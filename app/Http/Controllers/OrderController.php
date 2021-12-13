@@ -50,6 +50,11 @@ class OrderController extends Controller
         return redirect()->back()->with('success','Trying To Process Order '.$order->serial);
     }
 
+
+   
+
+
+
     public function update(Request $request){
      
 

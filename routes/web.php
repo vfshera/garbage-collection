@@ -30,11 +30,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/auth/redirect', [Redirect
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
 
-    Route::post('/report' , function(Request $request){
-
-        dd($request->all());
-
-    })->name('report');
+    
 
 
 
@@ -54,6 +50,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
 
 
+
         //Orders
         
         Route::prefix('/order')->name('order.')->group(function(){
@@ -67,6 +64,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
             Route::put('/update', [OrderController::class , 'update'])->name('update');
         
             Route::delete('/delete/{order}', [OrderController::class , 'destroy'])->name('destroy');
+
+            Route::get('/report' , [UserPagesController::class , 'getreport'])->name('report');
+            
+            Route::post('/report' , [UserPagesController::class , 'getreport'])->name('report');
+
             
         });
 
