@@ -33,6 +33,43 @@ class UserPagesController extends Controller
         return view('user.dashboard' , compact(['latestOrders','ordersCount','latestPayments', 'paymentsSum']));
     }
 
+
+     
+    public function getreport(Request $request){ 
+        
+        $reportType = "Order Report";
+        
+        
+        if($request->has('status') && $request->get('status') == 1) {
+
+            $reportType = "Paid Orders"; 
+        }
+        
+        if($request->has('status') && $request->get('status')  == 0) {
+
+            $reportType = "Unpaid Orders";
+
+        } 
+
+        $orders = Order::when($request->has('status'), function ($query) use ($request) {
+
+            return $query->where('status', $request->get('status'));
+            
+         })->when(($request->has('from') && $request->from != null),function($query) use ($request) {
+
+            return $query->where('created_at' ,'>=', date('Y-m-d', strtotime($request->from)));
+            
+         })->when(($request->has('to')  && $request->to != null),function($query) use ($request) {
+
+            return $query->where('created_at' ,'<=', date('Y-m-d', strtotime($request->to)));
+
+         })->with('waste','payment')->forAuthUser()->latest()->get();
+         
+
+        return view('user.order-report' , compact('orders', 'reportType'));
+    }
+
+
     public function orders(Request $request){
         
         $orders = Order::when($request->has('status'), function ($query) use ($request) {

@@ -356,7 +356,7 @@ section.navbar {
                 @apply w-1/2;
 
                 .title-box {
-                    @apply py-5 lg:py-10 px-7 lg:px-14 bg-brand-7 w-full;
+                    @apply py-5 lg:py-10 px-7 lg:px-14 bg-brand-1 w-full;
 
                     h1 {
                         @apply text-brand-2 text-2xl font-bold;
@@ -631,22 +631,36 @@ section.navbar {
         }
     }
 
-    .dash-overview {
-        @apply flex gap-10 p-10 bg-brand-1 rounded shadow mt-5;
+    .reports-overview {
+        @apply grid grid-cols-2 gap-14 mt-5;
 
-        .dash-item {
-            @apply flex flex-col justify-center items-center py-10 rounded w-1/6   bg-white shadow-sm;
+        .dash-overview {
+            @apply flex gap-12 p-10 bg-brand-1 rounded shadow;
 
-            p.amount {
-                @apply text-2xl font-bold text-brand-1;
+            .dash-item {
+                @apply flex flex-col justify-center items-center py-10 rounded w-1/2   bg-white shadow-sm;
+
+                p.amount {
+                    @apply text-2xl font-bold text-brand-1;
+                }
+
+                p.label {
+                    @apply text-2xl text-brand-1;
+                }
             }
+        }
 
-            p.label {
-                @apply text-2xl text-brand-1;
+        .reports {
+            @apply bg-brand-1 rounded shadow gap-12 flex p-10;
+            a {
+                @apply w-1/2 h-full;
+
+                .report {
+                    @apply cursor-pointer h-full bg-white py-10 shadow-sm rounded flex flex-col justify-center items-center text-brand-1 text-xl font-bold;
+                }
             }
         }
     }
-
     .activity {
         @apply mt-10 grid grid-cols-2 gap-10;
 
@@ -748,6 +762,30 @@ section.navbar {
                 }
             }
         }
+    }
+}
+#reportModal,
+#paymentModal {
+    @apply w-1/3 flex flex-col items-center rounded p-10;
+
+    h1 {
+        @apply text-2xl font-bold text-gray-800;
+    }
+
+    form {
+        @apply w-full flex flex-col justify-center my-2;
+
+        .input-group {
+            @apply w-full mb-5;
+        }
+
+        button {
+            @apply rounded py-3;
+        }
+    }
+
+    span {
+        @apply text-4xl  font-semibold   text-red-500;
     }
 }
 /* USER DASH PAGE END*/
@@ -1141,5 +1179,96 @@ section.navbar {
 }
 
 /* LOCATION PAGE END*/
+
+/* REPORT PAGE*/
+
+.report-page {
+    @apply flex flex-col items-center;
+
+    header {
+        @apply flex justify-between items-center my-5 w-2/3;
+        h1 {
+            @apply font-semibold text-2xl;
+        }
+
+
+        .options{
+            @apply flex justify-between items-center;
+
+            a{
+                @apply bg-brand-7 text-white mr-5;
+            }
+            button ,a {
+                @apply py-3 px-10 rounded;
+            }
+        }
+        
+    }
+
+    .report-wrapper {
+        @apply w-full border border-brand-7 border-dashed flex justify-center items-center p-10;
+
+        .report {
+            @apply w-2/3 bg-white p-10 shadow-lg  flex flex-col;
+
+            .reporthead {
+                @apply flex justify-between items-center pb-3 border-b border-gray-500;
+
+                h1 {
+                    @apply w-1/3 font-semibold text-lg;
+                }
+
+                h2 {
+                    @apply w-1/3 font-semibold text-lg;
+                }
+
+                span {
+                    @apply w-1/3  text-lg;
+                }
+            }
+
+            .report-items {
+                @apply mt-5 flex flex-col;
+
+                .report-item {
+
+                    &:not(:last-child){
+                        @apply mb-5;
+                    }
+
+
+                    .report-item-serial {
+                        @apply relative top-0 left-0 p-3 bg-gray-800 text-white;
+                    }
+
+                    .report-data {
+                        @apply border-2  border-gray-800;
+
+                        .details {
+                            @apply p-3 flex;
+
+                            .detail {
+                                @apply w-1/3 flex flex-col;
+
+                                p.label {
+                                    @apply font-semibold;
+                                }
+
+                                p.value {
+                                    @apply text-gray-800;
+                                }
+
+                                &:not(:last-child) {
+                                    @apply mb-2;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* REPORT PAGE END*/
 
 /*USER PAGES END */
