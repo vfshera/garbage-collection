@@ -3,7 +3,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{PagesController , WasteController , RedirectController ,AdminPagesController , OrderController, QuestionController , UserPagesController};
+use App\Http\Controllers\{PagesController ,
+    ReportController,
+     WasteController ,
+      RedirectController ,
+      AdminPagesController ,
+       OrderController, QuestionController , UserPagesController};
 
 /*
 |--------------------------------------------------------------------------
@@ -65,14 +70,22 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
         
             Route::delete('/delete/{order}', [OrderController::class , 'destroy'])->name('destroy');
 
-            Route::get('/report' , [UserPagesController::class , 'getreport'])->name('report');
-            
-            Route::post('/report' , [UserPagesController::class , 'getreport'])->name('report');
-
-            
+                        
         });
 
-        
+        Route::prefix('/report')->name('report.')->group(function(){
+            
+            Route::get('/report', [UserPagesController::class , 'getOrderReport'])->name('order');
+            
+            Route::post('/report', [UserPagesController::class , 'getOrderReport'])->name('order');
+
+            // Route::get('/get-pdf' , [ReportController::class , 'generatePdf'])->name('pdf');
+            
+            Route::get('/payment', [UserPagesController::class , 'getPaymentReport'])->name('payment');
+            
+            Route::post('/payment', [UserPagesController::class , 'getPaymentReport'])->name('payment');
+
+        });
 
     });
 
