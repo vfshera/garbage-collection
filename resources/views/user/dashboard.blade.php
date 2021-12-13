@@ -138,10 +138,12 @@
             <div id="reportModal" class="modal-content">
 
                 <h1>Order Report</h1>
-                <form action="">
+                <form action="{{ route('report') }}" method="POST">
+
+                    @csrf
                     <div class="input-group">
                         <label for="from">From</label>
-                        <input type="date" name="from" id="from" required>
+                        <input type="date" name="from" id="from">
                     </div>
                     <div class="input-group">
                         <label for="to">To</label>
@@ -165,10 +167,12 @@
             <div id="paymentModal" class="modal-content">
                 <h1>Payment Report</h1>
 
-                <form action="">
+                <form action="{{ route('report') }}" method="POST">
+
+                    @csrf
                     <div class="input-group">
                         <label for="from">From</label>
-                        <input type="date" name="from" id="from" required>
+                        <input type="date" name="from" id="from">
                     </div>
                     <div class="input-group">
                         <label for="to">To</label>
