@@ -1514,6 +1514,14 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
+.bg-brand-7 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(28, 130, 0, var(--tw-bg-opacity));
+}
+.bg-blue-600 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -8263,7 +8271,7 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	margin-top: 1.25rem;
 	margin-bottom: 1.25rem;
 	display: flex;
-	width: 66.666667%;
+	width: 91.666667%;
 	align-items: center;
 	justify-content: space-between;
 }
@@ -8279,8 +8287,6 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 }
 .report-page header .options a {
 	margin-right: 1.25rem;
-	--tw-bg-opacity: 1;
-	background-color: rgba(28, 130, 0, var(--tw-bg-opacity));
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
@@ -8288,8 +8294,11 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	border-radius: 0.25rem;
 	padding-top: 0.75rem;
 	padding-bottom: 0.75rem;
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
+	padding-left: 1.75rem;
+	padding-right: 1.75rem;
+}
+.report-page header .options a.btn-pdf {
+	margin-left: 1.25rem;
 }
 .report-page .report-wrapper {
 	display: flex;
