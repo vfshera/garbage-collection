@@ -1518,10 +1518,6 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(28, 130, 0, var(--tw-bg-opacity));
 }
-.bg-blue-600 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
-}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -8300,7 +8296,7 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 .report-page header .options a.btn-pdf {
 	margin-left: 1.25rem;
 }
-.report-page .report-wrapper {
+.report-wrapper {
 	display: flex;
 	width: 100%;
 	align-items: center;
@@ -8311,7 +8307,7 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	border-color: rgba(28, 130, 0, var(--tw-border-opacity));
 	padding: 2.5rem;
 }
-.report-page .report-wrapper .report {
+.report-wrapper .report {
 	display: flex;
 	width: 66.666667%;
 	flex-direction: column;
@@ -8321,7 +8317,7 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.report-page .report-wrapper .report .reporthead {
+.report-wrapper .report .reporthead {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -8330,32 +8326,32 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
 	padding-bottom: 0.75rem;
 }
-.report-page .report-wrapper .report .reporthead h1 {
+.report-wrapper .report .reporthead h1 {
 	width: 33.333333%;
 	font-size: 1.125rem;
 	line-height: 1.75rem;
 	font-weight: 600;
 }
-.report-page .report-wrapper .report .reporthead h2 {
+.report-wrapper .report .reporthead h2 {
 	width: 33.333333%;
 	font-size: 1.125rem;
 	line-height: 1.75rem;
 	font-weight: 600;
 }
-.report-page .report-wrapper .report .reporthead span {
+.report-wrapper .report .reporthead span {
 	width: 33.333333%;
 	font-size: 1.125rem;
 	line-height: 1.75rem;
 }
-.report-page .report-wrapper .report .report-items {
+.report-wrapper .report .report-items {
 	margin-top: 1.25rem;
 	display: flex;
 	flex-direction: column;
 }
-.report-page .report-wrapper .report .report-items .report-item:not(:last-child) {
+.report-wrapper .report .report-items .report-item:not(:last-child) {
 	margin-bottom: 1.25rem;
 }
-.report-page .report-wrapper .report .report-items .report-item .report-item-serial {
+.report-wrapper .report .report-items .report-item .report-item-serial {
 	position: relative;
 	top: 0px;
 	left: 0px;
@@ -8365,28 +8361,28 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
-.report-page .report-wrapper .report .report-items .report-item .report-data {
+.report-wrapper .report .report-items .report-item .report-data {
 	border-width: 2px;
 	--tw-border-opacity: 1;
 	border-color: rgba(31, 41, 55, var(--tw-border-opacity));
 }
-.report-page .report-wrapper .report .report-items .report-item .report-data .details {
+.report-wrapper .report .report-items .report-item .report-data .details {
 	display: flex;
 	padding: 0.75rem;
 }
-.report-page .report-wrapper .report .report-items .report-item .report-data .details .detail {
+.report-wrapper .report .report-items .report-item .report-data .details .detail {
 	display: flex;
 	width: 33.333333%;
 	flex-direction: column;
 }
-.report-page .report-wrapper .report .report-items .report-item .report-data .details .detail p.label {
+.report-wrapper .report .report-items .report-item .report-data .details .detail p.label {
 	font-weight: 600;
 }
-.report-page .report-wrapper .report .report-items .report-item .report-data .details .detail p.value {
+.report-wrapper .report .report-items .report-item .report-data .details .detail p.value {
 	--tw-text-opacity: 1;
 	color: rgba(31, 41, 55, var(--tw-text-opacity));
 }
-.report-page .report-wrapper .report .report-items .report-item .report-data .details .detail:not(:last-child) {
+.report-wrapper .report .report-items .report-item .report-data .details .detail:not(:last-child) {
 	margin-bottom: 0.5rem;
 }
 /* REPORT PAGE END*/

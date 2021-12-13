@@ -38,7 +38,7 @@
 
             <div class="reports">
 
-                <a href="{{ route('user.order.report') }}">
+                <a href="{{ route('user.report.order') }}">
                     <div class="report">
                         Orders
                         Report
@@ -46,7 +46,7 @@
 
                 </a>
 
-                <a href="{{ route('user.order.report') }}">
+                <a href="{{ route('user.report.payment') }}">
 
                     <div class="report">
                         Payment

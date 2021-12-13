@@ -4,18 +4,16 @@
             <h1>{{ $reportType }}</h1>
 
             <div class="options">
-                <a class="bg-brand-7" href="{{ route('user.order.report') }}">All</a>
-                <a class="bg-brand-7" href="{{ route('user.order.report', ['status' => 0]) }}">Unpaid</a>
-                <a class="bg-brand-7" href="{{ route('user.order.report', ['status' => 1]) }}">Paid</a>
+                <a class="bg-brand-7" href="{{ route('user.report.order') }}">All</a>
+                <a class="bg-brand-7" href="{{ route('user.report.order', ['status' => 0]) }}">Unpaid</a>
+                <a class="bg-brand-7" href="{{ route('user.report.order', ['status' => 1]) }}">Paid</a>
 
 
                 <button class="btn-success" onclick="openModal('#orderReport')">Set Creteria</button>
 
-                <a href="/" class="bg-blue-600 btn-pdf">Get PDF</a>
+
             </div>
         </header>
-
-
 
         <x-order-report-view :reportType="$reportType" :orders="$orders" />
 
@@ -36,7 +34,7 @@
             <div id="reportModal" class="modal-content">
 
                 <h1>Order Report</h1>
-                <form action="{{ route('user.order.report') }}" method="POST">
+                <form action="{{ route('user.report.order') }}" method="POST">
 
                     @csrf
                     <div class="input-group">
@@ -58,33 +56,6 @@
 
         </div>
 
-
-        <!-- PAYMENT MODAL -->
-        <div id="paymentReport" class="modal">
-
-            <div id="paymentModal" class="modal-content">
-                <h1>Payment Report</h1>
-
-                <form action="" method="POST">
-
-                    @csrf
-                    <div class="input-group">
-                        <label for="from">From</label>
-                        <input type="date" name="from" id="from">
-                    </div>
-                    <div class="input-group">
-                        <label for="to">To</label>
-                        <input type="date" name="to" max="{{ date('Y-m-d' , strtotime(now())) }}" value="" id="to">
-                    </div>
-                    <button type="submit" class="btn-success">Get Report</button>
-                </form>
-
-                <span id="closeIcon" onclick="closeModal('#paymentReport')" class="cursor-pointer">&times;</span>
-
-
-            </div>
-
-        </div>
 
     </x-slot>
 

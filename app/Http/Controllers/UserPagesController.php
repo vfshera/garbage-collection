@@ -35,7 +35,7 @@ class UserPagesController extends Controller
 
 
      
-    public function getreport(Request $request){ 
+    public function getOrderReport(Request $request){ 
         
         $reportType = "Order Report";
         
@@ -67,6 +67,21 @@ class UserPagesController extends Controller
          
 
         return view('user.order-report' , compact('orders', 'reportType'));
+    }
+
+     
+    public function getPaymentReport(Request $request){     
+               
+        
+
+        $payments = Payment::whereHas('order' , function($query){
+            
+            return $query->where('user_id' , Auth::user()->id);
+
+        })->latest()->get();
+         
+
+        return view('user.payment-report' , compact('payments'));
     }
 
 
