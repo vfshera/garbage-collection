@@ -7,7 +7,7 @@
             <h1>{{ $reportType }}</h1>
 
 
-            <h2>{{ Auth::user()->name }}</h2>
+            <h2> Viewing As {{ Auth::user()->name }}</h2>
 
             <span>{{ date('H:i - jS M Y' , strtotime(now())) }}</span>
 
@@ -19,7 +19,16 @@
             @foreach($orders as $order)
             <div class="report-item">
 
-                <div class="report-item-serial">ID : {{ $order->serial}}</div>
+                <div class="report-item-serial">
+                    <span>
+                        ID : {{ $order->serial}}
+                    </span>
+                    <span class="">
+                        @admin
+                        CUSTOMER : {{ $order->user->name }}
+                        @endadmin
+                    </span>
+                </div>
 
                 <div class="report-data">
                     <div class="details">

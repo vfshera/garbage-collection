@@ -28,6 +28,87 @@ class AdminPagesController extends Controller
     }
 
 
+
+
+
+
+    
+     
+    public function getOrderReport(Request $request){ 
+        
+        $reportType = "Order Report";
+        
+        
+        if($request->has('status') && $request->get('status') == 1) {
+
+            $reportType = "Paid Orders"; 
+        }
+        
+        if($request->has('status') && $request->get('status')  == 0) {
+
+            $reportType = "Unpaid Orders";
+
+        } 
+
+        $orders = Order::when($request->has('status'), function ($query) use ($request) {
+
+            return $query->where('status', $request->get('status'));
+            
+         })->when(($request->has('from') && $request->from != null),function($query) use ($request) {
+
+            return $query->where('created_at' ,'>=', date('Y-m-d', strtotime($request->from)));
+            
+         })->when(($request->has('to')  && $request->to != null),function($query) use ($request) {
+
+            return $query->where('created_at' ,'<=', date('Y-m-d', strtotime($request->to)));
+
+         })->when(($request->has('forUser')  && $request->forUser != null),function($query) use ($request) {
+
+            return $query->where('user_id' , $request->forUser);
+
+         })->with('waste','payment')->latest()->get();
+         
+
+
+         $users = User::normalUsers()->get();
+
+        return view('admin.order-report' , compact('orders', 'reportType','users'));
+    }
+
+
+
+     
+    public function getPaymentReport(Request $request){     
+               
+        
+
+        $payments = Payment::when(($request->has('from') && $request->from != null),function($query) use ($request) {
+
+            return $query->where('created_at' ,'>=', date('Y-m-d', strtotime($request->from)));
+            
+         })->when(($request->has('to')  && $request->to != null),function($query) use ($request) {
+
+            return $query->where('created_at' ,'<=', date('Y-m-d', strtotime($request->to)));
+
+         })->when(($request->has('forUser')  && $request->forUser != null),function($query) use ($request) {
+
+            return $query->whereHas('order',function($ord) use($request){
+                return $ord->forUser($request->forUser);
+            });
+
+         })->latest()->get();
+         
+         $users = User::normalUsers()->get();
+
+
+        return view('admin.payment-report' , compact('payments','users'));
+    }
+
+
+
+
+
+
     public function users(){
 
         $users = User::normalUsers()->orderBy('created_at', 'DESC')->paginate(8);

@@ -389,6 +389,163 @@ section.navbar {
 }
 /* WELCOME PAGE END */
 
+/* SHARED PAGES */
+
+
+.dashview {
+    @apply flex flex-col;
+
+    header {
+        @apply flex justify-between items-center;
+
+        h1 {
+            @apply font-semibold text-2xl;
+        }
+
+        p {
+            @apply text-gray-700 italic;
+        }
+    }
+
+    .reports-overview {
+        @apply grid grid-cols-2 gap-14 mt-5;
+
+        .dash-overview {
+            @apply flex gap-12 p-10 bg-brand-1 rounded shadow;
+
+            .dash-item {
+                @apply flex flex-col justify-center items-center py-10 rounded w-1/2   bg-white shadow-sm;
+
+                p.amount {
+                    @apply text-2xl font-bold text-brand-1;
+                }
+
+                p.label {
+                    @apply text-2xl text-brand-1;
+                }
+            }
+        }
+
+        .reports {
+            @apply bg-brand-1 rounded shadow gap-12 flex p-10;
+            a {
+                @apply w-1/2 h-full;
+
+                .report {
+                    @apply cursor-pointer h-full bg-white py-10 shadow-sm rounded flex flex-col justify-center items-center text-brand-1 text-xl font-bold;
+                }
+            }
+        }
+    }
+    .activity {
+        @apply mt-10 grid grid-cols-2 gap-10;
+
+        .last-orders,
+        .last-payments {
+            @apply p-5 bg-white shadow rounded flex flex-col;
+
+            h3 {
+                @apply text-brand-1 font-bold;
+            }
+
+            .shortlist {
+                @apply flex flex-col mt-2;
+            }
+        }
+
+        .last-orders {
+            .orderhead,
+            .shortlist .orderitem {
+                @apply flex;
+
+                .item-serial {
+                    @apply w-3/12;
+                }
+
+                .item-waste {
+                    @apply w-3/12;
+                }
+
+                .item-progress {
+                    @apply w-2/12;
+                }
+
+                .item-total {
+                    @apply w-2/12;
+                }
+
+                .item-status {
+                    @apply w-2/12;
+                }
+            }
+
+            .orderhead {
+                @apply border-b border-gray-500;
+
+                div {
+                    @apply font-bold text-gray-900;
+                }
+            }
+
+            .shortlist {
+                a {
+                    @apply hover:bg-green-50;
+                }
+                a .orderitem,
+                .orderitem {
+                    .item-serial,
+                    .item-waste,
+                    .item-total {
+                        @apply text-gray-800;
+                    }
+                }
+            }
+        }
+
+        .last-payments {
+            .payhead,
+            .shortlist .payitem {
+                @apply flex;
+
+                .item-order,
+                .item-amount,
+                .item-transaction,
+                .item-date {
+                    @apply w-1/4;
+                }
+            }
+            .payhead {
+                @apply border-b border-gray-500;
+
+                .item-order,
+                .item-amount,
+                .item-transaction,
+                .item-date {
+                    @apply font-bold text-gray-900;
+                }
+            }
+
+            .shortlist {
+                .payitem {
+                    @apply flex;
+
+                    .item-order,
+                    .item-amount,
+                    .item-transaction,
+                    .item-date {
+                        @apply text-gray-800;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* SHARED PAGES END */
+
+
+
+
 /* ADMIN PAGES */
 
 /* WASTE PAGE */
@@ -616,154 +773,8 @@ section.navbar {
 
 /* USER DASH PAGE */
 
-.user-dash {
-    @apply flex flex-col;
 
-    header {
-        @apply flex justify-between items-center;
 
-        h1 {
-            @apply font-semibold text-2xl;
-        }
-
-        p {
-            @apply text-gray-700 italic;
-        }
-    }
-
-    .reports-overview {
-        @apply grid grid-cols-2 gap-14 mt-5;
-
-        .dash-overview {
-            @apply flex gap-12 p-10 bg-brand-1 rounded shadow;
-
-            .dash-item {
-                @apply flex flex-col justify-center items-center py-10 rounded w-1/2   bg-white shadow-sm;
-
-                p.amount {
-                    @apply text-2xl font-bold text-brand-1;
-                }
-
-                p.label {
-                    @apply text-2xl text-brand-1;
-                }
-            }
-        }
-
-        .reports {
-            @apply bg-brand-1 rounded shadow gap-12 flex p-10;
-            a {
-                @apply w-1/2 h-full;
-
-                .report {
-                    @apply cursor-pointer h-full bg-white py-10 shadow-sm rounded flex flex-col justify-center items-center text-brand-1 text-xl font-bold;
-                }
-            }
-        }
-    }
-    .activity {
-        @apply mt-10 grid grid-cols-2 gap-10;
-
-        .last-orders,
-        .last-payments {
-            @apply p-5 bg-white shadow rounded flex flex-col;
-
-            h3 {
-                @apply text-brand-1 font-bold;
-            }
-
-            .shortlist {
-                @apply flex flex-col mt-2;
-            }
-        }
-
-        .last-orders {
-            .orderhead,
-            .shortlist .orderitem {
-                @apply flex;
-
-                .item-serial {
-                    @apply w-3/12;
-                }
-
-                .item-waste {
-                    @apply w-3/12;
-                }
-
-                .item-progress {
-                    @apply w-2/12;
-                }
-
-                .item-total {
-                    @apply w-2/12;
-                }
-
-                .item-status {
-                    @apply w-2/12;
-                }
-            }
-
-            .orderhead {
-                @apply border-b border-gray-500;
-
-                div {
-                    @apply font-bold text-gray-900;
-                }
-            }
-
-            .shortlist {
-                a {
-                    @apply hover:bg-green-50;
-                }
-                a .orderitem,
-                .orderitem {
-                    .item-serial,
-                    .item-waste,
-                    .item-total {
-                        @apply text-gray-800;
-                    }
-                }
-            }
-        }
-
-        .last-payments {
-            .payhead,
-            .shortlist .payitem {
-                @apply flex;
-
-                .item-order,
-                .item-amount,
-                .item-transaction,
-                .item-date {
-                    @apply w-1/4;
-                }
-            }
-            .payhead {
-                @apply border-b border-gray-500;
-
-                .item-order,
-                .item-amount,
-                .item-transaction,
-                .item-date {
-                    @apply font-bold text-gray-900;
-                }
-            }
-
-            .shortlist {
-                .payitem {
-                    @apply flex;
-
-                    .item-order,
-                    .item-amount,
-                    .item-transaction,
-                    .item-date {
-                        @apply text-gray-800;
-                    }
-                }
-            }
-        }
-    }
-}
 #reportModal,
 #paymentModal {
     @apply w-1/3 flex flex-col items-center rounded p-10;
@@ -1258,7 +1269,11 @@ section.navbar {
 
 
                 .report-item-serial {
-                    @apply relative top-0 left-0 p-3 bg-gray-800 text-white;
+                    @apply flex p-3 bg-gray-800 text-white;
+
+                    span{
+                        @apply w-1/3;
+                    }
                 }
 
                 .report-data {

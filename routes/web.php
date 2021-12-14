@@ -75,9 +75,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
         Route::prefix('/report')->name('report.')->group(function(){
             
-            Route::get('/report', [UserPagesController::class , 'getOrderReport'])->name('order');
+            Route::get('/order', [UserPagesController::class , 'getOrderReport'])->name('order');
             
-            Route::post('/report', [UserPagesController::class , 'getOrderReport'])->name('order-bound');
+            Route::post('/order', [UserPagesController::class , 'getOrderReport'])->name('order-bound');
 
             // Route::get('/get-pdf' , [ReportController::class , 'generatePdf'])->name('pdf');
             
@@ -113,6 +113,21 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
         
             Route::delete('/delete/{waste}', [WasteController::class , 'destroy'])->name('destroy');
             
+        });
+
+
+        Route::prefix('/report')->name('report.')->group(function(){
+            
+            Route::get('/order', [AdminPagesController::class , 'getOrderReport'])->name('order');
+            
+            Route::post('/order', [AdminPagesController::class , 'getOrderReport'])->name('order-bound');
+
+            // Route::get('/get-pdf' , [ReportController::class , 'generatePdf'])->name('pdf');
+            
+            Route::get('/payment', [AdminPagesController::class , 'getPaymentReport'])->name('payment');
+            
+            Route::post('/payment', [AdminPagesController::class , 'getPaymentReport'])->name('payment-bound');
+
         });
 
     });
