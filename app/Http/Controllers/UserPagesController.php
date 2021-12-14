@@ -69,12 +69,22 @@ class UserPagesController extends Controller
         return view('user.order-report' , compact('orders', 'reportType'));
     }
 
+
+
      
     public function getPaymentReport(Request $request){     
                
         
 
-        $payments = Payment::whereHas('order' , function($query){
+        $payments = Payment::when(($request->has('from') && $request->from != null),function($query) use ($request) {
+
+            return $query->where('created_at' ,'>=', date('Y-m-d', strtotime($request->from)));
+            
+         })->when(($request->has('to')  && $request->to != null),function($query) use ($request) {
+
+            return $query->where('created_at' ,'<=', date('Y-m-d', strtotime($request->to)));
+
+         })->whereHas('order' , function($query){
             
             return $query->where('user_id' , Auth::user()->id);
 
@@ -83,6 +93,9 @@ class UserPagesController extends Controller
 
         return view('user.payment-report' , compact('payments'));
     }
+
+
+
 
 
     public function orders(Request $request){

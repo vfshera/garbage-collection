@@ -42,7 +42,7 @@
             <div id="paymentModal" class="modal-content">
                 <h1>Payment Report</h1>
 
-                <form action="{{ route('user.report.payment-bound') }}" method="POST">
+                <form action="{{ route('admin.report.payment-bound') }}" method="POST">
 
                     @csrf
                     <div class="input-group">
@@ -53,6 +53,17 @@
                         <label for="to">To</label>
                         <input type="date" name="to" max="{{ date('Y-m-d' , strtotime(now())) }}" value="" id="to">
                     </div>
+
+                    <div class="input-group">
+                        <label for="forUser">By User</label>
+                        <select name="forUser" id="forUser" value="">
+                            <option value="" selected disabled>Choose User</option>
+                            @foreach($users as $user)
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <button type="submit" class="btn-success">Get Report</button>
                 </form>
 

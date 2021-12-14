@@ -1,36 +1,59 @@
 <x-app-layout>
-    <div class="user-dash">
+    <div class="dashview">
         <header>
             <h1>Wecome, {{ Auth::user()->name }}.</h1>
 
             <p>{{ date('h:i a, jS M Y' , strtotime(now())) }}</p>
         </header>
 
+        <div class="reports-overview">
 
-        <div class="dash-overview">
-            <div class="dash-item">
+            <div class="dash-overview">
+                <div class="dash-item">
 
-                <p class="amount">
-                    {{ $ordersCount }}
-                </p>
+                    <p class="amount">
+                        {{ $ordersCount }}
+                    </p>
 
 
-                <p class="label">
-                    Orders
-                </p>
+                    <p class="label">
+                        Orders
+                    </p>
 
+                </div>
+
+                <div class="dash-item">
+
+                    <p class="amount">
+                        {{ number_format($paymentsSum , 0 , "",",")  }} Ksh.
+                    </p>
+
+
+                    <p class="label">
+                        Received
+                    </p>
+
+                </div>
             </div>
 
-            <div class="dash-item">
+            <div class="reports">
 
-                <p class="amount">
-                    {{ number_format($paymentsSum , 0 , "",",")  }} Ksh.
-                </p>
+                <a href="{{ route('admin.report.order') }}">
+                    <div class="report">
+                        Orders
+                        Report
+                    </div>
 
+                </a>
 
-                <p class="label">
-                    Received
-                </p>
+                <a href="{{ route('admin.report.payment') }}">
+
+                    <div class="report">
+                        Payment
+                        Report
+                    </div>
+
+                </a>
 
             </div>
         </div>

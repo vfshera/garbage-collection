@@ -1175,6 +1175,9 @@ select {
 .mb-4 {
 	margin-bottom: 1rem;
 }
+.ml-20 {
+	margin-left: 5rem;
+}
 .-mt-px {
 	margin-top: -1px;
 }
@@ -7166,6 +7169,189 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 /* WELCOME PAGE END */
+/* SHARED PAGES */
+.dashview {
+	display: flex;
+	flex-direction: column;
+}
+.dashview header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.dashview header h1 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 600;
+}
+.dashview header p {
+	font-style: italic;
+	--tw-text-opacity: 1;
+	color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+.dashview .reports-overview {
+	margin-top: 1.25rem;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 3.5rem;
+}
+.dashview .reports-overview .dash-overview {
+	display: flex;
+	gap: 3rem;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(64, 112, 86, var(--tw-bg-opacity));
+	padding: 2.5rem;
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.dashview .reports-overview .dash-overview .dash-item {
+	display: flex;
+	width: 50%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.dashview .reports-overview .dash-overview .dash-item p.amount {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+}
+.dashview .reports-overview .dash-overview .dash-item p.label {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+}
+.dashview .reports-overview .reports {
+	display: flex;
+	gap: 3rem;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(64, 112, 86, var(--tw-bg-opacity));
+	padding: 2.5rem;
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.dashview .reports-overview .reports a {
+	height: 100%;
+	width: 50%;
+}
+.dashview .reports-overview .reports a .report {
+	display: flex;
+	height: 100%;
+	cursor: pointer;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.dashview .activity {
+	margin-top: 2.5rem;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 2.5rem;
+}
+.dashview .activity .last-orders, .dashview .activity .last-payments {
+	display: flex;
+	flex-direction: column;
+	border-radius: 0.25rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding: 1.25rem;
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.dashview .activity .last-orders h3, .dashview .activity .last-payments h3 {
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+}
+.dashview .activity .last-orders .shortlist, .dashview .activity .last-payments .shortlist {
+	margin-top: 0.5rem;
+	display: flex;
+	flex-direction: column;
+}
+.dashview .activity .last-orders .orderhead, .dashview .activity .last-orders .shortlist .orderitem {
+	display: flex;
+}
+.dashview .activity .last-orders .orderhead .item-serial, .dashview .activity .last-orders .shortlist .orderitem .item-serial {
+	width: 25%;
+}
+.dashview .activity .last-orders .orderhead .item-waste, .dashview .activity .last-orders .shortlist .orderitem .item-waste {
+	width: 25%;
+}
+.dashview .activity .last-orders .orderhead .item-progress, .dashview .activity .last-orders .shortlist .orderitem .item-progress {
+	width: 16.666667%;
+}
+.dashview .activity .last-orders .orderhead .item-total, .dashview .activity .last-orders .shortlist .orderitem .item-total {
+	width: 16.666667%;
+}
+.dashview .activity .last-orders .orderhead .item-status, .dashview .activity .last-orders .shortlist .orderitem .item-status {
+	width: 16.666667%;
+}
+.dashview .activity .last-orders .orderhead {
+	border-bottom-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
+}
+.dashview .activity .last-orders .orderhead div {
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(17, 24, 39, var(--tw-text-opacity));
+}
+.dashview .activity .last-orders .shortlist a:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
+}
+.dashview .activity .last-orders .shortlist a .orderitem .item-serial, .dashview .activity .last-orders .shortlist a .orderitem .item-waste, .dashview .activity .last-orders .shortlist a .orderitem .item-total, .dashview .activity .last-orders .shortlist .orderitem .item-serial, .dashview .activity .last-orders .shortlist .orderitem .item-waste, .dashview .activity .last-orders .shortlist .orderitem .item-total {
+	--tw-text-opacity: 1;
+	color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+.dashview .activity .last-payments .payhead, .dashview .activity .last-payments .shortlist .payitem {
+	display: flex;
+}
+.dashview .activity .last-payments .payhead .item-order, .dashview .activity .last-payments .payhead .item-amount, .dashview .activity .last-payments .payhead .item-transaction, .dashview .activity .last-payments .payhead .item-date, .dashview .activity .last-payments .shortlist .payitem .item-order, .dashview .activity .last-payments .shortlist .payitem .item-amount, .dashview .activity .last-payments .shortlist .payitem .item-transaction, .dashview .activity .last-payments .shortlist .payitem .item-date {
+	width: 25%;
+}
+.dashview .activity .last-payments .payhead {
+	border-bottom-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
+}
+.dashview .activity .last-payments .payhead .item-order, .dashview .activity .last-payments .payhead .item-amount, .dashview .activity .last-payments .payhead .item-transaction, .dashview .activity .last-payments .payhead .item-date {
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(17, 24, 39, var(--tw-text-opacity));
+}
+.dashview .activity .last-payments .shortlist .payitem {
+	display: flex;
+}
+.dashview .activity .last-payments .shortlist .payitem .item-order, .dashview .activity .last-payments .shortlist .payitem .item-amount, .dashview .activity .last-payments .shortlist .payitem .item-transaction, .dashview .activity .last-payments .shortlist .payitem .item-date {
+	--tw-text-opacity: 1;
+	color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+/* SHARED PAGES END */
 /* ADMIN PAGES */
 /* WASTE PAGE */
 .waste-page {
@@ -7499,187 +7685,6 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 /* ADMIN PAGES END*/
 /*USER PAGES */
 /* USER DASH PAGE */
-.user-dash {
-	display: flex;
-	flex-direction: column;
-}
-.user-dash header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-.user-dash header h1 {
-	font-size: 1.5rem;
-	line-height: 2rem;
-	font-weight: 600;
-}
-.user-dash header p {
-	font-style: italic;
-	--tw-text-opacity: 1;
-	color: rgba(55, 65, 81, var(--tw-text-opacity));
-}
-.user-dash .reports-overview {
-	margin-top: 1.25rem;
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 3.5rem;
-}
-.user-dash .reports-overview .dash-overview {
-	display: flex;
-	gap: 3rem;
-	border-radius: 0.25rem;
-	--tw-bg-opacity: 1;
-	background-color: rgba(64, 112, 86, var(--tw-bg-opacity));
-	padding: 2.5rem;
-	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.user-dash .reports-overview .dash-overview .dash-item {
-	display: flex;
-	width: 50%;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	border-radius: 0.25rem;
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-	padding-top: 2.5rem;
-	padding-bottom: 2.5rem;
-	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.user-dash .reports-overview .dash-overview .dash-item p.amount {
-	font-size: 1.5rem;
-	line-height: 2rem;
-	font-weight: 700;
-	--tw-text-opacity: 1;
-	color: rgba(64, 112, 86, var(--tw-text-opacity));
-}
-.user-dash .reports-overview .dash-overview .dash-item p.label {
-	font-size: 1.5rem;
-	line-height: 2rem;
-	--tw-text-opacity: 1;
-	color: rgba(64, 112, 86, var(--tw-text-opacity));
-}
-.user-dash .reports-overview .reports {
-	display: flex;
-	gap: 3rem;
-	border-radius: 0.25rem;
-	--tw-bg-opacity: 1;
-	background-color: rgba(64, 112, 86, var(--tw-bg-opacity));
-	padding: 2.5rem;
-	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.user-dash .reports-overview .reports a {
-	height: 100%;
-	width: 50%;
-}
-.user-dash .reports-overview .reports a .report {
-	display: flex;
-	height: 100%;
-	cursor: pointer;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	border-radius: 0.25rem;
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-	padding-top: 2.5rem;
-	padding-bottom: 2.5rem;
-	font-size: 1.25rem;
-	line-height: 1.75rem;
-	font-weight: 700;
-	--tw-text-opacity: 1;
-	color: rgba(64, 112, 86, var(--tw-text-opacity));
-	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.user-dash .activity {
-	margin-top: 2.5rem;
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 2.5rem;
-}
-.user-dash .activity .last-orders, .user-dash .activity .last-payments {
-	display: flex;
-	flex-direction: column;
-	border-radius: 0.25rem;
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-	padding: 1.25rem;
-	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.user-dash .activity .last-orders h3, .user-dash .activity .last-payments h3 {
-	font-weight: 700;
-	--tw-text-opacity: 1;
-	color: rgba(64, 112, 86, var(--tw-text-opacity));
-}
-.user-dash .activity .last-orders .shortlist, .user-dash .activity .last-payments .shortlist {
-	margin-top: 0.5rem;
-	display: flex;
-	flex-direction: column;
-}
-.user-dash .activity .last-orders .orderhead, .user-dash .activity .last-orders .shortlist .orderitem {
-	display: flex;
-}
-.user-dash .activity .last-orders .orderhead .item-serial, .user-dash .activity .last-orders .shortlist .orderitem .item-serial {
-	width: 25%;
-}
-.user-dash .activity .last-orders .orderhead .item-waste, .user-dash .activity .last-orders .shortlist .orderitem .item-waste {
-	width: 25%;
-}
-.user-dash .activity .last-orders .orderhead .item-progress, .user-dash .activity .last-orders .shortlist .orderitem .item-progress {
-	width: 16.666667%;
-}
-.user-dash .activity .last-orders .orderhead .item-total, .user-dash .activity .last-orders .shortlist .orderitem .item-total {
-	width: 16.666667%;
-}
-.user-dash .activity .last-orders .orderhead .item-status, .user-dash .activity .last-orders .shortlist .orderitem .item-status {
-	width: 16.666667%;
-}
-.user-dash .activity .last-orders .orderhead {
-	border-bottom-width: 1px;
-	--tw-border-opacity: 1;
-	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
-}
-.user-dash .activity .last-orders .orderhead div {
-	font-weight: 700;
-	--tw-text-opacity: 1;
-	color: rgba(17, 24, 39, var(--tw-text-opacity));
-}
-.user-dash .activity .last-orders .shortlist a:hover {
-	--tw-bg-opacity: 1;
-	background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
-}
-.user-dash .activity .last-orders .shortlist a .orderitem .item-serial, .user-dash .activity .last-orders .shortlist a .orderitem .item-waste, .user-dash .activity .last-orders .shortlist a .orderitem .item-total, .user-dash .activity .last-orders .shortlist .orderitem .item-serial, .user-dash .activity .last-orders .shortlist .orderitem .item-waste, .user-dash .activity .last-orders .shortlist .orderitem .item-total {
-	--tw-text-opacity: 1;
-	color: rgba(31, 41, 55, var(--tw-text-opacity));
-}
-.user-dash .activity .last-payments .payhead, .user-dash .activity .last-payments .shortlist .payitem {
-	display: flex;
-}
-.user-dash .activity .last-payments .payhead .item-order, .user-dash .activity .last-payments .payhead .item-amount, .user-dash .activity .last-payments .payhead .item-transaction, .user-dash .activity .last-payments .payhead .item-date, .user-dash .activity .last-payments .shortlist .payitem .item-order, .user-dash .activity .last-payments .shortlist .payitem .item-amount, .user-dash .activity .last-payments .shortlist .payitem .item-transaction, .user-dash .activity .last-payments .shortlist .payitem .item-date {
-	width: 25%;
-}
-.user-dash .activity .last-payments .payhead {
-	border-bottom-width: 1px;
-	--tw-border-opacity: 1;
-	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
-}
-.user-dash .activity .last-payments .payhead .item-order, .user-dash .activity .last-payments .payhead .item-amount, .user-dash .activity .last-payments .payhead .item-transaction, .user-dash .activity .last-payments .payhead .item-date {
-	font-weight: 700;
-	--tw-text-opacity: 1;
-	color: rgba(17, 24, 39, var(--tw-text-opacity));
-}
-.user-dash .activity .last-payments .shortlist .payitem {
-	display: flex;
-}
-.user-dash .activity .last-payments .shortlist .payitem .item-order, .user-dash .activity .last-payments .shortlist .payitem .item-amount, .user-dash .activity .last-payments .shortlist .payitem .item-transaction, .user-dash .activity .last-payments .shortlist .payitem .item-date {
-	--tw-text-opacity: 1;
-	color: rgba(31, 41, 55, var(--tw-text-opacity));
-}
 #reportModal, #paymentModal {
 	display: flex;
 	width: 33.333333%;
@@ -8296,6 +8301,27 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 .report-page header .options a.btn-pdf {
 	margin-left: 1.25rem;
 }
+.report-page .no-content-wrapper {
+	width: 100%;
+	border-width: 1px;
+	border-style: dashed;
+	--tw-border-opacity: 1;
+	border-color: rgba(28, 130, 0, var(--tw-border-opacity));
+	padding: 5rem;
+}
+.report-page .no-content-wrapper .no-content {
+	width: 100%;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding: 5rem;
+	text-align: center;
+	font-size: 1.875rem;
+	line-height: 2.25rem;
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .report-wrapper {
 	display: flex;
 	width: 100%;
@@ -8352,14 +8378,15 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	margin-bottom: 1.25rem;
 }
 .report-wrapper .report .report-items .report-item .report-item-serial {
-	position: relative;
-	top: 0px;
-	left: 0px;
+	display: flex;
 	--tw-bg-opacity: 1;
 	background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
 	padding: 0.75rem;
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+.report-wrapper .report .report-items .report-item .report-item-serial span {
+	width: 33.333333%;
 }
 .report-wrapper .report .report-items .report-item .report-data {
 	border-width: 2px;

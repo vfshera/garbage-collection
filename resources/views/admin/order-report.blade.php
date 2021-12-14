@@ -49,7 +49,7 @@
             <div id="reportModal" class="modal-content">
 
                 <h1>Order Report</h1>
-                <form action="{{ route('user.report.order-bound') }}" method="POST">
+                <form action="{{ route('admin.report.order-bound') }}" method="POST">
 
                     @csrf
                     <div class="input-group">
@@ -60,6 +60,15 @@
                         <label for="to">To</label>
                         <input type="date" name="to" max="{{ date('Y-m-d' , strtotime(now())) }}" value=""
                             placeholder="End Date" id="to">
+                    </div>
+                    <div class="input-group">
+                        <label for="forUser">By User</label>
+                        <select name="forUser" id="forUser" value="">
+                            <option value="" selected disabled>Choose User</option>
+                            @foreach($users as $user)
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <button class="btn-success" type="submit">Get Report</button>
                 </form>

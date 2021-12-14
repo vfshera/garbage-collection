@@ -18,7 +18,16 @@
             @foreach($payments as $pay)
             <div class="report-item">
 
-                <div class="report-item-serial">TRANS ID : {{ $pay->TransID}}</div>
+                <div class="report-item-serial">
+                    <span>
+                        TRANS ID : {{ $pay->TransID}}
+                    </span>
+                    <span>
+                        @admin
+                        CUSTOMER : {{ $pay->order->user->name }}
+                        @endadmin
+                    </span>
+                </div>
 
                 <div class="report-data">
                     <div class="details">
