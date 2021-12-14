@@ -1439,6 +1439,9 @@ select {
 .border-r {
 	border-right-width: 1px;
 }
+.border-dashed {
+	border-style: dashed;
+}
 .border-gray-300 {
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
@@ -1461,6 +1464,10 @@ select {
 .border-brand-1 {
 	--tw-border-opacity: 1;
 	border-color: rgba(64, 112, 86, var(--tw-border-opacity));
+}
+.border-brand-7 {
+	--tw-border-opacity: 1;
+	border-color: rgba(28, 130, 0, var(--tw-border-opacity));
 }
 .border-gray-400 {
 	--tw-border-opacity: 1;
@@ -1549,6 +1556,9 @@ select {
 }
 .p-6 {
 	padding: 1.5rem;
+}
+.p-20 {
+	padding: 5rem;
 }
 .px-4 {
 	padding-left: 1rem;
@@ -1677,6 +1687,10 @@ select {
 .text-xl {
 	font-size: 1.25rem;
 	line-height: 1.75rem;
+}
+.text-3xl {
+	font-size: 1.875rem;
+	line-height: 2.25rem;
 }
 .font-medium {
 	font-weight: 500;
@@ -8295,6 +8309,27 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 }
 .report-page header .options a.btn-pdf {
 	margin-left: 1.25rem;
+}
+.report-page .no-content-wrapper {
+	width: 100%;
+	border-width: 1px;
+	border-style: dashed;
+	--tw-border-opacity: 1;
+	border-color: rgba(28, 130, 0, var(--tw-border-opacity));
+	padding: 5rem;
+}
+.report-page .no-content-wrapper .no-content {
+	width: 100%;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding: 5rem;
+	text-align: center;
+	font-size: 1.875rem;
+	line-height: 2.25rem;
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .report-wrapper {
 	display: flex;

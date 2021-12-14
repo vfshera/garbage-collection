@@ -1212,6 +1212,15 @@ section.navbar {
         
     }
 
+
+    .no-content-wrapper {
+        @apply p-20 w-full border border-brand-7 border-dashed;
+
+        .no-content {
+            @apply w-full text-3xl text-brand-1 text-center shadow bg-white p-20;
+        }
+    }
+
   
 }
 

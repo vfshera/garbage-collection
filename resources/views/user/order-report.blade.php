@@ -12,10 +12,25 @@
                 <button class="btn-success" onclick="openModal('#orderReport')">Set Creteria</button>
 
 
+
+
+
             </div>
         </header>
 
+
+
+        @if(isset($orders) && count($orders) > 0)
+
         <x-order-report-view :reportType="$reportType" :orders="$orders" />
+
+        @else
+        <div class="no-content-wrapper">
+            <div class="no-content ">
+                No Content For This Report
+            </div>
+        </div>
+        @endif
 
 
     </div>
@@ -34,7 +49,7 @@
             <div id="reportModal" class="modal-content">
 
                 <h1>Order Report</h1>
-                <form action="{{ route('user.report.order') }}" method="POST">
+                <form action="{{ route('user.report.order-bound') }}" method="POST">
 
                     @csrf
                     <div class="input-group">

@@ -7,15 +7,22 @@
                 <a class="bg-brand-7" href="{{ route('user.report.payment') }}">All</a>
 
 
-                <button class="btn-success" onclick="openModal('#orderReport')">Set Creteria</button>
+                <button class="btn-success" onclick="openModal('#paymentReport')">Set Creteria</button>
 
             </div>
         </header>
 
 
-        @if(isset($payments))
+        @if(isset($payments) && count($payments) > 0)
 
         <x-payment-report-view :payments="$payments" />
+
+        @else
+        <div class="no-content-wrapper">
+            <div class="no-content ">
+                No Content For This Report
+            </div>
+        </div>
         @endif
     </div>
 
@@ -35,7 +42,7 @@
             <div id="paymentModal" class="modal-content">
                 <h1>Payment Report</h1>
 
-                <form action="" method="POST">
+                <form action="{{ route('user.report.payment-bound') }}" method="POST">
 
                     @csrf
                     <div class="input-group">

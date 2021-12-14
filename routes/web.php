@@ -77,13 +77,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
             
             Route::get('/report', [UserPagesController::class , 'getOrderReport'])->name('order');
             
-            Route::post('/report', [UserPagesController::class , 'getOrderReport'])->name('order');
+            Route::post('/report', [UserPagesController::class , 'getOrderReport'])->name('order-bound');
 
             // Route::get('/get-pdf' , [ReportController::class , 'generatePdf'])->name('pdf');
             
             Route::get('/payment', [UserPagesController::class , 'getPaymentReport'])->name('payment');
             
-            Route::post('/payment', [UserPagesController::class , 'getPaymentReport'])->name('payment');
+            Route::post('/payment', [UserPagesController::class , 'getPaymentReport'])->name('payment-bound');
 
         });
 
