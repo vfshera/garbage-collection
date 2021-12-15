@@ -28,6 +28,7 @@ class Order extends Model
     }
 
 
+
     public function scopePaid($query){
         return $query->where('status', 1);
     }

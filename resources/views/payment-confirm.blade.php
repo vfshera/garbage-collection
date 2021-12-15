@@ -8,7 +8,7 @@
 
             <div class="notice">
 
-                <i class="fa fa-recycle"></i>
+                <i class="fas fa-spinner"></i>
                 <input type="text" id="orderID" value="{{ $order->id }}" hidden>
                 <p><span>NB : </span>We will redirect after the payment is confirmed</p>
 

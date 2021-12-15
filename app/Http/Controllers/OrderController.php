@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Waste;
+use App\Services\Payment\MpesaPay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,7 +44,7 @@ class OrderController extends Controller
 
     }
 
-    public function pay(Order $order ,Request $request){   
+    public function pay(Order $order ,Request $request , MpesaPay $mpesaPay){   
         
         $payingNumber = Auth::user()->phone;
 
@@ -55,10 +56,21 @@ class OrderController extends Controller
         
 
         // MPESA LOGIC
+       $payResponse = $mpesaPay->stkPush(1,$payingNumber,$order->serial,"Order Payment");
+
+
+       if($payResponse->ResultCode != 0){
+            return redirect()->back()->with('error','Transaction Failed!');
+       }      
+
+
 
         return redirect()->route('user.order.pay-confirm',[$order])->with('success','Confirm Payment on '.$payingNumber);
     }
 
+
+
+    
     public function confirm(Order $order ,Request $request){   
         
         return view('payment-confirm', compact('order'));
@@ -67,10 +79,7 @@ class OrderController extends Controller
 
     public function checkPay(Order $order ,Request $request){   
         
-
-        
-
-        return response()->json(['isPaid' => true]);
+        return response()->json(['isPaid' => $order->payment()->exists()]);
     }
 
 
@@ -84,6 +93,9 @@ class OrderController extends Controller
         return redirect()->back()->with('success','Order Updated!');
 
     }
+
+
+
 
     public function destroy(Order $order){   
         
