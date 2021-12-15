@@ -62,6 +62,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
             Route::get('/{order}/payment', [OrderController::class , 'payment'])->name('payment');
 
+            Route::get('/{order}/payment-confirmation', [OrderController::class , 'confirm'])->name('pay-confirm');
+
+            Route::get('/{order}/payment-check', [OrderController::class , 'checkPay'])->name('pay-check');
+
             Route::post('/pay/{order}', [OrderController::class , 'pay'])->name('pay');
         
             Route::post('/store', [OrderController::class , 'store'])->name('store');

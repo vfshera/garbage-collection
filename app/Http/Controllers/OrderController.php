@@ -45,9 +45,32 @@ class OrderController extends Controller
 
     public function pay(Order $order ,Request $request){   
         
+        $payingNumber = Auth::user()->phone;
+
+        if($request->altPay){
+            
+            $payingNumber = $request->altPay;
+        }
+
+        
+
         // MPESA LOGIC
 
-        return redirect()->back()->with('success','Trying To Process Order '.$order->serial);
+        return redirect()->route('user.order.pay-confirm',[$order])->with('success','Confirm Payment on '.$payingNumber);
+    }
+
+    public function confirm(Order $order ,Request $request){   
+        
+        return view('payment-confirm', compact('order'));
+    }
+
+
+    public function checkPay(Order $order ,Request $request){   
+        
+
+        
+
+        return response()->json(['isPaid' => true]);
     }
 
 
