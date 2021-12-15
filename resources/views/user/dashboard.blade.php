@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="user-dash">
+    <div class="dashview">
         <header>
             <h1>Wecome, {{ Auth::user()->name }}.</h1>
 

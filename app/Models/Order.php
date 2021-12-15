@@ -32,9 +32,14 @@ class Order extends Model
         return $query->where('status', 1);
     }
 
+
+    
+
     public function scopeForAuthUser($query){
         return $query->where('user_id', Auth::user()->id);
     }
+
+
 
     public function scopeForUser($query,$id){
         return $query->where('user_id', $id);

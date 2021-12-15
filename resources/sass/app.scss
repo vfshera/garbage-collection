@@ -391,7 +391,6 @@ section.navbar {
 
 /* SHARED PAGES */
 
-
 .dashview {
     @apply flex flex-col;
 
@@ -542,9 +541,6 @@ section.navbar {
 }
 
 /* SHARED PAGES END */
-
-
-
 
 /* ADMIN PAGES */
 
@@ -773,8 +769,6 @@ section.navbar {
 
 /* USER DASH PAGE */
 
-
-
 #reportModal,
 #paymentModal {
     @apply w-1/3 flex flex-col items-center rounded p-10;
@@ -982,6 +976,7 @@ section.navbar {
         }
     }
 }
+
 /* ORDER PAGE END */
 
 /* BILLING PAGE */
@@ -1128,6 +1123,10 @@ section.navbar {
                     img {
                         @apply h-12;
                     }
+
+                    button {
+                        @apply text-brand-7  border border-transparent transition-all delay-100 py-1 hover:bg-brand-7 hover:text-white hover:border-brand-7 rounded px-2  mx-auto;
+                    }
                 }
 
                 .btn-num {
@@ -1154,6 +1153,64 @@ section.navbar {
                     @apply w-1/2 block font-bold text-white bg-brand-7 text-center  py-2 rounded shadow;
                 }
             }
+        }
+    }
+}
+
+.pay-confirm-page {
+    @apply flex justify-center items-center p-20;
+    .pay-alert {
+        @apply bg-white p-10 rounded-md flex flex-col items-center shadow border border-brand-7;
+
+        img {
+            @apply object-contain h-44 w-auto animate-pulse;
+        }
+
+        .instruction {
+            @apply w-2/3 text-center text-gray-600;
+        }
+
+        .notice{
+            @apply mt-10 flex flex-col items-center;
+
+            i{
+                @apply text-brand-7 text-3xl animate-spin ;
+            }
+
+            p{
+                @apply text-brand-7 mt-2 animate-pulse;
+                span{
+                    @apply font-bold;
+                }
+            }
+        }
+    }
+}
+
+#altNumModal {
+    @apply w-1/3 flex flex-col rounded;
+
+    header {
+        @apply flex justify-between items-center bg-brand-7 py-3 px-5;
+
+        h2 {
+            @apply text-white font-bold text-2xl  inline;
+        }
+
+        span {
+            @apply text-4xl  text-white font-bold;
+        }
+    }
+
+    .new-num {
+        @apply py-3 px-5;
+
+        .input-group {
+            @apply mb-5;
+        }
+
+        button {
+            @apply w-full py-3 rounded;
         }
     }
 }
@@ -1202,27 +1259,22 @@ section.navbar {
             @apply font-semibold text-2xl;
         }
 
-
-        .options{
+        .options {
             @apply flex justify-between items-center;
 
-            a{
-                @apply  text-white mr-5;
-
-                
+            a {
+                @apply text-white mr-5;
             }
-            button ,a {
+            button,
+            a {
                 @apply py-3 px-7 rounded;
             }
 
-
-            a.btn-pdf{
+            a.btn-pdf {
                 @apply ml-5;
             }
         }
-        
     }
-
 
     .no-content-wrapper {
         @apply p-20 w-full border border-brand-7 border-dashed;
@@ -1231,8 +1283,6 @@ section.navbar {
             @apply w-full text-3xl text-brand-1 text-center shadow bg-white p-20;
         }
     }
-
-  
 }
 
 // COMPONENT
@@ -1262,16 +1312,14 @@ section.navbar {
             @apply mt-5 flex flex-col;
 
             .report-item {
-
-                &:not(:last-child){
+                &:not(:last-child) {
                     @apply mb-5;
                 }
-
 
                 .report-item-serial {
                     @apply flex p-3 bg-gray-800 text-white;
 
-                    span{
+                    span {
                         @apply w-1/3;
                     }
                 }

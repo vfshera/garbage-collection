@@ -25,7 +25,7 @@
                     </span>
                     <span class="">
                         @admin
-                        CUSTOMER : {{ $order->user->name }}
+                        CUSTOMER : {{ strtoupper($order->user->name) }}
                         @endadmin
                     </span>
                 </div>
