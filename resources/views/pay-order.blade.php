@@ -62,10 +62,7 @@
 
                         <img src="{{ url('storage/images/mpesa.png')}}" alt="mpesa local logo">
 
-                        @if ($order->progress == 0)
 
-                        <button type="button" onclick="changeNum()">Change Number</button>
-                        @endif
                     </div>
 
                     <div class="btn-num">

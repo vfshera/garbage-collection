@@ -161,7 +161,10 @@ class MpesaPay{
         // $url = env('MPESA_ENV') == 'sandbox' ? 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
         // : 'https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
 
-        $url = 'https://mpesa-reflector.herokuapp.com/stkpush/v1/processrequest';
+        // $url = 'https://mpesa-reflector.herokuapp.com/stkpush/v1/processrequest';
+
+
+        $url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
 
         
         $passKey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
@@ -173,13 +176,13 @@ class MpesaPay{
                 "Password" =>  base64_encode(env('MPESA_STK_SHORTCODE') . $passKey . $timestamp),            
                 "Timestamp" => $timestamp,            
                 "TransactionType" => "CustomerPayBillOnline",            
-                "Amount" => "10",            
+                "Amount" => "1",            
                 "PartyA" => env('MPESA_TEST_MSISDN'),            
                 "PartyB" =>  env('MPESA_STK_SHORTCODE'),            
                 "PhoneNumber" => env('MPESA_TEST_MSISDN'),            
                 "CallBackURL" => env('MPESA_TEST_URL').'/stkpush',            
-                "AccountReference" => "Participatory Garbage Collection",            
-                "TransactionDesc" => $transactionDescription
+                "AccountReference" => "PGC Payment",            
+                "TransactionDesc" => "OrderPayment"
         ];
 
 

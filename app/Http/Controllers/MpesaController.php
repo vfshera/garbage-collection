@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -12,7 +13,31 @@ class MpesaController extends Controller
         Log::info("STK EndPoint Hit");
         Log::info($request->all());
 
-        
+
+        $response = json_decode($request->getContent());
+        $resData =  $response->Body->stkCallback->CallbackMetadata;
+        $reCode = $response->Body->stkCallback->ResultCode;
+        $resMessage = $response->Body->stkCallback->ResultDesc;
+        $amountPaid = $resData->Item[0]->Value;
+        $mpesaTransactionId = $resData->Item[1]->Value;
+        $paymentPhoneNumber = $resData->Item[4]->Value;
+
+
+        // $newTrans = $request->validate([
+        //     'TransactionType' => 'required',
+        //     'TransID' => 'required',
+        //     'TransTime' => 'required',
+        //     'TransAmount' => 'required',
+        //     'BusinessShortCode' => 'required',
+        //     'BillRefNumber' => 'required',
+        //     'InvoiceNumber' => 'required',
+        //     'OrgAccountBalance' => 'required',
+        //     'ThirdPartyTransID' => 'required',
+        //     'MSISDN' => 'required',
+        //     'FirstName' => 'required',
+        //     'MiddleName' => 'required',
+        //     'LastName' => 'required',
+        // ]);
     }
 
 

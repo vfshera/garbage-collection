@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Waste;
 use App\Services\Payment\MpesaPay;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,16 +54,25 @@ class OrderController extends Controller
             $payingNumber = $request->altPay;
         }
 
-        
+        try {
 
         // MPESA LOGIC
-       $payResponse = $mpesaPay->stkPush(1,$payingNumber,$order->serial,"Order Payment");
+            $payResponse = $mpesaPay->stkPush(1, $payingNumber, $order->serial, "OrderPayment");
 
+        
+            dd($payResponse);
+            
+            if ($payResponse->ResponseCode != 0) {
+                
+                return redirect()->back()->with('error', 'Transaction Failed!');
+            }
 
-       if($payResponse->ResultCode != 0){
-            return redirect()->back()->with('error','Transaction Failed!');
-       }      
+            
+        }catch(Exception $e){
+            
+            return redirect()->back()->with('error', 'Error Occured!'.$e->getMessage());
 
+        }
 
 
         return redirect()->route('user.order.pay-confirm',[$order])->with('success','Confirm Payment on '.$payingNumber);

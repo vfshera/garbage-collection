@@ -9,6 +9,7 @@ use App\Http\Controllers\{PagesController ,
       RedirectController ,
       AdminPagesController ,
        OrderController, QuestionController , UserPagesController};
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ use App\Http\Controllers\{PagesController ,
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Log::info("URL");
 
 Route::get('/', [PagesController::class , 'index'])->name('welcome');
 
