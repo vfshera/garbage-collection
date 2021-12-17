@@ -9,6 +9,7 @@ use App\Http\Controllers\{PagesController ,
       RedirectController ,
       AdminPagesController ,
        OrderController, QuestionController , UserPagesController};
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ use App\Http\Controllers\{PagesController ,
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Log::info("URL");
 
 Route::get('/', [PagesController::class , 'index'])->name('welcome');
 
@@ -61,6 +64,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
         Route::prefix('/order')->name('order.')->group(function(){
 
             Route::get('/{order}/payment', [OrderController::class , 'payment'])->name('payment');
+
+            Route::get('/{order}/payment-confirmation', [OrderController::class , 'confirm'])->name('pay-confirm');
+
+            Route::get('/{order}/payment-check', [OrderController::class , 'checkPay'])->name('pay-check');
 
             Route::post('/pay/{order}', [OrderController::class , 'pay'])->name('pay');
         

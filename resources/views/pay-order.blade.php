@@ -51,29 +51,38 @@
                 </div>
 
                 @if(Auth::user()->phone != "")
-                <form action="{{ $order->progress == 0 ? route('user.order.pay' , ['order' => $order->id ])  : '' }}"
+                <form id="payingForm"
+                    action="{{ $order->progress == 0 ? route('user.order.pay' , ['order' => $order->id ])  : '' }}"
                     method="POST">
 
                     @csrf
                     <div class="paying-number">
+
                         <p> {{ $order->progress == 0 ? "Paying with" : "Paid with" }}</p>
 
                         <img src="{{ url('storage/images/mpesa.png')}}" alt="mpesa local logo">
 
+
                     </div>
 
                     <div class="btn-num">
-                        <span>
+
+                        <span id="displayNum">
                             +{{ Auth::user()->phone }}
                         </span>
 
+                        <input type="number" name="altPay" id="altPay" hidden>
+
                         @if ($order->progress == 0)
+
                         <button>Pay Now</button>
 
                         @else
+
                         <div class="transaction-code">
                             {{ ($order->payment) ? $order->payment->TransID : "TRANSACTIONCODE" }}
                         </div>
+
                         @endif
 
                     </div>
@@ -90,4 +99,82 @@
             </div>
         </section>
     </div>
+
+
+
+
+
+
+
+
+
+    <!-- PAGE MODALS -->
+    <x-slot name="modals">
+
+        @user
+        <div id="addNumber" class="modal">
+
+            <div id="altNumModal" class="modal-content">
+                <header>
+                    <h2>Alternative Number</h2>
+                    <span id="closeIcon" onclick="closeModal('#addNumber')" class="cursor-pointer">&times;</span>
+                </header>
+
+                <div class="new-num">
+                    <div class="input-group">
+                        <label for="alt-num">Pay With</label>
+                        <input id="alt-num" class="block mt-1 w-full" type="number" placeholder="2547XXXXXXXX" step="1"
+                            min="10" name="alt-num" required />
+                    </div>
+
+                    <button id="addAltNum" type="button" onclick="useAlt()" class="btn-success">Pay With This
+                        Number</button>
+                </div>
+
+            </div>
+
+        </div>
+        @enduser
+
+
+    </x-slot>
+
+
+
+    <x-slot name="pagescripts">
+        <script>
+        const closeModal = (modal) => {
+            document.querySelector(modal).style.display = "none";
+        }
+
+        const changeNum = (e) => {
+            document.querySelector('#addNumber').style.display = "block";
+        }
+
+        const useAlt = () => {
+
+            const newNum = document.querySelector('#alt-num');
+            const disNum = document.querySelector('#displayNum');
+            const sentInput = document.querySelector('#altPay');
+            const payForm = document.querySelector('#payingForm');
+
+            const numReg = /^254\d{9}$/g;
+
+            if (numReg.test(newNum.value)) {
+
+                disNum.innerText = "+" + newNum.value;
+                sentInput.value = newNum.value;
+
+                payForm.submit();
+
+            } else {
+
+                alert("Invalid Phone Number!")
+
+            }
+        }
+        </script>
+    </x-slot>
+
+
 </x-app-layout>

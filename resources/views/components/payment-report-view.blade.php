@@ -24,7 +24,7 @@
                     </span>
                     <span>
                         @admin
-                        CUSTOMER : {{ $pay->order->user->name }}
+                        CUSTOMER : {{ strtoupper($pay->order->user->name) }}
                         @endadmin
                     </span>
                 </div>
@@ -44,6 +44,16 @@
                                 {{ date('H:i - jS M Y' , strtotime($pay->created_at))  }}
                             </p>
                         </div>
+
+
+                        <div class="detail">
+                            <p class="label">Holders Name</p>
+                            <p class="value">
+                                {{ $pay->FirstName." ".$pay->MiddleName  }}
+                            </p>
+                        </div>
+
+
                     </div>
 
 

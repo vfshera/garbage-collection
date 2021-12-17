@@ -1175,9 +1175,6 @@ select {
 .mb-4 {
 	margin-bottom: 1rem;
 }
-.ml-20 {
-	margin-left: 5rem;
-}
 .-mt-px {
 	margin-top: -1px;
 }
@@ -8168,6 +8165,31 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 .pay-for-order-page section.order-overview .order-summary form .paying-number img {
 	height: 3rem;
 }
+.pay-for-order-page section.order-overview .order-summary form .paying-number button {
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 0.25rem;
+	border-width: 1px;
+	border-color: transparent;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	--tw-text-opacity: 1;
+	color: rgba(28, 130, 0, var(--tw-text-opacity));
+	transition-property: all;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+	transition-delay: 100ms;
+}
+.pay-for-order-page section.order-overview .order-summary form .paying-number button:hover {
+	--tw-border-opacity: 1;
+	border-color: rgba(28, 130, 0, var(--tw-border-opacity));
+	--tw-bg-opacity: 1;
+	background-color: rgba(28, 130, 0, var(--tw-bg-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
 .pay-for-order-page section.order-overview .order-summary form .btn-num {
 	margin-top: 0.5rem;
 	display: flex;
@@ -8213,6 +8235,145 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.pay-confirm-page {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5rem;
+}
+.pay-confirm-page .pay-alert {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 0.375rem;
+	border-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(28, 130, 0, var(--tw-border-opacity));
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding: 2.5rem;
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.pay-confirm-page .pay-alert img {
+	height: 11rem;
+	width: auto;
+}
+@-webkit-keyframes pulse {
+
+	50% {
+		opacity: .5;
+	}
+}
+@keyframes pulse {
+
+	50% {
+		opacity: .5;
+	}
+}
+.pay-confirm-page .pay-alert img {
+	-webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	-o-object-fit: contain;
+	   object-fit: contain;
+}
+.pay-confirm-page .pay-alert .instruction {
+	width: 66.666667%;
+	text-align: center;
+	--tw-text-opacity: 1;
+	color: rgba(75, 85, 99, var(--tw-text-opacity));
+}
+.pay-confirm-page .pay-alert .notice {
+	margin-top: 2.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+@-webkit-keyframes spin {
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+@keyframes spin {
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+.pay-confirm-page .pay-alert .notice i {
+	-webkit-animation: spin 1s linear infinite;
+	        animation: spin 1s linear infinite;
+	font-size: 1.875rem;
+	line-height: 2.25rem;
+	--tw-text-opacity: 1;
+	color: rgba(28, 130, 0, var(--tw-text-opacity));
+}
+.pay-confirm-page .pay-alert .notice p {
+	margin-top: 0.5rem;
+}
+@keyframes pulse {
+
+	50% {
+		opacity: .5;
+	}
+}
+.pay-confirm-page .pay-alert .notice p {
+	-webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	--tw-text-opacity: 1;
+	color: rgba(28, 130, 0, var(--tw-text-opacity));
+}
+.pay-confirm-page .pay-alert .notice p span {
+	font-weight: 700;
+}
+#altNumModal {
+	display: flex;
+	width: 33.333333%;
+	flex-direction: column;
+	border-radius: 0.25rem;
+}
+#altNumModal header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	--tw-bg-opacity: 1;
+	background-color: rgba(28, 130, 0, var(--tw-bg-opacity));
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
+#altNumModal header h2 {
+	display: inline;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+#altNumModal header span {
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+	font-weight: 700;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+#altNumModal .new-num {
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
+#altNumModal .new-num .input-group {
+	margin-bottom: 1.25rem;
+}
+#altNumModal .new-num button {
+	width: 100%;
+	border-radius: 0.25rem;
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
 }
 /* PAY FOR ORDER END */
 /* LOCATION PAGE */
