@@ -125,7 +125,19 @@
                         <button class="show" onclick="view({{ $order }},'#viewModal')"><i
                                 class="fa fa-eye"></i></button>
 
+                        @admin
 
+                        <form action="{{ route('admin.order-progress' , [$order]) }}" method="POST">
+                            @csrf
+
+                            <button type="submit" class="bg-green-500">
+                                <i class="fas fa-random text-gray-700"></i>
+                            </button>
+
+                        </form>
+                        @endadmin
+
+                        @user
                         <form action="{{ route('user.order.destroy' , [$order]) }}" method="POST">
                             @csrf
 
@@ -133,6 +145,7 @@
                             <button type="submit" class="delete"><i class="fa fa-trash"></i></button>
 
                         </form>
+                        @enduser
                     </div>
                 </div>
 

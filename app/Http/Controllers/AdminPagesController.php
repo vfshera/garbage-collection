@@ -140,6 +140,37 @@ class AdminPagesController extends Controller
 
         return view('orders' , compact(['orders']));
     }
+    
+
+    public function progress(Order $order){
+        
+       
+      if($order->progress == 1) {
+
+        $order->progress = 2;
+
+      }
+        
+      if($order->progress == 2) {
+
+          $order->progress = 1;
+
+      }
+        
+
+      
+      if($order->progress == '0') {
+
+          return redirect()->back()->with('error','Progress Can not be changed on Unpaid Order!');
+          
+      }
+
+
+
+      $order->save();
+      
+        return redirect()->back()->with('success','Order Progress changed!');
+    }
 
 
 

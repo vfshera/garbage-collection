@@ -28,7 +28,10 @@ class UserPagesController extends Controller
         })->orderBy('created_at', 'DESC')->get();
 
         $latestPayments = $myPayments->take(8);
-        $paymentsSum = Transaction::completed()->sum('Amount');
+
+        $orderIDs = $myOrders->pluck('id')->toArray();
+        
+        $paymentsSum = Transaction::completed()->whereIn('order_id',$orderIDs)->sum('Amount');
 
         
         return view('user.dashboard' , compact(['latestOrders','ordersCount','latestPayments', 'paymentsSum']));

@@ -101,7 +101,7 @@ class OrderController extends Controller
 
     public function checkPay(Order $order ,Request $request){   
         
-        return response()->json(['isPaid' => $order->payment()->exists()]);
+        return response()->json(['isPaid' => $order->transaction->payment()->exists()]);
     }
 
 

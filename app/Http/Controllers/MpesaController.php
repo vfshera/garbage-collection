@@ -39,6 +39,11 @@ class MpesaController extends Controller
         $trans->Status = 1;
 
         $trans->save();
+
+        $trans->order->update([
+            'status' => 1,
+            'progress' => 1
+        ]);
         
     }
 
