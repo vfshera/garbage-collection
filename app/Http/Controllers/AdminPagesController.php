@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Order;
-use App\Models\Payment;
 use App\Models\Waste;
+use App\Models\Payment;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class AdminPagesController extends Controller
@@ -21,7 +22,7 @@ class AdminPagesController extends Controller
         $payments = Payment::orderBy('created_at', 'DESC')->get();
 
         $latestPayments = $payments->take(8);
-        $paymentsSum = $payments->sum('TransAmount');
+        $paymentsSum = Transaction::completed()->sum('Amount');
 
         
         return view('admin.dashboard' , compact(['latestOrders','ordersCount','latestPayments', 'paymentsSum']));
