@@ -64,7 +64,7 @@ class UserPagesController extends Controller
 
             return $query->where('created_at' ,'<=', date('Y-m-d', strtotime($request->to)));
 
-         })->with('waste','payment')->forAuthUser()->latest()->get();
+         })->with('waste','transaction.payment')->forAuthUser()->latest()->get();
          
 
         return view('user.order-report' , compact('orders', 'reportType'));
@@ -85,9 +85,11 @@ class UserPagesController extends Controller
 
             return $query->where('created_at' ,'<=', date('Y-m-d', strtotime($request->to)));
 
-         })->whereHas('order' , function($query){
+         })->whereHas('transaction' , function($query){
             
-            return $query->where('user_id' , Auth::user()->id);
+            return $query->whereHas('order',function($q){
+                return $q->where('user_id' , Auth::user()->id);
+            });
 
         })->latest()->get();
          

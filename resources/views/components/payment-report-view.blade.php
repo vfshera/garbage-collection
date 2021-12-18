@@ -20,11 +20,11 @@
 
                 <div class="report-item-serial">
                     <span>
-                        TRANS ID : {{ $pay->TransID}}
+                        TRANS ID : {{ $pay->TransactionCode }}
                     </span>
                     <span>
                         @admin
-                        CUSTOMER : {{ strtoupper($pay->order->user->name) }}
+                        CUSTOMER : {{ strtoupper($pay->transaction->order->user->name) }}
                         @endadmin
                     </span>
                 </div>
@@ -34,7 +34,7 @@
 
                         <div class="detail">
                             <p class="label">Amount</p>
-                            <p class="value"> {{ number_format($pay->TransAmount, 0 , "",",")  }} KG(s)</p>
+                            <p class="value"> {{ number_format($pay->transaction->Amount, 0 , "",",")  }} KG(s)</p>
                         </div>
 
 
@@ -46,12 +46,7 @@
                         </div>
 
 
-                        <div class="detail">
-                            <p class="label">Holders Name</p>
-                            <p class="value">
-                                {{ $pay->FirstName." ".$pay->MiddleName  }}
-                            </p>
-                        </div>
+
 
 
                     </div>
@@ -61,19 +56,19 @@
                     <div class="details">
                         <div class="detail">
                             <p class="label">Waste</p>
-                            <p class="value">{{ $pay->order->waste->title }}</p>
+                            <p class="value">{{ $pay->transaction->order->waste->title }}</p>
                         </div>
 
                         <div class="detail">
                             <p class="label">Order ID</p>
-                            <p class="value">{{ $pay->order->serial }}</p>
+                            <p class="value">{{ $pay->transaction->order->serial }}</p>
                         </div>
 
 
                         <div class="detail">
                             <p class="label">Order Date</p>
                             <p class="value">
-                                {{  date('H:i - jS M Y' , strtotime($pay->order->created_at))  }}
+                                {{  date('H:i - jS M Y' , strtotime($pay->transaction->order->created_at))  }}
                             </p>
                         </div>
                     </div>

@@ -87,7 +87,15 @@
 
                         <div class="detail">
                             <p class="label">Transaction ID</p>
-                            <p class="value">{{ ($order->payment) ? $order->payment->TransID : "N/A" }}</p>
+                            <p class="value">
+
+                                @if(isset($order->transaction->Status))
+                                {{ $order->transaction->payment->TransactionCode }}
+
+                                @else
+                                N/A
+                                @endif
+                            </p>
                         </div>
 
 
