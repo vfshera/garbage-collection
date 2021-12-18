@@ -146,9 +146,9 @@ class AdminPagesController extends Controller
     public function billing(){
 
 
-        $orders = Order::paid()->with('payment')->orderBy('created_at')->paginate(8); 
+        $orders = Order::paid()->with('transaction.payment')->orderBy('created_at')->paginate(8); 
         
-        $totalBill = Payment::sum('TransAmount');
+        $totalBill = Transaction::sum('Amount');
         
         return view('billing' , compact(['orders','totalBill']));
     }

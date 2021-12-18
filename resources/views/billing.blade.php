@@ -49,13 +49,9 @@
                     </div>
 
                     <div class="customer">
-                        @admin
-                        {{ $order->transaction->payment->FirstName . " " . $order->payment->MiddleName}}
-                        @endadmin
 
-                        @user
-                        {{ $order->user->name}}
-                        @enduser
+                        {{strtoupper( $order->user->name)}}
+
                     </div>
 
                     <div class="transaction">
