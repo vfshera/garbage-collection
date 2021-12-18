@@ -53,8 +53,8 @@ class Order extends Model
 
 
 
-    public function payment(){
-        return $this->hasOne(Payment::class);
+    public function transaction(){
+        return $this->hasOne(Transaction::class);
     }
 
 }

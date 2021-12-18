@@ -116,9 +116,8 @@ class MpesaPay{
             'Occasion' => 'Weekendi',
         ];
 
-        // $url = env('MPESA_ENV') == 'sandbox' ? 'https://sandbox.safaricom.co.ke/mpesa/b2c/v1/paymentrequest'
-        // : 'https://api.safaricom.co.ke/mpesa/b2c/v1/paymentrequest';
-        $url = 'mpesa-reflector.herokuapp.com/b2c/v1/paymentrequest';
+        $url = env('MPESA_HANDLER') == 'safaricom' ? 'https://sandbox.safaricom.co.ke/mpesa/b2c/v1/paymentrequest'
+        : 'mpesa-reflector.herokuapp.com/b2c/v1/paymentrequest';
 
         $res = $this->makeRequest($url,$body);
 
@@ -143,10 +142,8 @@ class MpesaPay{
         ];
 
 
-        // $url = env('MPESA_ENV') == 'sandbox' ? 'https://sandbox.safaricom.co.ke/mpesa/b2c/v1/paymentrequest'
-        // : 'https://api.safaricom.co.ke/mpesa/b2c/v1/paymentrequest';
-
-        $url = 'https://mpesa-reflector.herokuapp.com/b2c/v1/paymentrequest';
+        $url = env('MPESA_HANDLER') == 'safaricom' ? 'https://sandbox.safaricom.co.ke/mpesa/b2c/v1/paymentrequest'
+        : 'https://mpesa-reflector.herokuapp.com/b2c/v1/paymentrequest';
 
 
         $res = $this->makeRequest($url,$body);
@@ -158,13 +155,10 @@ class MpesaPay{
 
 
     public function stkPush($amount,$phone,$accountReference,$transactionDescription){
-        // $url = env('MPESA_ENV') == 'sandbox' ? 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
-        // : 'https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
+        $url = env('MPESA_HANDLER') == 'safaricom' ? 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
+        : 'https://mpesa-reflector.herokuapp.com/stkpush/v1/processrequest';
 
-        // $url = 'https://mpesa-reflector.herokuapp.com/stkpush/v1/processrequest';
-
-
-        $url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
+        
 
         
         $passKey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';

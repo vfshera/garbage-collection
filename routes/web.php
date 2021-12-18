@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Log;
 |
 */
 
-Log::info("URL");
 
 Route::get('/', [PagesController::class , 'index'])->name('welcome');
 

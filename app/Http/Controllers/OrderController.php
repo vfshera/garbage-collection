@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Payment;
+use App\Models\Transaction;
 use App\Models\Waste;
 use App\Services\Payment\MpesaPay;
 use Exception;
@@ -59,10 +61,9 @@ class OrderController extends Controller
         // MPESA LOGIC
             $payResponse = $mpesaPay->stkPush(1, $payingNumber, $order->serial, "OrderPayment");
 
-        
-            dd($payResponse);
-            
-            if ($payResponse->ResponseCode != 0) {
+            // dd($payResponse);
+
+            if ((env('MPESA_HANDLER') == 'safaricom' && $payResponse->ResponseCode != 0) || (env('MPESA_HANDLER') == 'reflector' && $payResponse->ResultCode != 0)) {
                 
                 return redirect()->back()->with('error', 'Transaction Failed!');
             }
@@ -74,6 +75,17 @@ class OrderController extends Controller
 
         }
 
+        
+
+        Transaction::firstOrCreate(
+            ['order_id' => $order->id],
+            [
+                'MerchantRequestID' => $payResponse->MerchantRequestID,
+                'CheckoutRequestID' => $payResponse->CheckoutRequestID,
+                'Amount' => $order->cost
+            ]
+        );
+        
 
         return redirect()->route('user.order.pay-confirm',[$order])->with('success','Confirm Payment on '.$payingNumber);
     }
