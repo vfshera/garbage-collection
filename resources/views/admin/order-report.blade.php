@@ -4,9 +4,9 @@
             <h1>{{ $reportType }}</h1>
 
             <div class="options">
-                <a class="bg-brand-7" href="{{ route('user.report.order') }}">All</a>
-                <a class="bg-brand-7" href="{{ route('user.report.order', ['status' => 0]) }}">Unpaid</a>
-                <a class="bg-brand-7" href="{{ route('user.report.order', ['status' => 1]) }}">Paid</a>
+                <a class="bg-brand-7" href="{{ route('admin.report.order') }}">All</a>
+                <a class="bg-brand-7" href="{{ route('admin.report.order-bound', ['status' => 0]) }}">Unpaid</a>
+                <a class="bg-brand-7" href="{{ route('admin.report.order-bound', ['status' => 1]) }}">Paid</a>
 
 
                 <button class="btn-success" onclick="openModal('#orderReport')">Set Creteria</button>

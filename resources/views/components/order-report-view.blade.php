@@ -102,7 +102,7 @@
                         <div class="detail">
                             <p class="label">Payment Date</p>
                             <p class="value">
-                                {{ ($order->payment) ? date('H:i - jS M Y' , strtotime($order->payment->created_at)) : "N/A" }}
+                                {{ (isset($order->transaction->payment)) ? date('H:i - jS M Y' , strtotime($order->transaction->payment->created_at)) : "N/A" }}
                             </p>
                         </div>
                     </div>

@@ -67,7 +67,7 @@ class AdminPagesController extends Controller
 
             return $query->where('user_id' , $request->forUser);
 
-         })->with('waste','payment')->latest()->get();
+         })->with('waste','transaction.payment')->latest()->get();
          
 
 
