@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Order;
 use App\Models\Payment;
+use App\Models\Transaction;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
@@ -17,34 +18,23 @@ class PaymentSeeder extends Seeder
     public function run()
     {
 
-        $orders = Order::paid()->with('user')->get();
+        $transactions = Transaction::all();
 
 
-        foreach($orders as $order){
-            $name = explode(' ', $order->user->name);
-            $firstName = strtoupper($name[0]);
-            $secName = strtoupper($name[1]);
+        foreach($transactions as $trans){
             
             Payment::create([
-                'order_id' => $order->id,
-                'TransactionType' => 'Paybill',
-                'TransID' => strtoupper(Str::random(10)), //'4FNIN3UR11'
-                'TransTime' => date('YmdHis' , strtotime($order->created_at->addMinutes(mt_rand(10,60)))) ,//'20211115001105'
-                'TransAmount' => $order->cost,
-                'BusinessShortCode' => '600995',
-                'BillRefNumber' => $order->serial,
-                'InvoiceNumber' => $order->serial,
-                'OrgAccountBalance' => 98944,
-                'ThirdPartyTransID' => "1",
-                'MSISDN' => '254712345678',
-                'FirstName' => $firstName,
-                'MiddleName' => $secName,
-                'LastName' => $secName,
+                'transaction_id' => $trans->id,
+                'TransactionCode' => strtoupper(Str::random(10)),
+                'TransactionDate' => date('Ymdhis', strtotime(now())),
+                'PhoneNumber' => '254712345678'
             ]);
+
+
+            $trans->Status = 1;
+
+            $trans->save();
         }
-
-        
-
       
     }
 }

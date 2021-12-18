@@ -87,14 +87,22 @@
 
                         <div class="detail">
                             <p class="label">Transaction ID</p>
-                            <p class="value">{{ ($order->payment) ? $order->payment->TransID : "N/A" }}</p>
+                            <p class="value">
+
+                                @if(isset($order->transaction->Status))
+                                {{ $order->transaction->payment->TransactionCode }}
+
+                                @else
+                                N/A
+                                @endif
+                            </p>
                         </div>
 
 
                         <div class="detail">
                             <p class="label">Payment Date</p>
                             <p class="value">
-                                {{ ($order->payment) ? date('H:i - jS M Y' , strtotime($order->payment->created_at)) : "N/A" }}
+                                {{ (isset($order->transaction->payment)) ? date('H:i - jS M Y' , strtotime($order->transaction->payment->created_at)) : "N/A" }}
                             </p>
                         </div>
                     </div>

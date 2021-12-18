@@ -116,9 +116,9 @@
                 <div class="shortlist">
                     @foreach($latestPayments as $key => $pay)
                     <div class="payitem">
-                        <div class="item-order">{{ $key + 1 .". ". $pay->order->serial }}</div>
-                        <div class="item-transaction">{{ $pay->TransID }}</div>
-                        <div class="item-amount">{{ number_format($pay->TransAmount , 0 , "",",")  }} Ksh.</div>
+                        <div class="item-order">{{ $key + 1 .". ". $pay->transaction->order->serial }}</div>
+                        <div class="item-transaction">{{ $pay->TransactionCode }}</div>
+                        <div class="item-amount">{{ number_format($pay->transaction->Amount , 0 , "",",")  }} Ksh.</div>
                         <div class="item-date">{{ date('jS M Y', strtotime($pay->created_at)) }}</div>
                     </div>
                     @endforeach

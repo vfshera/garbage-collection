@@ -80,7 +80,7 @@
                         @else
 
                         <div class="transaction-code">
-                            {{ ($order->payment) ? $order->payment->TransID : "TRANSACTIONCODE" }}
+                            {{ ($order->transaction->payment) ? $order->transaction->payment->TransactionCode : "TRANSACTIONCODE" }}
                         </div>
 
                         @endif

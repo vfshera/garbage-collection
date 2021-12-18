@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Support\Str;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             WasteSeeder::class,
             OrderSeeder::class,
+            TransactionSeeder::class,
             PaymentSeeder::class,
             QuestionSeeder::class
         ]);

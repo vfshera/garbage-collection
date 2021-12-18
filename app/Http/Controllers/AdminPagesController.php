@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Order;
-use App\Models\Payment;
 use App\Models\Waste;
+use App\Models\Payment;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class AdminPagesController extends Controller
@@ -21,7 +22,7 @@ class AdminPagesController extends Controller
         $payments = Payment::orderBy('created_at', 'DESC')->get();
 
         $latestPayments = $payments->take(8);
-        $paymentsSum = $payments->sum('TransAmount');
+        $paymentsSum = Transaction::completed()->sum('Amount');
 
         
         return view('admin.dashboard' , compact(['latestOrders','ordersCount','latestPayments', 'paymentsSum']));
@@ -66,7 +67,7 @@ class AdminPagesController extends Controller
 
             return $query->where('user_id' , $request->forUser);
 
-         })->with('waste','payment')->latest()->get();
+         })->with('waste','transaction.payment')->latest()->get();
          
 
 
@@ -139,15 +140,46 @@ class AdminPagesController extends Controller
 
         return view('orders' , compact(['orders']));
     }
+    
+
+    public function progress(Order $order){
+        
+       
+      if($order->progress == 1) {
+
+        $order->progress = 2;
+
+      }
+        
+      if($order->progress == 2) {
+
+          $order->progress = 1;
+
+      }
+        
+
+      
+      if($order->progress == '0') {
+
+          return redirect()->back()->with('error','Progress Can not be changed on Unpaid Order!');
+          
+      }
+
+
+
+      $order->save();
+      
+        return redirect()->back()->with('success','Order Progress changed!');
+    }
 
 
 
     public function billing(){
 
 
-        $orders = Order::paid()->with('payment')->orderBy('created_at')->paginate(8); 
+        $orders = Order::paid()->with('transaction.payment')->orderBy('created_at')->paginate(8); 
         
-        $totalBill = Payment::sum('TransAmount');
+        $totalBill = Transaction::sum('Amount');
         
         return view('billing' , compact(['orders','totalBill']));
     }

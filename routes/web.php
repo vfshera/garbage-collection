@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Log;
 |
 */
 
-Log::info("URL");
 
 Route::get('/', [PagesController::class , 'index'])->name('welcome');
 
@@ -107,6 +106,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
         Route::get('/waste', [AdminPagesController::class , 'waste'])->name('waste');
 
         Route::get('/orders', [AdminPagesController::class , 'orders'])->name('orders');
+
+        Route::post('/order/{order}/progress', [AdminPagesController::class , 'progress'])->name('order-progress');
 
         Route::get('/billing', [AdminPagesController::class , 'billing'])->name('billing');
 
