@@ -21,4 +21,9 @@ class Transaction extends Model
         return $this->belongsTo(Order::class);
     }
 
+
+    public function scopeCompleted($query){
+        return $query->where('Status',1);
+    }
+
 }

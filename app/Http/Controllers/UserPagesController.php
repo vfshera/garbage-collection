@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Waste;
 use App\Models\Payment;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Actions\Fortify\UpdateUserProfileInformation;
@@ -22,12 +23,12 @@ class UserPagesController extends Controller
 
 
 
-        $myPayments = Payment::whereHas('order' , function($query){
+        $myPayments = Payment::whereHas('transaction.order' , function($query){
             $query->forAuthUser();
         })->orderBy('created_at', 'DESC')->get();
 
         $latestPayments = $myPayments->take(8);
-        $paymentsSum = $myPayments->sum('TransAmount');
+        $paymentsSum = Transaction::completed()->sum('Amount');
 
         
         return view('user.dashboard' , compact(['latestOrders','ordersCount','latestPayments', 'paymentsSum']));

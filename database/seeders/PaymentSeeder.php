@@ -25,7 +25,7 @@ class PaymentSeeder extends Seeder
             
             Payment::create([
                 'transaction_id' => $trans->id,
-                'TransactionCode' => Str::random(10),
+                'TransactionCode' => strtoupper(Str::random(10)),
                 'TransactionDate' => date('Ymdhis', strtotime(now())),
                 'PhoneNumber' => '254712345678'
             ]);
