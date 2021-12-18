@@ -50,7 +50,7 @@
 
                     <div class="customer">
                         @admin
-                        {{ $order->payment->FirstName . " " . $order->payment->MiddleName}}
+                        {{ $order->transaction->payment->FirstName . " " . $order->payment->MiddleName}}
                         @endadmin
 
                         @user
@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="transaction">
-                        {{ $order->payment->TransID }}
+                        {{ $order->transaction->payment->TransactionCode }}
 
                     </div>
 
@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="date">
-                        {{ date('H:i \- jS M Y', strtotime($order->payment->created_at)) }}
+                        {{ date('H:i \- jS M Y', strtotime($order->transaction->payment->created_at)) }}
                     </div>
                 </div>
 

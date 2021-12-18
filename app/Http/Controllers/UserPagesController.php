@@ -119,13 +119,13 @@ class UserPagesController extends Controller
     
     public function billing(){
 
-        $orders = Auth::user()->orders()->paid()->with('payment')->paginate(8);
+        $orders = Auth::user()->orders()->paid()->with('transaction.payment')->paginate(8);
 
         
        $orderIDs = Auth::user()->orders()->paid()->get('id');
 
 
-        $totalBill = Payment::whereIn('order_id',$orderIDs)->sum('TransAmount');
+        $totalBill = Transaction::whereIn('order_id',$orderIDs)->sum('Amount');
         
         return view('billing' , compact(['orders','totalBill']));
     }
