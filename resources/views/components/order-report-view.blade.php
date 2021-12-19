@@ -57,24 +57,14 @@
 
                         <div class="detail">
                             <p class="label">Status</p>
-                            <p class="value">{{ ($order->status == 1) ? "Paid" : "Unpaid" }}</p>
+                            <p class="value">{{ $order->statusMsg }}</p>
                         </div>
 
 
                         <div class="detail">
                             <p class="label">Progress</p>
                             <p class="value">
-                                @if($order->progress == 0)
-                                N/A
-                                @endif
-
-                                @if($order->progress == 1)
-                                In Transit
-                                @endif
-
-                                @if($order->progress == 2)
-                                Completed
-                                @endif
+                                {{ $order->progressMsg }}
                             </p>
                         </div>
                     </div>
@@ -89,7 +79,7 @@
                             <p class="label">Transaction ID</p>
                             <p class="value">
 
-                                @if(isset($order->transaction->Status))
+                                @if(isset($order->transaction->Status) && $order->transaction->isCompleted())
                                 {{ $order->transaction->payment->TransactionCode }}
 
                                 @else

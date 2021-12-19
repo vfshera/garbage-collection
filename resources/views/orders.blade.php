@@ -39,7 +39,7 @@
 
         </header>
 
-        @if(count($orders) == 0)
+        @if($orders->isEmpty())
         <div class="no-data">
 
             @admin
@@ -118,18 +118,9 @@
                     </div>
 
                     <div
-                        class="progress {{ ($order->progress == 0) ? 'text-yellow-600' : '' }} {{ ($order->progress == 1) ? 'text-blue-600' : '' }} {{ ($order->progress == 2) ? 'text-green-500' : '' }}">
-                        @if($order->progress == 0)
-                        N/A
-                        @endif
+                        class="progress {{ ($order->progress == 0) ? 'text-yellow-600' : '' }} {{ ($order->isScheduled()) ? 'text-blue-600' : '' }} {{ ($order->isCompleted()) ? 'text-green-500' : '' }}">
+                        {{ $order->progressMsg }}
 
-                        @if($order->progress == 1)
-                        In Transit
-                        @endif
-
-                        @if($order->progress == 2)
-                        Completed
-                        @endif
                     </div>
 
                     <div class="actions">

@@ -165,16 +165,22 @@ class AdminPagesController extends Controller
 
     public function progress(Order $order){
         
-       
-      if($order->progress == 1) {
+       $msg = "";
 
-        $order->progress = 2;
+      if($order->isCompleted()) {
+
+        $order->progress = 1;
+
+        $msg = "Order Progress Marked Scheduled!";
 
       }
         
-      if($order->progress == 2) {
+      if($order->isScheduled()) {
 
-          $order->progress = 1;
+          $order->progress = 2;
+
+        $msg = "Order Progress Marked Completed!";
+
 
       }
         
@@ -188,9 +194,13 @@ class AdminPagesController extends Controller
 
 
 
-      $order->save();
+     if($order->save()){
+        return redirect()->back()->with('success',$msg);
+        }
+
+        
+        return redirect()->back()->with('error',"Failed to Persist Changes!");
       
-        return redirect()->back()->with('success','Order Progress changed!');
     }
 
 

@@ -85,20 +85,11 @@
                             </div>
                             <div class="item-total">{{ number_format($order->cost , 0 , "",",")  }} Ksh.</div>
                             <div class="item-status {{ ($order->status == 1) ? 'text-green-500' : 'text-yellow-600' }}">
-                                {{ ($order->status == 1) ? "Paid" : "Unpaid" }}</div>
+                                {{ $order->statusMsg }}</div>
                             <div
                                 class="item-progress {{ ($order->progress == 0) ? 'text-yellow-600' : '' }} {{ ($order->progress == 1) ? 'text-blue-600' : '' }} {{ ($order->progress == 2) ? 'text-green-500' : '' }}">
-                                @if($order->progress == 0)
-                                N/A
-                                @endif
-
-                                @if($order->progress == 1)
-                                In Transit
-                                @endif
-
-                                @if($order->progress == 2)
-                                Completed
-                                @endif</div>
+                                {{ $order->progressMsg }}
+                            </div>
                         </div>
                     </a>
                     @endforeach
