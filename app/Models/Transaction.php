@@ -5,6 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
+/**
+ * Represents an instance of a transaction `transactions table`
+ */
 class Transaction extends Model
 {
     use HasFactory;

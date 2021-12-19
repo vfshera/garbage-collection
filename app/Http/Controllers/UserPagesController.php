@@ -11,8 +11,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Actions\Fortify\UpdateUserProfileInformation;
 
+
+/**
+ * Controller for Normal User Pages
+ */
 class UserPagesController extends Controller
 {
+    
     
     public function dashboard(){
 

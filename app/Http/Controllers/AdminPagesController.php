@@ -9,6 +9,10 @@ use App\Models\Payment;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
+
+/**
+ * Controller for admin pages
+ */
 class AdminPagesController extends Controller
 {
     public function dashboard(){
@@ -27,9 +31,6 @@ class AdminPagesController extends Controller
         
         return view('admin.dashboard' , compact(['latestOrders','ordersCount','latestPayments', 'paymentsSum']));
     }
-
-
-
 
 
 
