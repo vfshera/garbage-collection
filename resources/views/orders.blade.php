@@ -283,7 +283,8 @@
                     </div>
                     <div class="input-group">
                         <label for="pickup">Pickup Date</label>
-                        <input type="date" name="pickup" id="pickup" required>
+                        <input type="date" min="{{ date('Y-m-d' , strtotime(now()->addDay())) }}" name="pickup"
+                            id="pickup" required>
                     </div>
 
 

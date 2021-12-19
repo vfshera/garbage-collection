@@ -17,7 +17,7 @@ class UserPagesController extends Controller
     public function dashboard(){
 
 
-        $myOrders = Order::forUser(Auth::user()->id)->orderBy('created_at', 'DESC')->get();
+        $myOrders = Order::forAuthUser()->orderBy('created_at', 'DESC')->get();
         $latestOrders = $myOrders->take(8);
         $ordersCount = $myOrders->count();
 
@@ -47,6 +47,8 @@ class UserPagesController extends Controller
     public function getOrderReport(Request $request){ 
         
         $reportType = "Order Report";
+
+       
         
         
         if($request->has('status') && $request->get('status') == 1) {
@@ -127,7 +129,7 @@ class UserPagesController extends Controller
     
     public function billing(){
 
-        $orders = Order::forUser(Auth::user()->id)->paid()->with('transaction.payment')->paginate(8);
+        $orders = Order::forAuthUser()->paid()->with('transaction.payment')->paginate(8);
 
         
        $orderIDs = $orders->pluck('id')->toArray();
