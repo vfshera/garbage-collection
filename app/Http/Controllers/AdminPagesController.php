@@ -200,7 +200,7 @@ class AdminPagesController extends Controller
 
         $orders = Order::paid()->with('transaction.payment')->orderBy('created_at')->paginate(8); 
         
-        $totalBill = Transaction::sum('Amount');
+        $totalBill = Transaction::completed()->sum('Amount');
         
         return view('billing' , compact(['orders','totalBill']));
     }
