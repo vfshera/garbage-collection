@@ -4,24 +4,36 @@
 
 
         <header>
-            <h1>Orders</h1>
+            <h1>{{ request()->routeIs('admin.user-orders') ? $user->name."'s"." Orders" : "Orders"}}</h1>
 
             <section>
 
+                @admin
                 <div class="filters">
-                    <a href="{{ Auth::user()->role === '1' ? route('admin.orders') : route('user.orders') }}">All
+                    <a
+                        href="{{ request()->routeIs('admin.user-orders') ? route('admin.user-orders',[$user,strtolower(str_replace(' ','',$user->name))]) : route('admin.orders') }}">
+                        All Orders
+                    </a>
+                    <a
+                        href="{{ request()->routeIs('admin.user-orders') ? route('admin.user-orders', [$user,strtolower(str_replace(' ','',$user->name)),'status' => 0]) : route('admin.orders' , ['status' => 0]) }}">Unpaid
                         Orders</a>
                     <a
-                        href="{{ Auth::user()->role === '1' ? route('admin.orders', ['status' => 0]) : route('user.orders', ['status' => 0]) }}">Unpaid
-                        Orders</a>
-                    <a
-                        href="{{ Auth::user()->role === '1' ? route('admin.orders' , ['status' => 1]) : route('user.orders' , ['status' => 1]) }}">Paid
+                        href="{{ request()->routeIs('admin.user-orders') ? route('admin.user-orders' , [$user,strtolower(str_replace(' ','',$user->name)),'status' => 1]) : route('admin.orders' , ['status' => 1]) }}">Paid
                         Orders</a>
                 </div>
+                @endadmin
 
-                @if(Auth::user()->role == 0)
+                @user
+                <div class="filters">
+                    <a href="{{  route('user.orders') }}">All
+                        Orders</a>
+                    <a href="{{route('user.orders', ['status' => 0]) }}">Unpaid
+                        Orders</a>
+                    <a href="{{ route('user.orders' , ['status' => 1]) }}">Paid
+                        Orders</a>
+                </div>
                 <button id="newOrder" onclick="openModal('#addModal')">New Order</button>
-                @endif
+                @enduser
 
             </section>
 

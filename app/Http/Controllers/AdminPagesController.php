@@ -73,6 +73,8 @@ class AdminPagesController extends Controller
 
          $users = User::normalUsers()->get();
 
+
+         
         return view('admin.order-report' , compact('orders', 'reportType','users'));
     }
 
@@ -112,8 +114,10 @@ class AdminPagesController extends Controller
 
     public function users(){
 
-        $users = User::normalUsers()->orderBy('created_at', 'DESC')->paginate(8);
+        $users = User::normalUsers()->withCount('orders')->orderBy('created_at', 'DESC')->paginate(8);
         
+        
+         
         return view('admin.users' , compact(['users']));
     }
 
@@ -139,6 +143,23 @@ class AdminPagesController extends Controller
 
 
         return view('orders' , compact(['orders']));
+    }
+    
+
+    
+
+    public function userOrders(Request $request, User $user){
+        
+       
+        $orders = Order::forUser($user->id)->when($request->has('status'), function ($query) use ($request) {
+
+           return $query->where('status', $request->get('status'));
+            
+         })->with('waste','user')->orderBy('created_at','DESC')->paginate(8);
+
+         
+
+        return view('orders' , compact(['orders','user']));
     }
     
 
