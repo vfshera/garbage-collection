@@ -1772,10 +1772,6 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(16, 185, 129, var(--tw-text-opacity));
 }
-.text-brand-2 {
-	--tw-text-opacity: 1;
-	color: rgba(237, 250, 139, var(--tw-text-opacity));
-}
 .text-yellow-600 {
 	--tw-text-opacity: 1;
 	color: rgba(217, 119, 6, var(--tw-text-opacity));
@@ -1784,10 +1780,6 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(37, 99, 235, var(--tw-text-opacity));
 }
-.text-brand-1 {
-	--tw-text-opacity: 1;
-	color: rgba(64, 112, 86, var(--tw-text-opacity));
-}
 .text-gray-200 {
 	--tw-text-opacity: 1;
 	color: rgba(229, 231, 235, var(--tw-text-opacity));
@@ -1795,6 +1787,14 @@ select {
 .text-gray-300 {
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
+}
+.text-brand-2 {
+	--tw-text-opacity: 1;
+	color: rgba(237, 250, 139, var(--tw-text-opacity));
+}
+.text-brand-1 {
+	--tw-text-opacity: 1;
+	color: rgba(64, 112, 86, var(--tw-text-opacity));
 }
 .underline {
 	text-decoration: underline;
@@ -7591,8 +7591,8 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 }
-.users-page section.users .caption .name, .users-page section.users .caption .email, .users-page section.users .caption .joined, .users-page section.users .users-list .user .name, .users-page section.users .users-list .user .email, .users-page section.users .users-list .user .joined {
-	width: 33.333333%;
+.users-page section.users .caption .name, .users-page section.users .caption .email, .users-page section.users .caption .joined, .users-page section.users .caption .order-count, .users-page section.users .users-list .user .name, .users-page section.users .users-list .user .email, .users-page section.users .users-list .user .joined, .users-page section.users .users-list .user .order-count {
+	width: 25%;
 }
 .users-page section.users .caption {
 	border-bottom-width: 1px;
@@ -7681,6 +7681,23 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 }
 #userInfoModal .info .info-item p:last-child {
 	font-style: italic;
+}
+#userInfoModal a {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1.25rem;
+	width: 80%;
+	--tw-bg-opacity: 1;
+	background-color: rgba(28, 130, 0, var(--tw-bg-opacity));
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	text-align: center;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+#userInfoModal a:hover {
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 /* USERS PAGE END*/
 /* ADMIN PAGES END*/

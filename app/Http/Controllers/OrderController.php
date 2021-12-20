@@ -11,8 +11,14 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Controller Creating  and Deleting Orders
+ */
 class OrderController extends Controller
 {
+    /**
+ * Creating new order
+ */
     public function store(Request $request){
 
         $newOrder = $request->validate([
@@ -37,6 +43,10 @@ class OrderController extends Controller
         
     }
 
+
+    /**
+ * Order Payment View
+ */
     public function payment(Order $order , Request $request){
 
         if(Auth::user()->id != $order->user_id){
@@ -47,6 +57,11 @@ class OrderController extends Controller
 
     }
 
+
+
+    /**
+ * Creates Payment with MpesaPay::class
+ */
     public function pay(Order $order ,Request $request , MpesaPay $mpesaPay){   
         
         $payingNumber = Auth::user()->phone;
@@ -92,14 +107,19 @@ class OrderController extends Controller
 
 
 
-    
+    /**
+ * Payment Confirmation View
+ */
     public function confirm(Order $order ,Request $request){   
         
         return view('payment-confirm', compact('order'));
     }
 
 
-    public function checkPay(Order $order ,Request $request){   
+    /**
+ * Checks if Order is paid
+ */
+    public function checkPay(Order $order){   
         
         return response()->json(['isPaid' => $order->transaction->payment()->exists()]);
     }
@@ -108,17 +128,9 @@ class OrderController extends Controller
    
 
 
-
-    public function update(Request $request){
-     
-
-        return redirect()->back()->with('success','Order Updated!');
-
-    }
-
-
-
-
+/**
+ * Deletes Order
+ */
     public function destroy(Order $order){   
         
         $order->delete();

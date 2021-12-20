@@ -6,6 +6,10 @@ use PDF;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
+
+/**
+ * Controller for generating PDF Reports
+ */
 class ReportController extends Controller
 {
     public function generatePdf(){

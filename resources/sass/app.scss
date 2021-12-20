@@ -702,8 +702,9 @@ section.navbar {
 
             .name,
             .email,
-            .joined {
-                @apply w-1/3;
+            .joined,
+            .order-count {
+                @apply w-1/4;
             }
         }
         .caption {
@@ -759,6 +760,10 @@ section.navbar {
                 }
             }
         }
+    }
+
+    a{
+        @apply mx-auto w-4/5 bg-brand-7 mb-5 py-3 hover:shadow text-center text-white;
     }
 }
 /* USERS PAGE END*/

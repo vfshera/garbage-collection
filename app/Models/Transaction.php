@@ -5,6 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
+/**
+ * Represents an instance of a transaction `transactions table`
+ */
 class Transaction extends Model
 {
     use HasFactory;
@@ -22,8 +26,18 @@ class Transaction extends Model
     }
 
 
+    /**
+     * Scope for completed transactions
+     */
     public function scopeCompleted($query){
         return $query->where('Status',1);
     }
 
+
+    /**
+     * Check if transaction is completed
+     */
+    public function isCompleted(){
+        return $this->Status == '1';
+    }
 }

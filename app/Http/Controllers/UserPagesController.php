@@ -11,13 +11,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Actions\Fortify\UpdateUserProfileInformation;
 
+
+/**
+ * Controller for Normal User Pages
+ */
 class UserPagesController extends Controller
 {
+    
     
     public function dashboard(){
 
 
-        $myOrders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->get();
+        $myOrders = Order::forAuthUser()->orderBy('created_at', 'DESC')->get();
         $latestOrders = $myOrders->take(8);
         $ordersCount = $myOrders->count();
 
@@ -29,9 +34,14 @@ class UserPagesController extends Controller
 
         $latestPayments = $myPayments->take(8);
 
-        $orderIDs = $myOrders->pluck('id')->toArray();
+
+       
+
+        $orderIDs = $myOrders->filter(function($order){
+            return $order->status == '1';
+        })->pluck('id')->toArray();
         
-        $paymentsSum = Transaction::completed()->whereIn('order_id',$orderIDs)->sum('Amount');
+        $paymentsSum = Transaction::whereIn('order_id',$orderIDs)->sum('Amount');
 
         
         return view('user.dashboard' , compact(['latestOrders','ordersCount','latestPayments', 'paymentsSum']));
@@ -42,6 +52,8 @@ class UserPagesController extends Controller
     public function getOrderReport(Request $request){ 
         
         $reportType = "Order Report";
+
+       
         
         
         if($request->has('status') && $request->get('status') == 1) {
@@ -122,10 +134,10 @@ class UserPagesController extends Controller
     
     public function billing(){
 
-        $orders = Auth::user()->orders()->paid()->with('transaction.payment')->paginate(8);
+        $orders = Order::forAuthUser()->paid()->with('transaction.payment')->paginate(8);
 
         
-       $orderIDs = Auth::user()->orders()->paid()->get('id');
+       $orderIDs = $orders->pluck('id')->toArray();
 
 
         $totalBill = Transaction::whereIn('order_id',$orderIDs)->sum('Amount');

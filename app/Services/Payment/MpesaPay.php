@@ -27,6 +27,13 @@ class MpesaPay{
     }
 
 
+    private function getCallbackLink(){
+        if(env('APP_ENV')  == 'production'){
+            return env('APP_URL').'/api';
+        }else{
+            return env('MPESA_TEST_URL');
+        }
+    }
 
     private function makeRequest($url , $body){
 
@@ -174,7 +181,7 @@ class MpesaPay{
                 "PartyA" => env('MPESA_TEST_MSISDN'),            
                 "PartyB" =>  env('MPESA_STK_SHORTCODE'),            
                 "PhoneNumber" => env('MPESA_TEST_MSISDN'),            
-                "CallBackURL" => env('MPESA_TEST_URL').'/stkpush',            
+                "CallBackURL" => $this->getCallbackLink().'/stkpush',            
                 "AccountReference" => "PGC Payment",            
                 "TransactionDesc" => "OrderPayment"
         ];

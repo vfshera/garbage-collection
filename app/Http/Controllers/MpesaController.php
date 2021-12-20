@@ -7,9 +7,17 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
+
+/**
+ * Controller for receiving and saving MPESA Responses
+ */
 class MpesaController extends Controller
 {
     
+
+    /**
+     * Receives response for STKPUSH and stores to `payments table`
+     */
     public function stkpushCallback(Request $request){
         
 
@@ -49,7 +57,9 @@ class MpesaController extends Controller
 
 
 
-// ACCOUNT BALANCE
+ /**
+     * Receives response for Ballance Callback
+     */
     public function balanceCallback(Request $request){
         Log::info("ACCOUNT BALANCE EndPoint Hit");
         Log::info($request->all());
@@ -70,6 +80,9 @@ class MpesaController extends Controller
 
 
 
+/**
+     * Receives Transaction Reversal Response
+     */
 //REVERSE TRANSACTION
     public function reverseCallback(Request $request){
         Log::info("Reverse EndPoint Hit");
@@ -90,7 +103,9 @@ class MpesaController extends Controller
 
 
 
-
+/**
+     * Responds to Transaction Callback
+     */
 
 //TRANSACTION
     public function transactionCallback(Request $request){
@@ -112,7 +127,9 @@ class MpesaController extends Controller
 
 
 
-
+/**
+     * Responds to B2C Callback
+     */
 //B2C
     public function b2cCallback(Request $request){
         Log::info("B2C EndPoint Hit");
@@ -132,7 +149,9 @@ class MpesaController extends Controller
 
 
 
-
+/**
+     * Receives response for MPSEA Register Url Confirmation
+     */
 //REGISTER URLS
     public function confirmation(Request $request){
         Log::info("Confirm EndPoint Hit");
@@ -140,6 +159,9 @@ class MpesaController extends Controller
     }
 
 
+    /**
+     * Receives response for MPSEA Register Url Validation
+     */
     public function validation(Request $request){
         Log::info("Validate EndPoint Hit");
         Log::info($request->all());

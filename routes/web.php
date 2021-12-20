@@ -107,6 +107,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
         Route::get('/orders', [AdminPagesController::class , 'orders'])->name('orders');
 
+        Route::get('/{user}/{name}/orders', [AdminPagesController::class , 'userOrders'])->name('user-orders');
+
         Route::post('/order/{order}/progress', [AdminPagesController::class , 'progress'])->name('order-progress');
 
         Route::get('/billing', [AdminPagesController::class , 'billing'])->name('billing');

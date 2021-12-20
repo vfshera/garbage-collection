@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use Illuminate\Http\Request;
 
+
+/**
+ * Controller for creating Inquires/Questions
+ */
 class QuestionController extends Controller
 {
-    
+    /**
+ * Creates an inquiry/Question
+ */
     public function store(Request $request){
 
        $newQuestion = $request->validate([

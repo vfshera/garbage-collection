@@ -13,6 +13,9 @@
                 <div class="email">
                     EMAIL
                 </div>
+                <div class="order-count">
+                    ORDERS
+                </div>
                 <div class="joined">
                     JOINED
                 </div>
@@ -24,10 +27,18 @@
                     <div class="name">
                         {{ $key + 1 }}. {{ $normalUser->name }}
                     </div>
+
                     <div class="email">
                         {{ $normalUser->email }}
 
                     </div>
+
+                    <div class="order-count">
+
+                        {{ $normalUser->orders_count }}
+
+                    </div>
+
                     <div class="joined">
                         {{ date('H:s \- jS M Y ', strtotime($normalUser->created_at)) }}
 
@@ -112,6 +123,8 @@
                 </div>
 
 
+                <a href="/" id="userOrdersLink">View Orders</a>
+
             </div>
 
         </div>
@@ -161,6 +174,10 @@
             document.querySelector("#viewWard").innerText = user.ward;
 
             document.querySelector("#viewTown").innerText = user.town;
+
+            const userATag = document.querySelector("#userOrdersLink");
+
+            userATag.href = `/admin/${user.id}/${user.name.replace(" ","").toLowerCase()}/orders`
 
         }
         </script>

@@ -9,6 +9,10 @@ use App\Models\Payment;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
+
+/**
+ * Controller for admin pages
+ */
 class AdminPagesController extends Controller
 {
     public function dashboard(){
@@ -27,9 +31,6 @@ class AdminPagesController extends Controller
         
         return view('admin.dashboard' , compact(['latestOrders','ordersCount','latestPayments', 'paymentsSum']));
     }
-
-
-
 
 
 
@@ -73,6 +74,8 @@ class AdminPagesController extends Controller
 
          $users = User::normalUsers()->get();
 
+
+         
         return view('admin.order-report' , compact('orders', 'reportType','users'));
     }
 
@@ -112,8 +115,10 @@ class AdminPagesController extends Controller
 
     public function users(){
 
-        $users = User::normalUsers()->orderBy('created_at', 'DESC')->paginate(8);
+        $users = User::normalUsers()->withCount('orders')->orderBy('created_at', 'DESC')->paginate(8);
         
+        
+         
         return view('admin.users' , compact(['users']));
     }
 
@@ -142,18 +147,41 @@ class AdminPagesController extends Controller
     }
     
 
-    public function progress(Order $order){
+    
+
+    public function userOrders(Request $request, User $user){
         
        
-      if($order->progress == 1) {
+        $orders = Order::forUser($user->id)->when($request->has('status'), function ($query) use ($request) {
 
-        $order->progress = 2;
+           return $query->where('status', $request->get('status'));
+            
+         })->with('waste','user')->orderBy('created_at','DESC')->paginate(8);
+
+         
+
+        return view('orders' , compact(['orders','user']));
+    }
+    
+
+    public function progress(Order $order){
+        
+       $msg = "";
+
+      if($order->isCompleted()) {
+
+        $order->progress = 1;
+
+        $msg = "Order Progress Marked Scheduled!";
 
       }
         
-      if($order->progress == 2) {
+      if($order->isScheduled()) {
 
-          $order->progress = 1;
+          $order->progress = 2;
+
+        $msg = "Order Progress Marked Completed!";
+
 
       }
         
@@ -167,9 +195,13 @@ class AdminPagesController extends Controller
 
 
 
-      $order->save();
+     if($order->save()){
+        return redirect()->back()->with('success',$msg);
+        }
+
+        
+        return redirect()->back()->with('error',"Failed to Persist Changes!");
       
-        return redirect()->back()->with('success','Order Progress changed!');
     }
 
 
@@ -179,7 +211,7 @@ class AdminPagesController extends Controller
 
         $orders = Order::paid()->with('transaction.payment')->orderBy('created_at')->paginate(8); 
         
-        $totalBill = Transaction::sum('Amount');
+        $totalBill = Transaction::completed()->sum('Amount');
         
         return view('billing' , compact(['orders','totalBill']));
     }
