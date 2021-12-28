@@ -48,7 +48,7 @@ body {
 }
 
 .pgc-admin-container {
-    @apply px-20 py-5;
+    @apply px-5 lg:px-20 py-5;
 }
 
 #app-slot {
@@ -398,7 +398,7 @@ section.navbar {
         @apply flex justify-between items-center;
 
         h1 {
-            @apply font-semibold text-2xl;
+            @apply font-semibold text-xl lg:text-2xl;
         }
 
         p {
@@ -407,37 +407,39 @@ section.navbar {
     }
 
     .reports-overview {
-        @apply grid grid-cols-2 gap-14 mt-5;
+        @apply grid grid-cols-2 gap-7 lg:gap-14 mt-5;
+
+        .reports,
+        .dash-overview {
+            @apply flex gap-5 lg:gap-12 p-5 lg:p-10 bg-brand-1 rounded shadow;
+        }
 
         .dash-overview {
-            @apply flex gap-12 p-10 bg-brand-1 rounded shadow;
-
             .dash-item {
-                @apply flex flex-col justify-center items-center py-10 rounded w-1/2   bg-white shadow-sm;
+                @apply flex flex-col justify-center items-center py-5 lg:py-10 rounded w-1/2   bg-white shadow-sm;
 
                 p.amount {
-                    @apply text-2xl font-bold text-brand-1;
+                    @apply text-xl lg:text-2xl font-bold text-brand-1;
                 }
 
                 p.label {
-                    @apply text-2xl text-brand-1;
+                    @apply text-lg lg:text-2xl text-brand-1;
                 }
             }
         }
 
         .reports {
-            @apply bg-brand-1 rounded shadow gap-12 flex p-10;
             a {
                 @apply w-1/2 h-full;
 
                 .report {
-                    @apply cursor-pointer h-full bg-white py-10 shadow-sm rounded flex flex-col justify-center items-center text-brand-1 text-xl font-bold;
+                    @apply cursor-pointer text-center h-full bg-white py-5 lg:py-10 shadow-sm rounded flex flex-col justify-center items-center text-brand-1 text-lg lg:text-xl font-bold;
                 }
             }
         }
     }
     .activity {
-        @apply mt-10 grid grid-cols-2 gap-10;
+        @apply mt-10 grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10;
 
         .last-orders,
         .last-payments {
@@ -553,11 +555,11 @@ section.navbar {
         @apply flex justify-between items-center;
 
         h1 {
-            @apply font-semibold text-2xl;
+            @apply font-semibold text-xl lg:text-2xl;
         }
 
         button {
-            @apply text-white bg-brand-1 px-7 py-3 rounded-md;
+            @apply text-white bg-brand-1 px-5 lg:px-7 py-2 lg:py-3 rounded-md;
         }
     }
 
@@ -762,7 +764,7 @@ section.navbar {
         }
     }
 
-    a{
+    a {
         @apply mx-auto w-4/5 bg-brand-7 mb-5 py-3 hover:shadow text-center text-white;
     }
 }
@@ -868,7 +870,7 @@ section.navbar {
         }
 
         .orders-header {
-            @apply px-3 py-2 bg-white  mt-3 font-semibold text-brand-4 text-lg;
+            @apply px-3 py-2 bg-white  mt-3 font-semibold text-brand-4 text-base lg:text-lg;
 
             .actions {
                 @apply w-2/12 text-center;
@@ -880,6 +882,9 @@ section.navbar {
 
             .order {
                 @apply text-gray-700 hover:bg-brand-6;
+                div{
+                    @apply text-base;
+                }
 
                 &:not(:last-child) {
                     @apply mb-1 border-b border-gray-100;
@@ -986,16 +991,16 @@ section.navbar {
 
 /* BILLING PAGE */
 .billing-page {
-    @apply h-full w-full bg-white shadow rounded p-10 mt-5;
+    @apply h-full w-full bg-white shadow rounded p-5 lg:p-10 mt-5;
 
     header {
         @apply flex mb-3 justify-between items-center;
         h1 {
-            @apply font-semibold text-2xl;
+            @apply font-semibold text-xl lg:text-2xl;
         }
 
         p {
-            @apply font-semibold text-2xl;
+            @apply font-semibold text-xl lg:text-2xl;
 
             span {
                 @apply text-brand-1;
@@ -1040,7 +1045,7 @@ section.navbar {
                 .amount,
                 .transaction,
                 .date {
-                    @apply w-1/5 text-gray-700  py-1 border-b border-gray-100;
+                    @apply w-1/5 text-gray-700 text-sm lg:text-base py-1 border-b border-gray-100;
                 }
 
                 .amount {
@@ -1175,16 +1180,16 @@ section.navbar {
             @apply w-2/3 text-center text-gray-600;
         }
 
-        .notice{
+        .notice {
             @apply mt-10 flex flex-col items-center;
 
-            i{
-                @apply text-brand-7 text-3xl animate-spin ;
+            i {
+                @apply text-brand-7 text-3xl animate-spin;
             }
 
-            p{
+            p {
                 @apply text-brand-7 mt-2 animate-pulse;
-                span{
+                span {
                     @apply font-bold;
                 }
             }
@@ -1272,7 +1277,7 @@ section.navbar {
             }
             button,
             a {
-                @apply py-3 px-7 rounded;
+                @apply py-2 lg:py-3 px-5 lg:px-7 rounded;
             }
 
             a.btn-pdf {
@@ -1292,24 +1297,24 @@ section.navbar {
 
 // COMPONENT
 .report-wrapper {
-    @apply w-full border border-brand-7 border-dashed flex justify-center items-center p-10;
+    @apply w-full border border-brand-7 border-dashed flex justify-center items-center p-5 lg:p-10;
 
     .report {
-        @apply w-2/3 bg-white p-10 shadow-lg  flex flex-col;
+        @apply w-11/12 lg:w-2/3 bg-white p-5 lg:p-10 shadow-lg  flex flex-col;
 
         .reporthead {
             @apply flex justify-between items-center pb-3 border-b border-gray-500;
 
             h1 {
-                @apply w-1/3 font-semibold text-lg;
+                @apply w-1/3 font-semibold text-base lg:text-lg;
             }
 
             h2 {
-                @apply w-1/3 font-semibold text-lg;
+                @apply w-1/3 font-semibold text-base lg:text-lg;
             }
 
             span {
-                @apply w-1/3  text-lg;
+                @apply w-1/3  text-base lg:text-lg;
             }
         }
 
@@ -1325,7 +1330,7 @@ section.navbar {
                     @apply flex p-3 bg-gray-800 text-white;
 
                     span {
-                        @apply w-1/3;
+                        @apply w-1/3 text-base ;
                     }
                 }
 

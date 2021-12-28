@@ -1376,6 +1376,11 @@ select {
 	margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-x-reverse: 0;
+	margin-right: calc(1rem * var(--tw-space-x-reverse));
+	margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .overflow-hidden {
 	overflow: hidden;
 }
@@ -6553,10 +6558,17 @@ body {
 	padding-right: 2.5rem;
 }
 .pgc-admin-container {
-	padding-left: 5rem;
-	padding-right: 5rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
 	padding-top: 1.25rem;
 	padding-bottom: 1.25rem;
+}
+@media (min-width: 1024px) {
+
+	.pgc-admin-container {
+		padding-left: 5rem;
+		padding-right: 5rem;
+	}
 }
 #app-slot {
 	height: 80%;
@@ -7181,9 +7193,16 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	justify-content: space-between;
 }
 .dashview header h1 {
-	font-size: 1.5rem;
-	line-height: 2rem;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
 	font-weight: 600;
+}
+@media (min-width: 1024px) {
+
+	.dashview header h1 {
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
 }
 .dashview header p {
 	font-style: italic;
@@ -7194,17 +7213,33 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	margin-top: 1.25rem;
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 3.5rem;
+	gap: 1.75rem;
 }
-.dashview .reports-overview .dash-overview {
+@media (min-width: 1024px) {
+
+	.dashview .reports-overview {
+		gap: 3.5rem;
+	}
+}
+.dashview .reports-overview .reports, .dashview .reports-overview .dash-overview {
 	display: flex;
-	gap: 3rem;
+	gap: 1.25rem;
 	border-radius: 0.25rem;
 	--tw-bg-opacity: 1;
 	background-color: rgba(64, 112, 86, var(--tw-bg-opacity));
-	padding: 2.5rem;
+	padding: 1.25rem;
 	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+@media (min-width: 1024px) {
+
+	.dashview .reports-overview .reports, .dashview .reports-overview .dash-overview {
+		gap: 3rem;
+	}
+
+	.dashview .reports-overview .reports, .dashview .reports-overview .dash-overview {
+		padding: 2.5rem;
+	}
 }
 .dashview .reports-overview .dash-overview .dash-item {
 	display: flex;
@@ -7215,33 +7250,44 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	border-radius: 0.25rem;
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-	padding-top: 2.5rem;
-	padding-bottom: 2.5rem;
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
 	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+@media (min-width: 1024px) {
+
+	.dashview .reports-overview .dash-overview .dash-item {
+		padding-top: 2.5rem;
+		padding-bottom: 2.5rem;
+	}
+}
 .dashview .reports-overview .dash-overview .dash-item p.amount {
-	font-size: 1.5rem;
-	line-height: 2rem;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
 	font-weight: 700;
 	--tw-text-opacity: 1;
 	color: rgba(64, 112, 86, var(--tw-text-opacity));
 }
+@media (min-width: 1024px) {
+
+	.dashview .reports-overview .dash-overview .dash-item p.amount {
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
+}
 .dashview .reports-overview .dash-overview .dash-item p.label {
-	font-size: 1.5rem;
-	line-height: 2rem;
+	font-size: 1.125rem;
+	line-height: 1.75rem;
 	--tw-text-opacity: 1;
 	color: rgba(64, 112, 86, var(--tw-text-opacity));
 }
-.dashview .reports-overview .reports {
-	display: flex;
-	gap: 3rem;
-	border-radius: 0.25rem;
-	--tw-bg-opacity: 1;
-	background-color: rgba(64, 112, 86, var(--tw-bg-opacity));
-	padding: 2.5rem;
-	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+@media (min-width: 1024px) {
+
+	.dashview .reports-overview .dash-overview .dash-item p.label {
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
 }
 .dashview .reports-overview .reports a {
 	height: 100%;
@@ -7257,9 +7303,10 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	border-radius: 0.25rem;
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-	padding-top: 2.5rem;
-	padding-bottom: 2.5rem;
-	font-size: 1.25rem;
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+	text-align: center;
+	font-size: 1.125rem;
 	line-height: 1.75rem;
 	font-weight: 700;
 	--tw-text-opacity: 1;
@@ -7267,11 +7314,33 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+@media (min-width: 1024px) {
+
+	.dashview .reports-overview .reports a .report {
+		padding-top: 2.5rem;
+		padding-bottom: 2.5rem;
+	}
+
+	.dashview .reports-overview .reports a .report {
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+	}
+}
 .dashview .activity {
 	margin-top: 2.5rem;
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 2.5rem;
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+	gap: 1.25rem;
+}
+@media (min-width: 1024px) {
+
+	.dashview .activity {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.dashview .activity {
+		gap: 2.5rem;
+	}
 }
 .dashview .activity .last-orders, .dashview .activity .last-payments {
 	display: flex;
@@ -7365,20 +7434,39 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	justify-content: space-between;
 }
 .waste-page header h1 {
-	font-size: 1.5rem;
-	line-height: 2rem;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
 	font-weight: 600;
+}
+@media (min-width: 1024px) {
+
+	.waste-page header h1 {
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
 }
 .waste-page header button {
 	border-radius: 0.375rem;
 	--tw-bg-opacity: 1;
 	background-color: rgba(64, 112, 86, var(--tw-bg-opacity));
-	padding-left: 1.75rem;
-	padding-right: 1.75rem;
-	padding-top: 0.75rem;
-	padding-bottom: 0.75rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+@media (min-width: 1024px) {
+
+	.waste-page header button {
+		padding-left: 1.75rem;
+		padding-right: 1.75rem;
+	}
+
+	.waste-page header button {
+		padding-top: 0.75rem;
+		padding-bottom: 0.75rem;
+	}
 }
 .waste-page section.wastes {
 	display: flex;
@@ -7847,11 +7935,18 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	padding-right: 0.75rem;
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
-	font-size: 1.125rem;
-	line-height: 1.75rem;
+	font-size: 1rem;
+	line-height: 1.5rem;
 	font-weight: 600;
 	--tw-text-opacity: 1;
 	color: rgba(37, 102, 112, var(--tw-text-opacity));
+}
+@media (min-width: 1024px) {
+
+	.orders-page section.orders .orders-header {
+		font-size: 1.125rem;
+		line-height: 1.75rem;
+	}
 }
 .orders-page section.orders .orders-header .actions {
 	width: 16.666667%;
@@ -7869,6 +7964,10 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 .orders-page section.orders .orders-list .order:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(248, 248, 242, var(--tw-bg-opacity));
+}
+.orders-page section.orders .orders-list .order div {
+	font-size: 1rem;
+	line-height: 1.5rem;
 }
 .orders-page section.orders .orders-list .order:not(:last-child) {
 	margin-bottom: 0.25rem;
@@ -8019,9 +8118,15 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	border-radius: 0.25rem;
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-	padding: 2.5rem;
+	padding: 1.25rem;
 	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+@media (min-width: 1024px) {
+
+	.billing-page {
+		padding: 2.5rem;
+	}
 }
 .billing-page header {
 	margin-bottom: 0.75rem;
@@ -8030,14 +8135,28 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	justify-content: space-between;
 }
 .billing-page header h1 {
-	font-size: 1.5rem;
-	line-height: 2rem;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
 	font-weight: 600;
 }
+@media (min-width: 1024px) {
+
+	.billing-page header h1 {
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
+}
 .billing-page header p {
-	font-size: 1.5rem;
-	line-height: 2rem;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
 	font-weight: 600;
+}
+@media (min-width: 1024px) {
+
+	.billing-page header p {
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
 }
 .billing-page header p span {
 	--tw-text-opacity: 1;
@@ -8073,8 +8192,17 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	border-color: rgba(243, 244, 246, var(--tw-border-opacity));
 	padding-top: 0.25rem;
 	padding-bottom: 0.25rem;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
 	--tw-text-opacity: 1;
 	color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+@media (min-width: 1024px) {
+
+	.billing-page section.billing-wrapper .bills .bill .serial, .billing-page section.billing-wrapper .bills .bill .customer, .billing-page section.billing-wrapper .bills .bill .amount, .billing-page section.billing-wrapper .bills .bill .transaction, .billing-page section.billing-wrapper .bills .bill .date {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
 }
 .billing-page section.billing-wrapper .bills .bill .amount {
 	display: flex;
@@ -8475,10 +8603,22 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 }
 .report-page header .options button, .report-page header .options a {
 	border-radius: 0.25rem;
-	padding-top: 0.75rem;
-	padding-bottom: 0.75rem;
-	padding-left: 1.75rem;
-	padding-right: 1.75rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
+@media (min-width: 1024px) {
+
+	.report-page header .options button, .report-page header .options a {
+		padding-top: 0.75rem;
+		padding-bottom: 0.75rem;
+	}
+
+	.report-page header .options button, .report-page header .options a {
+		padding-left: 1.75rem;
+		padding-right: 1.75rem;
+	}
 }
 .report-page header .options a.btn-pdf {
 	margin-left: 1.25rem;
@@ -8513,17 +8653,33 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 	border-style: dashed;
 	--tw-border-opacity: 1;
 	border-color: rgba(28, 130, 0, var(--tw-border-opacity));
-	padding: 2.5rem;
+	padding: 1.25rem;
+}
+@media (min-width: 1024px) {
+
+	.report-wrapper {
+		padding: 2.5rem;
+	}
 }
 .report-wrapper .report {
 	display: flex;
-	width: 66.666667%;
+	width: 91.666667%;
 	flex-direction: column;
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-	padding: 2.5rem;
+	padding: 1.25rem;
 	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+@media (min-width: 1024px) {
+
+	.report-wrapper .report {
+		width: 66.666667%;
+	}
+
+	.report-wrapper .report {
+		padding: 2.5rem;
+	}
 }
 .report-wrapper .report .reporthead {
 	display: flex;
@@ -8536,20 +8692,41 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 }
 .report-wrapper .report .reporthead h1 {
 	width: 33.333333%;
-	font-size: 1.125rem;
-	line-height: 1.75rem;
+	font-size: 1rem;
+	line-height: 1.5rem;
 	font-weight: 600;
+}
+@media (min-width: 1024px) {
+
+	.report-wrapper .report .reporthead h1 {
+		font-size: 1.125rem;
+		line-height: 1.75rem;
+	}
 }
 .report-wrapper .report .reporthead h2 {
 	width: 33.333333%;
-	font-size: 1.125rem;
-	line-height: 1.75rem;
+	font-size: 1rem;
+	line-height: 1.5rem;
 	font-weight: 600;
+}
+@media (min-width: 1024px) {
+
+	.report-wrapper .report .reporthead h2 {
+		font-size: 1.125rem;
+		line-height: 1.75rem;
+	}
 }
 .report-wrapper .report .reporthead span {
 	width: 33.333333%;
-	font-size: 1.125rem;
-	line-height: 1.75rem;
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
+@media (min-width: 1024px) {
+
+	.report-wrapper .report .reporthead span {
+		font-size: 1.125rem;
+		line-height: 1.75rem;
+	}
 }
 .report-wrapper .report .report-items {
 	margin-top: 1.25rem;
@@ -8569,6 +8746,8 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 }
 .report-wrapper .report .report-items .report-item .report-item-serial span {
 	width: 33.333333%;
+	font-size: 1rem;
+	line-height: 1.5rem;
 }
 .report-wrapper .report .report-items .report-item .report-data {
 	border-width: 2px;
@@ -8993,6 +9172,12 @@ section.navbar nav .navigation li:not(:first-child), section.navbar nav .auth-ro
 
 	.lg\:col-span-4 {
 		grid-column: span 4 / span 4;
+	}
+
+	.lg\:space-x-8 > :not([hidden]) ~ :not([hidden]) {
+		--tw-space-x-reverse: 0;
+		margin-right: calc(2rem * var(--tw-space-x-reverse));
+		margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
 	}
 
 	.lg\:px-8 {

@@ -40,7 +40,7 @@
 
                 <a href="{{ route('admin.report.order') }}">
                     <div class="report">
-                        Orders
+                        Orders<br>
                         Report
                     </div>
 
@@ -49,7 +49,7 @@
                 <a href="{{ route('admin.report.payment') }}">
 
                     <div class="report">
-                        Payment
+                        Payment<br>
                         Report
                     </div>
 
