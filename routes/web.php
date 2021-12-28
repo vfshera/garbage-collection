@@ -11,16 +11,7 @@ use App\Http\Controllers\{PagesController ,
        OrderController, QuestionController , UserPagesController};
 use Illuminate\Support\Facades\Log;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 
 Route::get('/', [PagesController::class , 'index'])->name('welcome');
@@ -42,7 +33,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
 
 
-    //USER ROUTES
+    /**
+     * USER ROUTES
+     */
     Route::middleware(['user'])->prefix('/user')->name('user.')->group(function(){
         
         Route::get('/dashboard',[UserPagesController::class , 'dashboard'])->name('dashboard');
@@ -58,7 +51,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
 
 
-        //Orders
+        /**
+         *  Orders
+         */
         
         Route::prefix('/order')->name('order.')->group(function(){
 
@@ -96,7 +91,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     });
 
 
-    // ADMIN ROUTES
+    /**
+     * ADMIN ROUTES
+     */
     Route::middleware(['admin'])->prefix('/admin')->name('admin.')->group(function(){
 
         Route::get('/dashboard', [AdminPagesController::class , 'dashboard'])->name('dashboard');
@@ -114,7 +111,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
         Route::get('/billing', [AdminPagesController::class , 'billing'])->name('billing');
 
 
-        //WASTE
+        /**
+         * WASTE
+         */
         Route::prefix('/waste')->name('waste.')->group(function(){
 
             Route::post('/store', [WasteController::class , 'store'])->name('store');
