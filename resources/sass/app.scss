@@ -10,11 +10,18 @@
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 
 /* FONTAWESOME ICONS END */
+html,
+body {
+    @apply p-0 m-0 bg-white;
+    box-sizing: border-box;
+}
 
 html {
     scrollbar-color: #edfa8b #407056;
     scrollbar-width: thin;
     scroll-behavior: smooth;
+
+    height: -webkit-fill-available;
 
     &:focus {
         outline: none;
@@ -33,11 +40,7 @@ html {
     }
 }
 
-html,
-body {
-    @apply p-0 m-0 bg-white;
-    box-sizing: border-box;
-}
+
 
 body {
     @apply min-h-screen;
@@ -157,7 +160,7 @@ button.btn-success {
 /* NAVBAR */
 
 section.navbar {
-    @apply fixed top-0 left-0 z-50 w-full text-white bg-brand-1 py-5 flex justify-between;
+    @apply lg:fixed top-0 left-0 z-50 w-full text-white bg-brand-1 py-5 flex justify-between;
 
     .brand {
         @apply text-xl;

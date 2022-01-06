@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Payment;
 use App\Models\Transaction;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 
 /**
@@ -15,43 +17,45 @@ class MpesaController extends Controller
 {
     
 
-    /**
+    /*
+    *
      * Receives response for STKPUSH and stores to `payments table`
      */
     public function stkpushCallback(Request $request){
-        
 
-        $response = json_decode($request->getContent());
-        $resData =  $response->Body->stkCallback->CallbackMetadata;
-        $resCode = $response->Body->stkCallback->ResultCode;
-        $merchantRequestID =  $response->Body->stkCallback->MerchantRequestID;
-        $checkoutRequestID = $response->Body->stkCallback->CheckoutRequestID;
-        $resMessage = $response->Body->stkCallback->ResultDesc;
-        $amountPaid = $resData->Item[0]->Value;
-        $mpesaTransactionId = $resData->Item[1]->Value;
-        $paymentDate = $resData->Item[3]->Value;
-        $paymentPhoneNumber = $resData->Item[4]->Value;
-
-
-
-        $trans = Transaction::where('MerchantRequestID',$merchantRequestID)->where('CheckoutRequestID',$checkoutRequestID)->first();
-
-        Payment::create([
-            'transaction_id' => $trans->id,
-            'TransactionCode' => $mpesaTransactionId,
-            'TransactionDate' => $paymentDate,
-            'PhoneNumber' => $paymentPhoneNumber
-        ]);
-
-
-        $trans->Status = 1;
-
-        $trans->save();
-
-        $trans->order->update([
-            'status' => 1,
-            'progress' => 1
-        ]);
+    
+            $response = json_decode($request->getContent());
+            $resData =  $response->Body->stkCallback->CallbackMetadata;
+            $resCode = $response->Body->stkCallback->ResultCode;
+            $merchantRequestID =  $response->Body->stkCallback->MerchantRequestID;
+            $checkoutRequestID = $response->Body->stkCallback->CheckoutRequestID;
+            $resMessage = $response->Body->stkCallback->ResultDesc;
+            $amountPaid = $resData->Item[0]->Value;
+            $mpesaTransactionId = $resData->Item[1]->Value;
+            $paymentDate = $resData->Item[3]->Value;
+            $paymentPhoneNumber = $resData->Item[4]->Value;
+    
+    
+    
+            $trans = Transaction::where('MerchantRequestID',$merchantRequestID)->where('CheckoutRequestID',$checkoutRequestID)->first();
+    
+            Payment::create([
+                'transaction_id' => $trans->id,
+                'TransactionCode' => $mpesaTransactionId,
+                'TransactionDate' => $paymentDate,
+                'PhoneNumber' => $paymentPhoneNumber
+            ]);
+    
+    
+            $trans->Status = 1;
+    
+            $trans->save();
+    
+            $trans->order->update([
+                'status' => 1,
+                'progress' => 1
+            ]);    
+       
         
     }
 
@@ -149,13 +153,15 @@ class MpesaController extends Controller
 
 
 
-/**
-     * Receives response for MPSEA Register Url Confirmation
-     */
-//REGISTER URLS
+/*
+*REGISTER URLS
+* Receives response for MPSEA Register Url Confirmation
+*/
+
     public function confirmation(Request $request){
         Log::info("Confirm EndPoint Hit");
-        Log::info($request->all());
+
+        Storage::put('confirm.txt', $request->all());
     }
 
 
@@ -163,8 +169,9 @@ class MpesaController extends Controller
      * Receives response for MPSEA Register Url Validation
      */
     public function validation(Request $request){
-        Log::info("Validate EndPoint Hit");
-        Log::info($request->all());
+        Log::info("Validate EndPoint Hit");      
+
+        Storage::put('validate.txt', $request->all());
 
         return [
             'ResultCode' => 0,

@@ -96,7 +96,7 @@ class AdminPagesController extends Controller
 
          })->when(($request->has('forUser')  && $request->forUser != null),function($query) use ($request) {
 
-            return $query->whereHas('order',function($ord) use($request){
+            return $query->whereHas('transaction.order',function($ord) use($request){
                 return $ord->forUser($request->forUser);
             });
 

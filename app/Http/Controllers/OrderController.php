@@ -66,17 +66,16 @@ class OrderController extends Controller
         
         $payingNumber = Auth::user()->phone;
 
-        if($request->altPay){
+        // if($request->altPay){
             
-            $payingNumber = $request->altPay;
-        }
+        //     $payingNumber = $request->altPay;
+        // }
 
         try {
 
-        // MPESA LOGIC
+       
             $payResponse = $mpesaPay->stkPush(1, $payingNumber, $order->serial, "OrderPayment");
 
-            // dd($payResponse);
 
             if ((env('MPESA_HANDLER') == 'safaricom' && $payResponse->ResponseCode != 0) || (env('MPESA_HANDLER') == 'reflector' && $payResponse->ResultCode != 0)) {
                 

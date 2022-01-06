@@ -6520,10 +6520,18 @@ readers do not read off random characters that represent icons */
   width: auto;
 }
 /* FONTAWESOME ICONS END */
+html, body {
+	margin: 0px;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	padding: 0px;
+  box-sizing: border-box;
+}
 html {
   scrollbar-color: #edfa8b #407056;
   scrollbar-width: thin;
   scroll-behavior: smooth;
+  height: -webkit-fill-available;
 }
 html:focus {
   outline: none;
@@ -6542,13 +6550,6 @@ html::-webkit-scrollbar-thumb {
 	border-color: rgba(64, 112, 86, var(--tw-border-opacity));
 	--tw-bg-opacity: 1;
 	background-color: rgba(237, 250, 139, var(--tw-bg-opacity));
-}
-html, body {
-	margin: 0px;
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-	padding: 0px;
-  box-sizing: border-box;
 }
 body {
 	min-height: 100vh;
@@ -6712,7 +6713,6 @@ button.btn-success {
 /* MODAL END */
 /* NAVBAR */
 section.navbar {
-	position: fixed;
 	top: 0px;
 	left: 0px;
 	z-index: 50;
@@ -6725,6 +6725,12 @@ section.navbar {
 	padding-bottom: 1.25rem;
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+@media (min-width: 1024px) {
+
+	section.navbar {
+		position: fixed;
+	}
 }
 section.navbar .brand {
 	font-size: 1.25rem;
